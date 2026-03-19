@@ -628,7 +628,7 @@ button {
 
 /* Right side — full-bleed photo that fills the entire column */
 .hero-photo {
-  background: url('../images/dishes/chickpea-curry.jpg') center / cover;
+  background: url(../images/dishes/img-001.webp) center / cover;
   position: relative;
   /* needed for absolute positioning of the badge */
 }
@@ -904,7 +904,7 @@ button {
 
 /* Left column — full-bleed photo */
 .about-photo {
-  background: url('../images/dishes/spiced-brunch.jpg') center 20% / cover;
+  background: url('../images/dishes/img-002.webp') center 20% / cover;
 }
 
 /* Right column — text content */
@@ -1178,7 +1178,8 @@ button {
   }
 
   .hero-photo {
-    display: none;
+    height: 300px;
+  width: 100%;
   }
 
   .hero-content {

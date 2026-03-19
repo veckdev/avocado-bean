@@ -1,259 +1,290 @@
 /* =============================================================
    AVOCADO BEAN — style.css
-   Global styles, design tokens, nav, footer, all pages
+   Main stylesheet for all pages.
+   Each section is clearly labelled so you can find things fast.
    ============================================================= */
 
-/* === Google Fonts === */
+
+/* =============================================================
+   FONTS
+   We import two fonts from Google Fonts:
+   - Averia Serif Libre: used for headings and titles (has a nice
+     hand-drawn, organic feel that suits a food brand)
+   - Montserrat: used for all body text, nav links, buttons
+     (clean and easy to read at small sizes)
+   ============================================================= */
 @import url('https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap');
 
-/* === Design Tokens === */
+
+/* =============================================================
+   COLOUR PALETTE
+   CSS custom properties (variables) let us define all colours
+   in one place. If we want to change a colour, we only change
+   it here and it updates everywhere on the site automatically.
+   Use them like this: color: var(--green);
+   ============================================================= */
 :root {
-  --terra: #b85c2a;
-  --forest: #4a6b42;
-  --turm: #c8922a;
-  --delft: #4a6880;
+  --orange: #b85c2a;
+  /* terracotta orange — used for highlights, CTAs */
+  --green: #4a6b42;
+  /* forest green — main brand colour, nav, logo */
+  --yellow: #c8922a;
+  /* warm turmeric yellow — accents, hover states */
+  --blue: #4a6880;
+  /* muted delft blue — blog section, info elements */
   --cream: #f2ebe0;
-  --ivory: #faf8f2;
-  --ink: #2a2218;
-  --ink2: #7a6e62;
-  --border: rgba(42, 34, 24, 0.09);
-  --shadow: 0 20px 60px rgba(42, 34, 24, 0.10);
+  /* warm off-white — main page background */
+  --white: #faf8f2;
+  /* slightly warmer white — cards and panels */
+  --dark: #2a2218;
+  /* near-black — main text colour */
+  --grey: #7a6e62;
+  /* warm grey — secondary text, captions */
+  --line-colour: rgba(42, 34, 24, 0.09);
+  /* subtle border colour */
+  --card-shadow: 0 20px 60px rgba(42, 34, 24, 0.10);
+  /* shadow for card hover */
 }
 
-/* === Reset === */
+
+/* =============================================================
+   RESET
+   Browsers have their own default styles (margins, paddings etc.)
+   that differ from browser to browser. This reset removes them
+   so we start from a clean, consistent base across all browsers.
+   ============================================================= */
 *,
 *::before,
 *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* makes width/height include padding and border */
 }
 
 html {
   scroll-behavior: smooth;
+  /* smooth scrolling when clicking anchor links */
 }
 
 body {
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   background: var(--cream);
-  color: var(--ink);
+  color: var(--dark);
   -webkit-font-smoothing: antialiased;
+  /* makes text look sharper on Mac */
   overflow-x: hidden;
+  /* prevents horizontal scrollbar from appearing */
 }
 
 img {
   display: block;
+  /* removes the small gap that appears under inline images */
   max-width: 100%;
+  /* prevents images from overflowing their container */
 }
 
 a {
   text-decoration: none;
+  /* removes the default underline from all links */
   color: inherit;
+  /* links inherit the colour of their parent element */
 }
 
 button {
   cursor: pointer;
+  /* shows a hand cursor on hover */
   font-family: 'Montserrat', sans-serif;
+  /* buttons don't inherit fonts by default */
 }
+
 
 /* =============================================================
-   SCROLL SNAP — card sections
+   SCROLL SNAP
+   This creates the "card snap" effect where each section locks
+   into place in the viewport when you scroll.
+   - scroll-snap-type: y mandatory — snapping on the Y axis, strict
+   - scroll-snap-align: center — each section snaps to the centre
+   - scroll-snap-stop: always — prevents skipping sections
    ============================================================= */
-.snap-container {
+.page-scroller {
   height: 100vh;
+  /* fills the full browser window height */
   overflow-y: scroll;
+  /* allows vertical scrolling */
   scroll-snap-type: y mandatory;
+  /* snap sections into place on scroll */
   scroll-behavior: smooth;
-  /* hide scrollbar but keep functionality */
   scrollbar-width: none;
+  /* hides the scrollbar in Firefox */
 }
 
-.snap-container::-webkit-scrollbar {
+/* hides the scrollbar in Chrome, Safari and Edge */
+.page-scroller::-webkit-scrollbar {
   display: none;
 }
 
-.snap-section {
+/* Each snap section takes up the full viewport height */
+.page-section {
   scroll-snap-align: center;
+  /* snaps section to centre of viewport */
   scroll-snap-stop: always;
+  /* user must stop at every section, no skipping */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   position: relative;
 }
 
+
 /* =============================================================
-   NAVIGATION
+   NAVIGATION BAR
+   The nav is fixed to the top of the page so it's always visible.
+   z-index: 1000 ensures it sits above all other content.
+   backdrop-filter: blur adds a frosted glass effect to the background.
    ============================================================= */
-.nav {
+.top-nav {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
+  /* sits on top of everything else on the page */
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 52px;
   background: rgba(250, 248, 242, 0.95);
+  /* slightly transparent white */
   backdrop-filter: blur(12px);
+  /* frosted glass blur effect */
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
+  /* same for Safari */
+  border-bottom: 1px solid var(--line-colour);
   transition: padding 0.3s ease, box-shadow 0.3s ease;
 }
 
-.nav.scrolled {
+/* Nav shrinks slightly when the user scrolls down (added by JavaScript) */
+.top-nav.is-scrolled {
   padding: 14px 52px;
   box-shadow: 0 2px 24px rgba(42, 34, 24, 0.07);
 }
 
-/* Logo */
-.logo {
+/* --- Logo --- */
+.site-logo {
   display: flex;
   align-items: center;
   gap: 11px;
 }
 
-.logo-leaf {
+/* The organic leaf shape is created with CSS border-radius */
+.logo-icon {
   width: 28px;
   height: 28px;
-  background: var(--forest);
+  background: var(--green);
+  /* four different values create an asymmetric organic shape */
   border-radius: 60% 40% 60% 40% / 50% 60% 40% 50%;
   flex-shrink: 0;
   transition: transform 0.3s ease;
 }
 
-.logo:hover .logo-leaf {
+.site-logo:hover .logo-icon {
   transform: rotate(-8deg) scale(1.05);
+  /* slight wobble on hover */
 }
 
-.logo-name {
+.logo-text {
   font-family: 'Averia Serif Libre', serif;
   font-size: 17px;
   font-weight: 400;
-  color: var(--ink);
+  color: var(--dark);
   letter-spacing: 0.02em;
 }
 
-.logo-name span {
-  color: var(--forest);
+.logo-text span {
+  color: var(--green);
 }
 
-/* Nav links */
-.nav-links {
+/* "Bean" is green */
+
+/* --- Nav links --- */
+.nav-menu {
   display: flex;
   gap: 32px;
   list-style: none;
 }
 
-.nav-links a {
+.nav-menu a {
   font-size: 13px;
   letter-spacing: 0.11em;
   text-transform: uppercase;
-  color: var(--ink2);
+  color: var(--grey);
   font-weight: 500;
   transition: color 0.2s;
   position: relative;
 }
 
-.nav-links a::after {
+/* Animated underline that slides in on hover */
+.nav-menu a::after {
   content: '';
   position: absolute;
   bottom: -3px;
   left: 0;
   right: 0;
   height: 1px;
-  background: var(--forest);
+  background: var(--green);
   transform: scaleX(0);
+  /* starts hidden (scaled to 0 width) */
   transition: transform 0.25s ease;
 }
 
-.nav-links a:hover {
-  color: var(--ink);
+.nav-menu a:hover {
+  color: var(--dark);
 }
 
-.nav-links a:hover::after,
-.nav-links a.active::after {
+.nav-menu a:hover::after,
+.nav-menu a.current-page::after {
   transform: scaleX(1);
 }
 
-.nav-links a.active {
-  color: var(--ink);
+/* slides in */
+.nav-menu a.current-page {
+  color: var(--dark);
 }
 
-/* Nav CTA */
-.nav-btn {
+/* --- Main call-to-action button in nav --- */
+.nav-cta-button {
   font-size: 13px;
   letter-spacing: 0.09em;
   text-transform: uppercase;
   padding: 12px 26px;
-  background: var(--forest);
-  color: var(--ivory);
+  background: var(--green);
+  color: var(--white);
   border: none;
   border-radius: 2px;
   font-weight: 600;
   transition: background 0.2s, transform 0.15s;
 }
 
-.nav-btn:hover {
-  background: var(--terra);
+.nav-cta-button:hover {
+  background: var(--orange);
   transform: translateY(-1px);
+  /* slight lift on hover */
 }
+
 
 /* =============================================================
-   TICKER
+   SHARED SECTION HEADING STYLES
+   Used across multiple sections for consistent look
    ============================================================= */
-.ticker {
-  overflow: hidden;
-  padding: 11px 0;
-  background: var(--forest);
-}
 
-.ticker-track {
-  display: flex;
-  width: max-content;
-  animation: ticker-scroll 28s linear infinite;
-}
-
-.ticker-item {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 0 24px;
-  font-size: 12px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: rgba(250, 248, 242, 0.85);
-  white-space: nowrap;
-  font-weight: 600;
-}
-
-.ticker-sep {
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: var(--turm);
-  flex-shrink: 0;
-}
-
-@keyframes ticker-scroll {
-  from {
-    transform: translateX(0);
-  }
-
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-/* =============================================================
-   SECTION HEADERS (shared)
-   ============================================================= */
-.section-kicker {
+/* Small label above the main heading (e.g. "01 — What we serve") */
+.section-label {
   font-size: 12px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--ink2);
+  color: var(--grey);
   font-weight: 600;
   margin-bottom: 12px;
   display: flex;
@@ -261,65 +292,77 @@ button {
   gap: 10px;
 }
 
-.section-kicker::before {
+/* Short horizontal line before the label text, added with CSS */
+.section-label::before {
   content: '';
   display: block;
   width: 20px;
   height: 1px;
-  background: var(--ink2);
+  background: var(--grey);
 }
 
-.section-title {
+/* Main heading style for sections */
+.section-heading {
   font-family: 'Averia Serif Libre', serif;
   font-style: italic;
   font-weight: 700;
+  /* clamp() sets a min, preferred, and max font size for responsiveness */
   font-size: clamp(36px, 4vw, 52px);
-  color: var(--ink);
+  color: var(--dark);
   line-height: 1.05;
   letter-spacing: -0.01em;
 }
 
+
 /* =============================================================
-   PILLS / BADGES
+   CATEGORY PILLS / BADGES
+   Small rounded labels used on recipe cards to show category.
+   Add a colour modifier class to change the background:
+   e.g. <span class="category-pill green-pill">Bowls</span>
    ============================================================= */
-.pill {
+.category-pill {
   display: inline-block;
   font-size: 11px;
   letter-spacing: 0.10em;
   text-transform: uppercase;
-  color: var(--ivory);
+  color: var(--white);
   padding: 4px 13px;
   border-radius: 20px;
   font-weight: 600;
 }
 
-.pill-forest {
-  background: var(--forest);
+.green-pill {
+  background: var(--green);
 }
 
-.pill-terra {
-  background: var(--terra);
+.orange-pill {
+  background: var(--orange);
 }
 
-.pill-turm {
-  background: var(--turm);
+.yellow-pill {
+  background: var(--yellow);
 }
 
-.pill-delft {
-  background: var(--delft);
+.blue-pill {
+  background: var(--blue);
 }
 
-.pill-ink {
-  background: var(--ink);
+.dark-pill {
+  background: var(--dark);
 }
+
 
 /* =============================================================
    BUTTONS
+   We have three button styles:
+   - .main-button: solid dark background, used for primary actions
+   - .text-button: looks like a link with underline
+   - .outline-button: transparent with a border (used on dark backgrounds)
    ============================================================= */
-.btn-primary {
+.main-button {
   padding: 13px 30px;
-  background: var(--ink);
-  color: var(--ivory);
+  background: var(--dark);
+  color: var(--white);
   font-size: 13px;
   letter-spacing: 0.11em;
   text-transform: uppercase;
@@ -329,14 +372,14 @@ button {
   transition: background 0.2s, transform 0.15s;
 }
 
-.btn-primary:hover {
-  background: var(--terra);
+.main-button:hover {
+  background: var(--orange);
   transform: translateY(-1px);
 }
 
-.btn-ghost {
+.text-button {
   font-size: 13px;
-  color: var(--ink2);
+  color: var(--grey);
   background: none;
   border: none;
   text-decoration: underline;
@@ -345,14 +388,14 @@ button {
   transition: color 0.2s;
 }
 
-.btn-ghost:hover {
-  color: var(--ink);
+.text-button:hover {
+  color: var(--dark);
 }
 
-.btn-outline {
+.outline-button {
   padding: 11px 24px;
   background: transparent;
-  color: var(--ivory);
+  color: var(--white);
   font-size: 10px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -362,17 +405,18 @@ button {
   transition: all 0.2s;
 }
 
-.btn-outline:hover {
+.outline-button:hover {
   background: rgba(250, 248, 242, 0.1);
   border-color: rgba(250, 248, 242, 0.7);
 }
 
+
 /* =============================================================
    FOOTER
    ============================================================= */
-.footer {
-  background: var(--ink);
-  color: var(--ivory);
+.site-footer {
+  background: var(--dark);
+  color: var(--white);
   padding: 44px 52px;
   display: flex;
   justify-content: space-between;
@@ -380,36 +424,36 @@ button {
   border-top: 1px solid rgba(250, 248, 242, 0.06);
 }
 
-.footer-logo {
+.footer-logo-wrap {
   display: flex;
   align-items: center;
   gap: 11px;
 }
 
-.footer-leaf {
+.footer-logo-icon {
   width: 24px;
   height: 24px;
-  background: var(--forest);
+  background: var(--green);
   border-radius: 60% 40% 60% 40% / 50% 60% 40% 50%;
   flex-shrink: 0;
 }
 
-.footer-name {
+.footer-logo-text {
   font-family: 'Averia Serif Libre', serif;
   font-size: 18px;
   font-weight: 400;
-  color: var(--ivory);
+  color: var(--white);
 }
 
-.footer-name span {
-  color: var(--forest);
+.footer-logo-text span {
+  color: var(--green);
 }
 
-.footer-center {
+.footer-middle {
   text-align: center;
 }
 
-.footer-addr {
+.footer-address {
   font-size: 14px;
   color: rgba(250, 248, 242, 0.55);
   letter-spacing: 0.06em;
@@ -426,20 +470,20 @@ button {
   text-align: right;
 }
 
-.footer-copy {
+.footer-copyright {
   font-size: 13px;
   color: rgba(250, 248, 242, 0.35);
   letter-spacing: 0.04em;
 }
 
-.footer-social {
+.footer-social-links {
   display: flex;
   gap: 10px;
   justify-content: flex-end;
   margin-top: 8px;
 }
 
-.footer-social a {
+.footer-social-links a {
   width: 28px;
   height: 28px;
   border-radius: 50%;
@@ -453,182 +497,177 @@ button {
   font-weight: 500;
 }
 
-.footer-social a:hover {
-  border-color: var(--forest);
-  color: var(--forest);
+.footer-social-links a:hover {
+  border-color: var(--green);
+  color: var(--green);
 }
 
+
 /* =============================================================
-   INDEX — HERO SECTION
+   HOME PAGE — HERO SECTION
+   The hero is split into two columns:
+   Left (52%): heading, description, buttons, stats
+   Right (48%): full-bleed food photograph
    ============================================================= */
-.hero-section {
+.hero-wrapper {
   display: grid;
   grid-template-columns: 52% 48%;
   flex: 1;
-  background: var(--ivory);
-  padding-top: 69px;
-  /* nav height */
+  background: var(--white);
 }
 
-.hero-left {
-  padding: 68px 56px 60px;
+.hero-content {
+  /* Extra top padding accounts for the fixed nav height (69px) */
+  padding: calc(68px + 69px) 56px 60px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.hero-tag {
+/* Small label above the main title */
+.hero-eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   font-size: 12px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--terra);
+  color: var(--orange);
   font-weight: 600;
 }
 
-.hero-tag-dot {
+.hero-eyebrow-dot {
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: var(--terra);
+  background: var(--orange);
   flex-shrink: 0;
 }
 
-.hero-title {
+/* Main heading — very large, italic */
+.hero-heading {
   font-family: 'Averia Serif Libre', serif;
   font-style: italic;
+  /* clamp(min, preferred, max) — scales smoothly between screen sizes */
   font-size: clamp(56px, 7vw, 92px);
   line-height: 0.95;
-  color: var(--ink);
+  color: var(--dark);
   font-weight: 700;
   margin-top: 20px;
   letter-spacing: -0.02em;
 }
 
-.hero-title .t2 {
-  color: var(--terra);
+.hero-heading .word-bold {
+  color: var(--orange);
 }
 
-.hero-title .t3 {
-  color: var(--forest);
+/* "Bold," */
+.hero-heading .word-green {
+  color: var(--green);
 }
 
-.hero-body {
+/* "Live Green" */
+
+/* Short description below the heading */
+.hero-description {
   font-size: 16px;
   line-height: 1.8;
-  color: var(--ink2);
+  color: var(--grey);
   font-weight: 400;
   max-width: 360px;
   margin-top: 24px;
   letter-spacing: 0.01em;
 }
 
-.hero-actions {
+/* Row of buttons below the description */
+.hero-buttons {
   display: flex;
   gap: 16px;
   align-items: center;
   margin-top: 32px;
 }
 
-.hero-stats {
+/* Stats row at the bottom of the hero (100%, 12+, D2) */
+.hero-stats-row {
   display: flex;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--line-colour);
   margin-top: 40px;
   padding-top: 28px;
 }
 
-.stat {
+.stat-item {
   flex: 1;
 }
 
-.stat:not(:last-child) {
+.stat-item:not(:last-child) {
   padding-right: 24px;
-  border-right: 1px solid var(--border);
+  border-right: 1px solid var(--line-colour);
 }
 
-.stat:not(:first-child) {
+.stat-item:not(:first-child) {
   padding-left: 24px;
 }
 
-.stat-n {
+.stat-number {
   font-family: 'Averia Serif Libre', serif;
   font-style: italic;
   font-size: 34px;
-  color: var(--terra);
+  color: var(--orange);
   line-height: 1;
   font-weight: 700;
 }
 
-.stat-l {
+.stat-label {
   font-size: 12px;
   letter-spacing: 0.10em;
   text-transform: uppercase;
-  color: var(--ink2);
+  color: var(--grey);
   margin-top: 5px;
   font-weight: 500;
 }
 
-/* Hero right — photo mosaic */
-.hero-right {
-  display: grid;
-  grid-template-rows: 62% 38%;
-  gap: 3px;
-  background: var(--cream);
-}
-
-.photo-main {
+/* Right side — full-bleed photo that fills the entire column */
+.hero-photo {
   background: url('../images/dishes/chickpea-curry.jpg') center / cover;
   position: relative;
-  overflow: hidden;
+  /* needed for absolute positioning of the badge */
 }
 
-.photo-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3px;
-}
-
-.photo-sm1 {
-  background: url('../images/dishes/turmeric-scramble.jpg') center / cover;
-}
-
-.photo-sm2 {
-  background: url('../images/dishes/spiced-brunch.jpg') center 30% / cover;
-}
-
-.photo-badge {
+/* Small floating badge over the photo showing the dish name */
+.hero-photo-badge {
   position: absolute;
-  bottom: 20px;
-  left: 20px;
+  bottom: 28px;
+  left: 28px;
   background: rgba(250, 248, 242, 0.94);
   backdrop-filter: blur(8px);
+  /* frosted glass effect */
   padding: 10px 16px;
   border-radius: 3px;
 }
 
-.photo-badge-name {
+.hero-photo-badge-title {
   font-family: 'Averia Serif Libre', serif;
   font-style: italic;
   font-size: 14px;
-  color: var(--ink);
+  color: var(--dark);
   font-weight: 400;
 }
 
-.photo-badge-sub {
+.hero-photo-badge-subtitle {
   font-size: 8px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--terra);
+  color: var(--orange);
   margin-top: 3px;
   font-weight: 600;
 }
 
+
 /* =============================================================
-   INDEX — MENU SECTION
+   HOME PAGE — RECIPES PREVIEW SECTION
+   Shows 3 recipe cards in a grid
    ============================================================= */
-.menu-section {
+.recipes-section {
   background: var(--cream);
   flex: 1;
   display: flex;
@@ -637,55 +676,61 @@ button {
   padding: 72px 52px;
 }
 
-.menu-header {
+.recipes-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   margin-bottom: 44px;
 }
 
-.see-all-link {
+/* "See all recipes" link */
+.view-all-link {
   font-size: 9px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--forest);
+  color: var(--green);
   font-weight: 600;
-  border-bottom: 0.5px solid var(--forest);
+  border-bottom: 0.5px solid var(--green);
   padding-bottom: 3px;
   transition: color 0.2s;
 }
 
-.see-all-link:hover {
-  color: var(--terra);
-  border-color: var(--terra);
+.view-all-link:hover {
+  color: var(--orange);
+  border-color: var(--orange);
 }
 
-.dish-grid {
+/* Three-column grid for recipe cards */
+.recipes-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 18px;
 }
 
-.dish-card {
-  background: var(--ivory);
+/* Individual recipe card */
+.recipe-card {
+  background: var(--white);
   border-radius: 4px;
   overflow: hidden;
+  /* clips the image zoom effect inside the card */
   cursor: pointer;
   transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
     box-shadow 0.35s ease;
 }
 
-.dish-card:hover {
+.recipe-card:hover {
   transform: translateY(-6px);
-  box-shadow: var(--shadow);
+  /* card lifts up on hover */
+  box-shadow: var(--card-shadow);
 }
 
-.dish-img {
+/* Photo area at top of card */
+.recipe-card-photo {
   height: 200px;
   overflow: hidden;
 }
 
-.dish-img img {
+.recipe-card-photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -693,42 +738,44 @@ button {
   transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.dish-card:hover .dish-img img {
+/* Image zooms in slightly when the card is hovered */
+.recipe-card:hover .recipe-card-photo img {
   transform: scale(1.05);
 }
 
-.dish-body {
+.recipe-card-body {
   padding: 20px 20px 0;
 }
 
-.dish-name {
+.recipe-card-title {
   font-family: 'Averia Serif Libre', serif;
   font-style: italic;
   font-size: 20px;
-  color: var(--ink);
+  color: var(--dark);
   margin: 10px 0 7px;
   line-height: 1.2;
   font-weight: 700;
 }
 
-.dish-desc {
+.recipe-card-description {
   font-size: 14px;
   line-height: 1.75;
-  color: var(--ink2);
+  color: var(--grey);
   font-weight: 400;
 }
 
-.dish-foot {
+/* Footer row of each card with the "See recipe" link */
+.recipe-card-footer {
   padding: 14px 20px;
   margin-top: 14px;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--line-colour);
 }
 
-.recipe-btn {
+.see-recipe-link {
   font-size: 12px;
   letter-spacing: 0.10em;
   text-transform: uppercase;
-  color: var(--forest);
+  color: var(--green);
   font-weight: 600;
   text-decoration: none;
   display: inline-flex;
@@ -737,45 +784,44 @@ button {
   transition: color 0.2s, gap 0.2s;
 }
 
-.recipe-btn:hover {
-  color: var(--terra);
+/* Arrow moves right on hover */
+.see-recipe-link:hover {
+  color: var(--orange);
   gap: 8px;
 }
 
+
 /* =============================================================
-   INDEX — PHILOSOPHY SECTION
+   HOME PAGE — PHILOSOPHY SECTION
+   Dark background with an icon pattern added by JavaScript.
+   isolation: isolate creates a new stacking context so the
+   z-index on .philosophy-inner works correctly.
    ============================================================= */
-.phil-section {
-  background: var(--ink);
+.philosophy-section {
+  background: var(--dark);
   flex: 1;
   display: flex;
   align-items: center;
   padding: 0 52px;
   position: relative;
   isolation: isolate;
+  /* creates new stacking context for z-index */
 }
 
-.phil-section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 500 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23faf8f2' stroke-width='1.2'%3E%3Cg transform='translate(40,20) rotate(-20)'%3E%3Cpath d='M0,30 Q0,-8 18,-8 Q36,-8 36,30 Q36,62 18,68 Q0,62 0,30Z'/%3E%3Cellipse cx='18' cy='36' rx='9' ry='11'/%3E%3C/g%3E%3Cg transform='translate(200,140) rotate(15)'%3E%3Cpath d='M0,25 Q0,-6 15,-6 Q30,-6 30,25 Q30,52 15,57 Q0,52 0,25Z'/%3E%3Cellipse cx='15' cy='30' rx='7' ry='9'/%3E%3C/g%3E%3Cg transform='translate(380,30) rotate(-10)'%3E%3Cpath d='M0,22 Q0,-5 13,-5 Q26,-5 26,22 Q26,45 13,50 Q0,45 0,22Z'/%3E%3Cellipse cx='13' cy='26' rx='6' ry='8'/%3E%3C/g%3E%3C/g%3E%3Cg fill='none' stroke='%23faf8f2' stroke-width='1'%3E%3Cpath d='M100,50 Q112,42 118,50 Q118,62 106,65 Q94,62 100,50Z' transform='rotate(30 109 57)'/%3E%3Cpath d='M300,60 Q312,52 318,60 Q318,72 306,75 Q294,72 300,60Z' transform='rotate(-20 309 67)'/%3E%3Cpath d='M160,190 Q172,182 178,190 Q178,202 166,205 Q154,202 160,190Z' transform='rotate(45 169 197)'/%3E%3Cpath d='M420,150 Q432,142 438,150 Q438,162 426,165 Q414,162 420,150Z' transform='rotate(-35 429 157)'/%3E%3Cpath d='M60,160 Q72,152 78,160 Q78,172 66,175 Q54,172 60,160Z' transform='rotate(15 69 167)'/%3E%3Cpath d='M340,200 Q352,192 358,200 Q358,212 346,215 Q334,212 340,200Z' transform='rotate(-10 349 207)'/%3E%3Cpath d='M460,80 Q472,72 478,80 Q478,92 466,95 Q454,92 460,80Z' transform='rotate(50 469 87)'/%3E%3Cpath d='M240,20 Q252,12 258,20 Q258,32 246,35 Q234,32 240,20Z' transform='rotate(-40 249 27)'/%3E%3C/g%3E%3Cg fill='%23faf8f2' opacity='0.4'%3E%3Ccircle cx='150' cy='80' r='2.5'/%3E%3Ccircle cx='270' cy='110' r='2'/%3E%3Ccircle cx='390' cy='190' r='2.5'/%3E%3Ccircle cx='20' cy='110' r='2'/%3E%3C/g%3E%3C/svg%3E");
-  background-size: cover;
-  opacity: 0.13;
-  pointer-events: none;
-}
-
-.phil-inner {
+/* Two-column grid: title on left, three items on right */
+.philosophy-inner {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 80px;
   align-items: center;
   width: 100%;
   padding: 80px 0;
+  position: relative;
+  z-index: 1;
+  /* sits above the icon pattern layer added by JS */
 }
 
-.phil-kicker {
+.philosophy-label {
   font-size: 12px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -787,7 +833,7 @@ button {
   gap: 10px;
 }
 
-.phil-kicker::before {
+.philosophy-label::before {
   content: '';
   display: block;
   width: 20px;
@@ -795,32 +841,33 @@ button {
   background: rgba(250, 248, 242, 0.5);
 }
 
-.phil-title {
+.philosophy-heading {
   font-family: 'Averia Serif Libre', serif;
   font-style: italic;
   font-size: clamp(40px, 4.5vw, 62px);
   font-weight: 700;
-  color: var(--ivory);
+  color: var(--white);
   line-height: 1.05;
   letter-spacing: -0.02em;
 }
 
-.phil-title em {
-  color: var(--turm);
+/* "good" in yellow */
+.philosophy-heading em {
+  color: var(--yellow);
   font-style: normal;
 }
 
-.phil-items {
+.philosophy-items {
   display: flex;
   flex-direction: column;
 }
 
-.phil-item {
+.philosophy-item {
   padding: 24px 0;
   border-top: 1px solid rgba(250, 248, 242, 0.1);
 }
 
-.phil-num {
+.philosophy-item-number {
   font-size: 12px;
   letter-spacing: 0.12em;
   color: rgba(250, 248, 242, 0.4);
@@ -828,48 +875,52 @@ button {
   margin-bottom: 8px;
 }
 
-.phil-name {
+.philosophy-item-title {
   font-family: 'Averia Serif Libre', serif;
   font-size: 20px;
   font-weight: 400;
-  color: var(--ivory);
+  color: var(--white);
   margin-bottom: 8px;
 }
 
-.phil-text {
+.philosophy-item-text {
   font-size: 15px;
   line-height: 1.8;
   color: rgba(250, 248, 242, 0.7);
   font-weight: 400;
 }
 
+
 /* =============================================================
-   INDEX — ABOUT SECTION
+   HOME PAGE — ABOUT SECTION
+   Split layout: photo on left, text on right
    ============================================================= */
 .about-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
   flex: 1;
-  background: var(--ivory);
+  background: var(--white);
 }
 
-.about-img {
+/* Left column — full-bleed photo */
+.about-photo {
   background: url('../images/dishes/spiced-brunch.jpg') center 20% / cover;
 }
 
-.about-content {
+/* Right column — text content */
+.about-text {
   padding: 72px 56px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border-left: 1px solid var(--border);
+  border-left: 1px solid var(--line-colour);
 }
 
-.about-kicker {
+.about-label {
   font-size: 12px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--delft);
+  color: var(--blue);
   margin-bottom: 18px;
   font-weight: 600;
   display: flex;
@@ -877,63 +928,65 @@ button {
   gap: 10px;
 }
 
-.about-kicker::before {
+.about-label::before {
   content: '';
   display: block;
   width: 20px;
   height: 1px;
-  background: var(--delft);
+  background: var(--blue);
 }
 
-.about-title {
+.about-heading {
   font-family: 'Averia Serif Libre', serif;
   font-style: italic;
   font-size: clamp(34px, 3.5vw, 48px);
-  color: var(--ink);
+  color: var(--dark);
   line-height: 1.15;
   margin-bottom: 22px;
   font-weight: 700;
   letter-spacing: -0.01em;
 }
 
-.about-title span {
-  color: var(--forest);
+.about-heading span {
+  color: var(--green);
 }
 
-.about-p {
+.about-paragraph {
   font-size: 15px;
   line-height: 1.9;
-  color: var(--ink2);
+  color: var(--grey);
   font-weight: 400;
   margin-bottom: 8px;
 }
 
-.about-link {
+.about-read-more {
   display: inline-flex;
   align-items: center;
   gap: 6px;
   font-size: 12px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--forest);
+  color: var(--green);
   margin-top: 22px;
-  border-bottom: 0.5px solid var(--forest);
+  border-bottom: 0.5px solid var(--green);
   padding-bottom: 3px;
   width: fit-content;
   font-weight: 600;
   transition: color 0.2s, border-color 0.2s;
 }
 
-.about-link:hover {
-  color: var(--terra);
-  border-color: var(--terra);
+.about-read-more:hover {
+  color: var(--orange);
+  border-color: var(--orange);
 }
 
+
 /* =============================================================
-   INDEX — BLOG SECTION
+   HOME PAGE — BLOG PREVIEW SECTION
+   Blue background with icon pattern added by JavaScript.
    ============================================================= */
 .blog-section {
-  background: var(--delft);
+  background: var(--blue);
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -943,18 +996,7 @@ button {
   isolation: isolate;
 }
 
-.blog-section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 500 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23faf8f2' stroke-width='1.2'%3E%3Cg transform='translate(40,20) rotate(-20)'%3E%3Cpath d='M0,30 Q0,-8 18,-8 Q36,-8 36,30 Q36,62 18,68 Q0,62 0,30Z'/%3E%3Cellipse cx='18' cy='36' rx='9' ry='11'/%3E%3C/g%3E%3Cg transform='translate(320,100) rotate(25)'%3E%3Cpath d='M0,25 Q0,-6 15,-6 Q30,-6 30,25 Q30,52 15,57 Q0,52 0,25Z'/%3E%3Cellipse cx='15' cy='30' rx='7' ry='9'/%3E%3C/g%3E%3C/g%3E%3Cg fill='none' stroke='%23faf8f2' stroke-width='1'%3E%3Cpath d='M100,50 Q112,42 118,50 Q118,62 106,65 Q94,62 100,50Z' transform='rotate(30 109 57)'/%3E%3Cpath d='M200,160 Q212,152 218,160 Q218,172 206,175 Q194,172 200,160Z' transform='rotate(-20 209 167)'/%3E%3Cpath d='M400,50 Q412,42 418,50 Q418,62 406,65 Q394,62 400,50Z' transform='rotate(45 409 57)'/%3E%3Cpath d='M450,170 Q462,162 468,170 Q468,182 456,185 Q444,182 450,170Z' transform='rotate(-35 459 177)'/%3E%3Cpath d='M60,180 Q72,172 78,180 Q78,192 66,195 Q54,192 60,180Z' transform='rotate(15 69 187)'/%3E%3C/g%3E%3Cg fill='%23faf8f2' opacity='0.35'%3E%3Ccircle cx='160' cy='100' r='2.5'/%3E%3Ccircle cx='280' cy='50' r='2'/%3E%3Ccircle cx='480' cy='120' r='2.5'/%3E%3Ccircle cx='30' cy='130' r='2'/%3E%3C/g%3E%3C/svg%3E");
-  background-size: cover;
-  opacity: 0.15;
-  pointer-events: none;
-}
-
-.blog-kicker {
+.blog-label {
   font-size: 12px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -963,17 +1005,18 @@ button {
   margin-bottom: 10px;
 }
 
-.blog-title {
+.blog-heading {
   font-family: 'Averia Serif Libre', serif;
   font-style: italic;
   font-size: clamp(32px, 3.5vw, 46px);
   font-weight: 700;
-  color: var(--ivory);
+  color: var(--white);
   margin-bottom: 40px;
   letter-spacing: -0.01em;
 }
 
-.blog-cards {
+/* Three-column grid of blog cards */
+.blog-cards-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
@@ -986,6 +1029,9 @@ button {
   border: 1px solid rgba(250, 248, 242, 0.12);
   cursor: pointer;
   transition: background 0.2s, transform 0.25s ease;
+  position: relative;
+  z-index: 1;
+  /* sits above the icon pattern */
 }
 
 .blog-card:hover {
@@ -993,12 +1039,12 @@ button {
   transform: translateY(-4px);
 }
 
-.blog-card-num {
+.blog-card-number {
   font-family: 'Averia Serif Libre', serif;
   font-style: italic;
   font-size: 30px;
   font-weight: 700;
-  color: var(--turm);
+  color: var(--yellow);
   margin-bottom: 12px;
   line-height: 1;
 }
@@ -1007,56 +1053,54 @@ button {
   font-family: 'Averia Serif Libre', serif;
   font-size: 18px;
   font-weight: 400;
-  color: var(--ivory);
+  color: var(--white);
   line-height: 1.35;
   margin-bottom: 10px;
 }
 
-.blog-card-desc {
+.blog-card-excerpt {
   font-size: 14px;
   line-height: 1.75;
   color: rgba(250, 248, 242, 0.7);
   font-weight: 400;
 }
 
-.blog-read {
+.blog-read-more {
   font-size: 12px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--turm);
+  color: var(--yellow);
   font-weight: 600;
   margin-top: 16px;
   display: block;
   transition: letter-spacing 0.2s;
 }
 
-.blog-card:hover .blog-read {
+/* Arrow spacing widens on hover for a subtle animation */
+.blog-card:hover .blog-read-more {
   letter-spacing: 0.2em;
 }
 
-/* =============================================================
-   FOOTER SECTION (snap)
-   ============================================================= */
-.footer-section {
-  min-height: auto;
-  scroll-snap-align: end;
-}
 
 /* =============================================================
-   SCROLL INDICATOR
+   SCROLL DOTS INDICATOR
+   Fixed to the right side of the screen.
+   Each dot represents one section. The active dot is highlighted.
+   JavaScript adds/removes the .is-active class as user scrolls.
    ============================================================= */
-.scroll-dots {
+.scroll-indicator {
   position: fixed;
   right: 28px;
   top: 50%;
   transform: translateY(-50%);
+  /* centres vertically on screen */
   display: flex;
   flex-direction: column;
   gap: 10px;
   z-index: 500;
 }
 
-.scroll-dot {
+.scroll-indicator-dot {
   width: 6px;
   height: 6px;
   border-radius: 50%;
@@ -1065,25 +1109,35 @@ button {
   transition: all 0.3s ease;
 }
 
-.scroll-dot.active {
-  background: var(--terra);
+.scroll-indicator-dot.is-active {
+  background: var(--orange);
   transform: scale(1.4);
+  /* active dot is larger */
 }
+
 
 /* =============================================================
    REVEAL ANIMATIONS
+   Elements with class .reveal start invisible and slide up.
+   JavaScript adds .is-visible when the element enters the viewport,
+   triggering the transition.
+   Delay classes stagger the animation for child elements.
    ============================================================= */
 .reveal {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* starts 30px below final position */
+  transition: opacity 0.7s ease,
+    transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.reveal.visible {
+.reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
+  /* slides up to final position */
 }
 
+/* Stagger delays so elements animate one after another */
 .reveal-delay-1 {
   transition-delay: 0.1s;
 }
@@ -1100,80 +1154,92 @@ button {
   transition-delay: 0.4s;
 }
 
+
 /* =============================================================
-   RESPONSIVE
+   RESPONSIVE — MOBILE
+   On screens narrower than 900px we switch to a single column
+   layout and hide the nav links (a hamburger menu would go here
+   in a full implementation).
    ============================================================= */
 @media (max-width: 900px) {
-  .nav {
+
+  /* Nav: hide links, reduce padding */
+  .top-nav {
     padding: 16px 24px;
   }
 
-  .nav-links {
+  .nav-menu {
     display: none;
   }
 
-  .hero-section {
+  /* Hero: stack columns, hide photo */
+  .hero-wrapper {
     grid-template-columns: 1fr;
   }
 
-  .hero-right {
+  .hero-photo {
     display: none;
   }
 
-  .hero-left {
+  .hero-content {
     padding: 40px 24px;
   }
 
-  .hero-title {
+  .hero-heading {
     font-size: clamp(44px, 10vw, 64px);
   }
 
-  .menu-section {
+  /* Recipes: single column */
+  .recipes-section {
     padding: 48px 24px;
   }
 
-  .dish-grid {
+  .recipes-grid {
     grid-template-columns: 1fr;
     gap: 14px;
   }
 
-  .phil-inner {
+  /* Philosophy: single column */
+  .philosophy-inner {
     grid-template-columns: 1fr;
     gap: 40px;
   }
 
-  .phil-section {
+  .philosophy-section {
     padding: 0 24px;
   }
 
+  /* About: stack photo above text */
   .about-section {
     grid-template-columns: 1fr;
   }
 
-  .about-img {
+  .about-photo {
     min-height: 240px;
   }
 
-  .about-content {
+  .about-text {
     padding: 40px 24px;
   }
 
+  /* Blog: single column */
   .blog-section {
     padding: 48px 24px;
   }
 
-  .blog-cards {
+  .blog-cards-grid {
     grid-template-columns: 1fr;
   }
 
-  .footer {
+  /* Footer: stack vertically */
+  .site-footer {
     flex-direction: column;
     gap: 24px;
     text-align: center;
     padding: 36px 24px;
   }
 
-  .footer-social {
+  .footer-social-links {
     justify-content: center;
   }
 }

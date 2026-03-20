@@ -1,371 +1,359 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- =====================================================
+  <!-- =====================================================
        SEO META TAGS
        These help search engines understand what the page is
        about and show the right information in search results.
   ====================================================== -->
-    <title>Avocado Bean — Dublin's Plant-Based Kitchen</title>
-    <meta name="description"
-        content="Fresh plant-based ingredients selected by us, delivered to your door with step-by-step recipes. Cook like a chef at home. Dublin delivery.">
-    <meta name="keywords"
-        content="vegan ingredients Dublin, plant-based recipes, vegan food delivery Dublin, cook at home vegan">
-    <meta name="author" content="Avocado Bean">
+  <title>Avocado Bean — Dublin's Plant-Based Kitchen</title>
+  <meta name="description" content="Fresh plant-based ingredients selected by us, delivered to your door with step-by-step recipes. Cook like a chef at home. Dublin delivery.">
+  <meta name="keywords" content="vegan ingredients Dublin, plant-based recipes, vegan food delivery Dublin, cook at home vegan">
+  <meta name="author" content="Avocado Bean">
 
-    <!-- Open Graph tags control how the page looks when shared on social media -->
-    <meta property="og:title" content="Avocado Bean — Dublin's Plant-Based Kitchen">
-    <meta property="og:description"
-        content="Fresh plant-based ingredients delivered to your door with step-by-step recipes.">
-    <meta property="og:image" content="images/ui/og-image.jpg">
-    <meta property="og:type" content="website">
+  <!-- Open Graph tags control how the page looks when shared on social media -->
+  <meta property="og:title" content="Avocado Bean — Dublin's Plant-Based Kitchen">
+  <meta property="og:description" content="Fresh plant-based ingredients delivered to your door with step-by-step recipes.">
+  <meta property="og:image" content="images/ui/og-image.jpg">
+  <meta property="og:type" content="website">
 
-    <!-- Link to our external stylesheet -->
-    <link rel="stylesheet" href="css/style.css">
+  <!-- Link to our external stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
 
-    <!-- Favicon — the small icon shown in the browser tab -->
-    <link rel="icon" href="images/ui/logo.svg" type="image/svg+xml">
+  <!-- Favicon — the small icon shown in the browser tab -->
+  <link rel="icon" href="images/ui/logo.svg" type="image/svg+xml">
 </head>
-
 <body>
 
-    <!-- =====================================================
+  <!-- =====================================================
        NAVIGATION BAR
        position: fixed in CSS keeps it visible at all times.
        JavaScript adds the class "is-scrolled" when the user
        scrolls down, which makes it shrink slightly.
   ====================================================== -->
-    <nav class="top-nav" id="main-nav">
+  <nav class="top-nav" id="main-nav">
 
-        <!-- Logo: leaf icon + brand name -->
-        <a href="index.html" class="site-logo" aria-label="Avocado Bean — go to homepage">
-            <div class="logo-icon" aria-hidden="true"></div>
-            <span class="logo-text">Avocado <span>Bean</span></span>
-        </a>
+    <!-- Logo: leaf icon + brand name -->
+    <a href="index.html" class="site-logo" aria-label="Avocado Bean — go to homepage">
+      <div class="logo-icon" aria-hidden="true"></div>
+      <span class="logo-text">Avocado <span>Bean</span></span>
+    </a>
 
-        <!-- Main navigation links -->
-        <ul class="nav-menu">
-            <li><a href="index.html" class="current-page">Home</a></li>
-            <li><a href="pages/menu.html">Menu</a></li>
-            <li><a href="pages/about.html">About</a></li>
-            <li><a href="pages/blog.html">Blog</a></li>
-            <li><a href="pages/contact.html">Contact</a></li>
-        </ul>
+    <!-- Main navigation links -->
+    <ul class="nav-menu">
+      <li><a href="index.html" class="current-page">Home</a></li>
+      <li><a href="pages/recipes.html">Recipes</a></li>
+      <li><a href="pages/about.html">About</a></li>
+      <li><a href="pages/blog.html">Blog</a></li>
+      <li><a href="pages/contact.html">Contact</a></li>
+    </ul>
 
-        <!-- Call-to-action button -->
-        <a href="pages/contact.html">
-            <button class="nav-cta-button">Get Started</button>
-        </a>
+    <!-- Call-to-action button -->
+    <a href="pages/contact.html">
+      <button class="nav-cta-button">Get Started</button>
+    </a>
 
-    </nav>
+  </nav>
 
 
-    <!-- =====================================================
+  <!-- =====================================================
        SCROLL DOTS INDICATOR
        Small dots on the right side of the screen showing
        which section the user is currently viewing.
        JavaScript controls which dot has the "is-active" class.
   ====================================================== -->
-    <nav class="scroll-indicator" aria-label="Page section navigation">
-        <div class="scroll-indicator-dot is-active" data-section="0" title="Home"></div>
-        <div class="scroll-indicator-dot" data-section="1" title="Recipes"></div>
-        <div class="scroll-indicator-dot" data-section="2" title="Philosophy"></div>
-        <div class="scroll-indicator-dot" data-section="3" title="About"></div>
-        <div class="scroll-indicator-dot" data-section="4" title="Blog"></div>
-    </nav>
+  <nav class="scroll-indicator" aria-label="Page section navigation">
+    <div class="scroll-indicator-dot is-active" data-section="0" title="Home"></div>
+    <div class="scroll-indicator-dot" data-section="1" title="Recipes"></div>
+    <div class="scroll-indicator-dot" data-section="2" title="Philosophy"></div>
+    <div class="scroll-indicator-dot" data-section="3" title="About"></div>
+    <div class="scroll-indicator-dot" data-section="4" title="Blog"></div>
+  </nav>
 
 
-    <!-- =====================================================
+  <!-- =====================================================
        MAIN SCROLL CONTAINER
        scroll-snap-type in CSS makes each section snap into
        place when the user scrolls. JavaScript listens to
        scroll events on this element (not on window).
   ====================================================== -->
-    <main class="page-scroller" id="page-scroller">
+  <main class="page-scroller" id="page-scroller">
 
 
-        <!-- ===================================================
+    <!-- ===================================================
          SECTION 1 — HERO
          First thing visitors see. Split into two columns:
          left = text content, right = food photograph.
     ==================================================== -->
-        <section class="page-section" id="section-0" aria-label="Hero">
+    <section class="page-section" id="section-0" aria-label="Hero">
 
-            <!-- Hero two-column grid -->
-            <div class="hero-wrapper">
+      <!-- Hero two-column grid -->
+      <div class="hero-wrapper">
 
-                <!-- LEFT COLUMN — text content -->
-                <div class="hero-content">
-                    <div>
-                        <!-- Small label above the heading -->
-                        <p class="hero-eyebrow reveal">
-                            <span class="hero-eyebrow-dot" aria-hidden="true"></span>
-                            Dublin's Plant Kitchen
-                        </p>
+        <!-- LEFT COLUMN — text content -->
+        <div class="hero-content">
+          <div>
+            <!-- Small label above the heading -->
+            <p class="hero-eyebrow reveal">
+              <span class="hero-eyebrow-dot" aria-hidden="true"></span>
+              Dublin's Plant Kitchen
+            </p>
 
-                        <!-- Main heading -->
-                        <h1 class="hero-heading reveal reveal-delay-1">
-                            Eat<br>
-                            <span class="word-bold">Bold,</span><br>
-                            <span class="word-green">Live Green</span>
-                        </h1>
+            <!-- Main heading -->
+            <h1 class="hero-heading reveal reveal-delay-1">
+              Eat<br>
+              <span class="word-bold">Bold,</span><br>
+              <span class="word-green">Live Green</span>
+            </h1>
 
-                        <!-- Short description -->
-                        <p class="hero-description reveal reveal-delay-2">
-                            Fresh plant-based ingredients, selected by us — delivered to your door
-                            with step-by-step recipes so you can cook like a chef at home.
-                        </p>
+            <!-- Short description -->
+            <p class="hero-description reveal reveal-delay-2">
+              Fresh plant-based ingredients, selected by us — delivered to your door
+              with step-by-step recipes so you can cook like a chef at home.
+            </p>
 
-                        <!-- Action buttons -->
-                        <div class="hero-buttons reveal reveal-delay-3">
-                            <a href="pages/menu.html">
-                                <button class="main-button">Browse Recipes</button>
-                            </a>
-                            <a href="pages/about.html">
-                                <button class="text-button">How it works →</button>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Stats row at the bottom of the hero -->
-                    <div class="hero-stats-row reveal reveal-delay-4">
-                        <div class="stat-item">
-                            <div class="stat-number">100%</div>
-                            <div class="stat-label">Plant-based</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">12+</div>
-                            <div class="stat-label">Weekly recipes</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">D2</div>
-                            <div class="stat-label">Dublin</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- RIGHT COLUMN — full-bleed food photo -->
-                <div class="hero-photo" aria-hidden="true">
-                    <div class="hero-photo-badge">
-                        <div class="hero-photo-badge-title">Chickpea Curry Bowl</div>
-                        <div class="hero-photo-badge-subtitle">Featured this week</div>
-                    </div>
-                </div>
-
+            <!-- Action buttons -->
+            <div class="hero-buttons reveal reveal-delay-3">
+              <a href="pages/recipes.html">
+                <button class="main-button">Browse Recipes</button>
+              </a>
+              <a href="pages/about.html">
+                <button class="text-button">How it works →</button>
+              </a>
             </div>
-        </section>
+          </div>
+
+          <!-- Stats row at the bottom of the hero -->
+          <div class="hero-stats-row reveal reveal-delay-4">
+            <div class="stat-item">
+              <div class="stat-number">100%</div>
+              <div class="stat-label">Plant-based</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">12+</div>
+              <div class="stat-label">Weekly recipes</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">D2</div>
+              <div class="stat-label">Dublin</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN — full-bleed food photo -->
+        <div class="hero-photo" aria-hidden="true">
+          <div class="hero-photo-badge">
+            <div class="hero-photo-badge-title">Chickpea Curry Bowl</div>
+            <div class="hero-photo-badge-subtitle">Featured this week</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
 
 
-        <!-- ===================================================
+    <!-- ===================================================
          SECTION 2 — RECIPES PREVIEW
     ==================================================== -->
-        <section class="page-section" id="section-1" aria-label="Recipe previews">
-            <div class="recipes-section">
+    <section class="page-section" id="section-1" aria-label="Recipe previews">
+      <div class="recipes-section">
 
-                <div class="recipes-header">
-                    <div>
-                        <p class="section-label reveal">01 — This week's recipes</p>
-                        <h2 class="section-heading reveal reveal-delay-1">Cook it yourself</h2>
-                    </div>
-                    <a href="pages/menu.html" class="view-all-link reveal">See all recipes →</a>
-                </div>
+        <div class="recipes-header">
+          <div>
+            <p class="section-label reveal">01 — This week's recipes</p>
+            <h2 class="section-heading reveal reveal-delay-1">Cook it yourself</h2>
+          </div>
+          <a href="pages/recipes.html" class="view-all-link reveal">See all recipes →</a>
+        </div>
 
-                <div class="recipes-grid">
+        <div class="recipes-grid">
 
-                    <article class="recipe-card reveal reveal-delay-1">
-                        <div class="recipe-card-photo">
-                            <img src="images/dishes/chickpea-curry.jpg"
-                                alt="Chickpea curry bowl with coconut sauce, cauliflower and fresh lime" loading="lazy">
-                        </div>
-                        <div class="recipe-card-body">
-                            <span class="category-pill green-pill">Bowls</span>
-                            <h3 class="recipe-card-title">Chickpea Curry Bowl</h3>
-                            <p class="recipe-card-description">Coconut chickpeas, cauliflower, jasmine rice &amp; fresh
-                                lime</p>
-                        </div>
-                        <div class="recipe-card-footer">
-                            <a href="pages/menu.html" class="see-recipe-link">See recipe &amp; ingredients →</a>
-                        </div>
-                    </article>
-
-                    <article class="recipe-card reveal reveal-delay-2">
-                        <div class="recipe-card-photo">
-                            <img src="images/dishes/tofu-katsu.jpg"
-                                alt="Tofu katsu with crispy breading, jasmine rice and chilli" loading="lazy">
-                        </div>
-                        <div class="recipe-card-body">
-                            <span class="category-pill dark-pill">Bowls</span>
-                            <h3 class="recipe-card-title">Tofu Katsu Bowl</h3>
-                            <p class="recipe-card-description">Crispy tofu, jasmine rice, katsu sauce, chilli &amp;
-                                coriander</p>
-                        </div>
-                        <div class="recipe-card-footer">
-                            <a href="pages/menu.html" class="see-recipe-link">See recipe &amp; ingredients →</a>
-                        </div>
-                    </article>
-
-                    <article class="recipe-card reveal reveal-delay-3">
-                        <div class="recipe-card-photo">
-                            <img src="images/dishes/turmeric-scramble.jpg"
-                                alt="Turmeric scrambled tofu on sourdough toast with red chilli" loading="lazy">
-                        </div>
-                        <div class="recipe-card-body">
-                            <span class="category-pill orange-pill">Toasts</span>
-                            <h3 class="recipe-card-title">Turmeric Scramble</h3>
-                            <p class="recipe-card-description">Silken tofu, turmeric, red chilli &amp; sourdough toast
-                            </p>
-                        </div>
-                        <div class="recipe-card-footer">
-                            <a href="pages/menu.html" class="see-recipe-link">See recipe &amp; ingredients →</a>
-                        </div>
-                    </article>
-
-                </div>
+          <article class="recipe-card reveal reveal-delay-1">
+            <div class="recipe-card-photo">
+              <img src="images/dishes/img-003.webp"
+                   alt="Chickpea curry bowl with coconut sauce, cauliflower and fresh lime"
+                   loading="lazy">
             </div>
-        </section>
+            <div class="recipe-card-body">
+              <span class="category-pill green-pill">Bowls</span>
+              <h3 class="recipe-card-title">Chickpea Curry Bowl</h3>
+              <p class="recipe-card-description">Coconut chickpeas, cauliflower, jasmine rice &amp; fresh lime</p>
+            </div>
+            <div class="recipe-card-footer">
+              <a href="pages/recipes.html" class="see-recipe-link">See recipe &amp; ingredients →</a>
+            </div>
+          </article>
+
+          <article class="recipe-card reveal reveal-delay-2">
+            <div class="recipe-card-photo">
+              <img src="images/dishes/img-004.webp"
+                   alt="Tofu katsu with crispy breading, jasmine rice and chilli"
+                   loading="lazy">
+            </div>
+            <div class="recipe-card-body">
+              <span class="category-pill dark-pill">Bowls</span>
+              <h3 class="recipe-card-title">Tofu Katsu Bowl</h3>
+              <p class="recipe-card-description">Crispy tofu, jasmine rice, katsu sauce, chilli &amp; coriander</p>
+            </div>
+            <div class="recipe-card-footer">
+              <a href="pages/recipes.html" class="see-recipe-link">See recipe &amp; ingredients →</a>
+            </div>
+          </article>
+
+          <article class="recipe-card reveal reveal-delay-3">
+            <div class="recipe-card-photo">
+              <img src="images/dishes/img-005.webp"
+                   alt="Turmeric scrambled tofu on sourdough toast with red chilli"
+                   loading="lazy">
+            </div>
+            <div class="recipe-card-body">
+              <span class="category-pill orange-pill">Toasts</span>
+              <h3 class="recipe-card-title">Turmeric Scramble</h3>
+              <p class="recipe-card-description">Silken tofu, turmeric, red chilli &amp; sourdough toast</p>
+            </div>
+            <div class="recipe-card-footer">
+              <a href="pages/recipes.html" class="see-recipe-link">See recipe &amp; ingredients →</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
 
 
-        <!-- ===================================================
+    <!-- ===================================================
          SECTION 3 — PHILOSOPHY
     ==================================================== -->
-        <section class="page-section" id="section-2" aria-label="Our philosophy">
-            <div class="philosophy-section">
-                <div class="philosophy-inner">
+    <section class="page-section" id="section-2" aria-label="Our philosophy">
+      <div class="philosophy-section">
+        <div class="philosophy-inner">
 
-                    <div>
-                        <p class="philosophy-label reveal">Our philosophy</p>
-                        <h2 class="philosophy-heading reveal reveal-delay-1">
-                            Food that does<br>
-                            <em>good</em> &amp;<br>
-                            tastes better
-                        </h2>
-                    </div>
+          <div>
+            <p class="philosophy-label reveal">Our philosophy</p>
+            <h2 class="philosophy-heading reveal reveal-delay-1">
+              Food that does<br>
+              <em>good</em> &amp;<br>
+              tastes better
+            </h2>
+          </div>
 
-                    <div class="philosophy-items">
-                        <div class="philosophy-item reveal reveal-delay-1">
-                            <p class="philosophy-item-number">01</p>
-                            <p class="philosophy-item-title">Protein-first thinking</p>
-                            <p class="philosophy-item-text">Every recipe is built around a plant protein — never an
-                                afterthought. Chickpeas, lentils, tofu: the stars of the plate.</p>
-                        </div>
-                        <div class="philosophy-item reveal reveal-delay-2">
-                            <p class="philosophy-item-number">02</p>
-                            <p class="philosophy-item-title">Sourced with care</p>
-                            <p class="philosophy-item-text">We select organic, locally sourced ingredients and deliver
-                                them pre-measured to your door.</p>
-                        </div>
-                        <div class="philosophy-item reveal reveal-delay-3">
-                            <p class="philosophy-item-number">03</p>
-                            <p class="philosophy-item-title">Real flavour</p>
-                            <p class="philosophy-item-text">Bold spices, fresh herbs, honest ingredients — because vegan
-                                food should be the most exciting thing on the table.</p>
-                        </div>
-                    </div>
-
-                </div>
+          <div class="philosophy-items">
+            <div class="philosophy-item reveal reveal-delay-1">
+              <p class="philosophy-item-number">01</p>
+              <p class="philosophy-item-title">Protein-first thinking</p>
+              <p class="philosophy-item-text">Every recipe is built around a plant protein — never an afterthought. Chickpeas, lentils, tofu: the stars of the plate.</p>
             </div>
-        </section>
+            <div class="philosophy-item reveal reveal-delay-2">
+              <p class="philosophy-item-number">02</p>
+              <p class="philosophy-item-title">Sourced with care</p>
+              <p class="philosophy-item-text">We select organic, locally sourced ingredients and deliver them pre-measured to your door.</p>
+            </div>
+            <div class="philosophy-item reveal reveal-delay-3">
+              <p class="philosophy-item-number">03</p>
+              <p class="philosophy-item-title">Real flavour</p>
+              <p class="philosophy-item-text">Bold spices, fresh herbs, honest ingredients — because vegan food should be the most exciting thing on the table.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
 
 
-        <!-- ===================================================
+    <!-- ===================================================
          SECTION 4 — ABOUT
     ==================================================== -->
-        <section class="page-section" id="section-3" aria-label="About us">
-            <div class="about-section">
-                <div class="about-photo" role="img" aria-label="Spiced tofu brunch on a blue delft plate"></div>
-                <div class="about-text">
-                    <p class="about-label reveal">Our story</p>
-                    <h2 class="about-heading reveal reveal-delay-1">
-                        Food that does<br>
-                        <span>good</span> &amp; tastes<br>
-                        even better
-                    </h2>
-                    <p class="about-paragraph reveal reveal-delay-2">
-                        We believe the best meals are the ones you cook yourself. That's why we select
-                        the finest organic, locally sourced plant-based ingredients and pair them with
-                        foolproof step-by-step recipes.
-                    </p>
-                    <p class="about-paragraph reveal reveal-delay-3">
-                        No subscriptions, no commitments. Just great ingredients, great recipes,
-                        and the satisfaction of cooking something extraordinary at home.
-                    </p>
-                    <a href="pages/about.html" class="about-read-more reveal reveal-delay-4">
-                        Read our story →
-                    </a>
-                </div>
-            </div>
-        </section>
+    <section class="page-section" id="section-3" aria-label="About us">
+      <div class="about-section">
+        <div class="about-photo" role="img" aria-label="Spiced tofu brunch on a blue delft plate"></div>
+        <div class="about-text">
+          <p class="about-label reveal">Our story</p>
+          <h2 class="about-heading reveal reveal-delay-1">
+            Food that does<br>
+            <span>good</span> &amp; tastes<br>
+            even better
+          </h2>
+          <p class="about-paragraph reveal reveal-delay-2">
+            We believe the best meals are the ones you cook yourself. That's why we select
+            the finest organic, locally sourced plant-based ingredients and pair them with
+            foolproof step-by-step recipes.
+          </p>
+          <p class="about-paragraph reveal reveal-delay-3">
+            No subscriptions, no commitments. Just great ingredients, great recipes,
+            and the satisfaction of cooking something extraordinary at home.
+          </p>
+          <a href="pages/about.html" class="about-read-more reveal reveal-delay-4">
+            Read our story →
+          </a>
+        </div>
+      </div>
+    </section>
 
 
-        <!-- ===================================================
+    <!-- ===================================================
          SECTION 5 — BLOG PREVIEW + FOOTER
     ==================================================== -->
-        <section class="page-section" id="section-4" aria-label="Blog and footer">
-            <div class="blog-section">
+    <section class="page-section" id="section-4" aria-label="Blog and footer">
+      <div class="blog-section">
 
-                <p class="blog-label reveal">02 — From the kitchen</p>
-                <h2 class="blog-heading reveal reveal-delay-1">Latest from the blog</h2>
+        <p class="blog-label reveal">02 — From the kitchen</p>
+        <h2 class="blog-heading reveal reveal-delay-1">Latest from the blog</h2>
 
-                <div class="blog-cards-grid">
+        <div class="blog-cards-grid">
 
-                    <article class="blog-card reveal reveal-delay-1">
-                        <div class="blog-card-number">01</div>
-                        <h3 class="blog-card-title">Why plant protein is more powerful than you think</h3>
-                        <p class="blog-card-excerpt">Chickpeas, lentils, tofu — the science behind why they keep you
-                            full and energised all day.</p>
-                        <a href="pages/blog.html" class="blog-read-more">Read more →</a>
-                    </article>
+          <article class="blog-card reveal reveal-delay-1">
+            <div class="blog-card-number">01</div>
+            <h3 class="blog-card-title">Why plant protein is more powerful than you think</h3>
+            <p class="blog-card-excerpt">Chickpeas, lentils, tofu — the science behind why they keep you full and energised all day.</p>
+            <a href="pages/blog.html" class="blog-read-more">Read more →</a>
+          </article>
 
-                    <article class="blog-card reveal reveal-delay-2">
-                        <div class="blog-card-number">02</div>
-                        <h3 class="blog-card-title">How we make our turmeric scramble so good</h3>
-                        <p class="blog-card-excerpt">The secret is in the spice ratio — and a really hot pan. Our chef
-                            shares the full method.</p>
-                        <a href="pages/blog.html" class="blog-read-more">Read more →</a>
-                    </article>
+          <article class="blog-card reveal reveal-delay-2">
+            <div class="blog-card-number">02</div>
+            <h3 class="blog-card-title">How we make our turmeric scramble so good</h3>
+            <p class="blog-card-excerpt">The secret is in the spice ratio — and a really hot pan. Our chef shares the full method.</p>
+            <a href="pages/blog.html" class="blog-read-more">Read more →</a>
+          </article>
 
-                    <article class="blog-card reveal reveal-delay-3">
-                        <div class="blog-card-number">03</div>
-                        <h3 class="blog-card-title">Eating vegan in Dublin — our favourite spots</h3>
-                        <p class="blog-card-excerpt">A guide to the best plant-based food in the city, from us to you.
-                            Updated for 2026.</p>
-                        <a href="pages/blog.html" class="blog-read-more">Read more →</a>
-                    </article>
+          <article class="blog-card reveal reveal-delay-3">
+            <div class="blog-card-number">03</div>
+            <h3 class="blog-card-title">Eating vegan in Dublin — our favourite spots</h3>
+            <p class="blog-card-excerpt">A guide to the best plant-based food in the city, from us to you. Updated for 2026.</p>
+            <a href="pages/blog.html" class="blog-read-more">Read more →</a>
+          </article>
 
-                </div>
-            </div>
+        </div>
+      </div>
 
-            <!-- Footer -->
-            <footer class="site-footer">
-                <div class="footer-logo-wrap">
-                    <div class="footer-logo-icon" aria-hidden="true"></div>
-                    <span class="footer-logo-text">Avocado <span>Bean</span></span>
-                </div>
-                <div class="footer-middle">
-                    <p class="footer-address">Fresh ingredients · Dublin delivery</p>
-                    <p class="footer-hours">Mon – Sat · Orders by 18:00</p>
-                </div>
-                <div class="footer-right">
-                    <p class="footer-copyright">© 2026 Avocado Bean</p>
-                    <div class="footer-social-links">
-                        <a href="#" aria-label="Instagram">ig</a>
-                        <a href="#" aria-label="Facebook">fb</a>
-                        <a href="#" aria-label="Twitter">tw</a>
-                    </div>
-                </div>
-            </footer>
+      <!-- Footer -->
+      <footer class="site-footer">
+        <div class="footer-logo-wrap">
+          <div class="footer-logo-icon" aria-hidden="true"></div>
+          <span class="footer-logo-text">Avocado <span>Bean</span></span>
+        </div>
+        <div class="footer-middle">
+          <p class="footer-address">Fresh ingredients · Dublin delivery</p>
+          <p class="footer-hours">Mon – Sat · Orders by 18:00</p>
+        </div>
+        <div class="footer-right">
+          <p class="footer-copyright">© 2026 Avocado Bean</p>
+          <div class="footer-social-links">
+            <a href="#" aria-label="Instagram">ig</a>
+            <a href="#" aria-label="Facebook">fb</a>
+            <a href="#" aria-label="Twitter">tw</a>
+          </div>
+        </div>
+      </footer>
 
-        </section>
+    </section>
 
-    </main><!-- end page-scroller -->
+  </main><!-- end page-scroller -->
 
-    <!-- JavaScript file — placed at end of body so HTML loads first -->
-    <script src="js/main.js"></script>
+  <!-- JavaScript file — placed at end of body so HTML loads first -->
+  <script src="js/main.js"></script>
 
 </body>
-
 </html>

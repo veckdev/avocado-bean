@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Recipes — Avocado Bean</title>
+  <meta name="description" content="Browse our plant-based recipes. Click any dish to see the full ingredient list and step-by-step cooking guide.">
+  <meta name="keywords" content="vegan recipes Dublin, plant-based cooking, chickpea curry recipe, tofu katsu recipe">
+  <meta name="author" content="Avocado Bean">
+
+  <meta property="og:title" content="Recipes — Avocado Bean">
+  <meta property="og:description" content="Fresh plant-based recipes with ingredients delivered to your door.">
+  <meta property="og:type" content="website">
+
+  <!-- Shared stylesheet — one level up from pages/ -->
+  <link rel="stylesheet" href="../css/style.css">
+
+  <link rel="icon" href="../images/ui/logo.svg" type="image/svg+xml">
+</head>
+
+<body class="menu-page">
+
+  <!-- =====================================================
+       NAVIGATION BAR — same as index.html
+       Path goes up one level (../) because this file
+       lives inside the pages/ folder.
+  ====================================================== -->
+  <nav class="top-nav" id="main-nav">
+    <a href="../index.html" class="site-logo" aria-label="Avocado Bean — go to homepage">
+      <div class="logo-icon" aria-hidden="true"></div>
+      <span class="logo-text">Avocado <span>Bean</span></span>
+    </a>
+    <ul class="nav-menu">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="recipes.html" class="current-page">Recipes</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="contact.html">
+      <button class="nav-cta-button">Get Started</button>
+    </a>
+  </nav>
+
+
+  <!-- =====================================================
+       RECIPE MODAL
+       Hidden by default. When the user clicks a recipe card,
+       JavaScript fills this modal with the recipe content
+       and makes it visible by adding the class "is-open".
+       Clicking the overlay or the close button hides it again.
+  ====================================================== -->
+  <div class="recipe-modal" id="recipe-modal" aria-modal="true" role="dialog" aria-label="Recipe detail">
+
+    <!-- Clicking the dark overlay closes the modal -->
+    <div class="modal-overlay" id="modal-overlay"></div>
+
+    <!-- Modal panel — two column grid: photo left, content right -->
+    <div class="modal-panel" id="modal-panel">
+
+      <!-- Close button -->
+      <button class="modal-close" id="modal-close" aria-label="Close recipe">
+        <span></span><span></span>
+      </button>
+
+      <!-- JS injects photo + content here as two grid columns -->
+      <div id="modal-content" style="display:contents"></div>
+
+    </div>
+  </div>
+
+
+  <!-- =====================================================
+       PAGE HEADER
+  ====================================================== -->
+  <header class="menu-header">
+    <div class="menu-header-inner">
+      <p class="section-label">Our recipes</p>
+      <h1 class="menu-page-title">Cook it<br><em>yourself</em></h1>
+      <p class="menu-page-description">
+        Choose a recipe, we deliver the ingredients fresh to your door.
+        Follow our step-by-step guide and cook like a chef at home.
+      </p>
+    </div>
+  </header>
+
+
+  <!-- =====================================================
+       FILTER TABS
+       JavaScript shows/hides cards based on their category.
+       The data-filter attribute on each button matches the
+       data-category attribute on each recipe card.
+  ====================================================== -->
+  <div class="filter-bar">
+    <button class="filter-btn is-active" data-filter="all">All recipes</button>
+    <button class="filter-btn" data-filter="bowls">Bowls</button>
+    <button class="filter-btn" data-filter="toasts">Toasts</button>
+  </div>
+
+
+  <!-- =====================================================
+       RECIPES GRID
+       Each article has a data-category attribute used by
+       the filter, and a data-recipe attribute that tells
+       JavaScript which recipe to load into the modal.
+  ====================================================== -->
+  <main class="menu-grid-wrapper">
+    <div class="menu-recipes-grid" id="recipes-grid">
+
+      <!-- ================================================
+           RECIPE CARD 1 — Chickpea Curry Bowl
+      ================================================= -->
+      <article class="menu-recipe-card reveal" data-category="bowls" data-recipe="chickpea-curry">
+        <div class="menu-card-photo">
+          <img src="../images/dishes/img-003.webp"
+               alt="Chickpea curry bowl with coconut sauce, cauliflower and fresh lime"
+               loading="lazy">
+          <div class="menu-card-overlay">
+            <span class="menu-card-cta">View recipe →</span>
+          </div>
+        </div>
+        <div class="menu-card-body">
+          <div class="menu-card-top">
+            <span class="category-pill green-pill">Bowls</span>
+            <span class="menu-card-time">35 min</span>
+          </div>
+          <h2 class="menu-card-title">Chickpea Curry Bowl</h2>
+          <p class="menu-card-description">
+            Golden chickpeas in a rich tomato curry sauce, served with steamed jasmine rice,
+            crispy falafel bites, fresh cucumber, cherry tomatoes, pickled red onion, coriander &amp; lime.
+          </p>
+          <button class="menu-card-button" data-recipe="chickpea-curry">
+            See recipe &amp; ingredients →
+          </button>
+        </div>
+      </article>
+
+
+      <!-- ================================================
+           RECIPE CARD 2 — Tofu Katsu Bowl
+      ================================================= -->
+      <article class="menu-recipe-card reveal reveal-delay-1" data-category="bowls" data-recipe="tofu-katsu">
+        <div class="menu-card-photo">
+          <img src="../images/dishes/img-004.webp"
+               alt="Tofu katsu with crispy breading, jasmine rice and chilli"
+               loading="lazy">
+          <div class="menu-card-overlay">
+            <span class="menu-card-cta">View recipe →</span>
+          </div>
+        </div>
+        <div class="menu-card-body">
+          <div class="menu-card-top">
+            <span class="category-pill dark-pill">Bowls</span>
+            <span class="menu-card-time">40 min</span>
+          </div>
+          <h2 class="menu-card-title">Tofu Katsu Bowl</h2>
+          <p class="menu-card-description">
+            Crispy panko-breaded tofu cutlet served over jasmine rice with a silky
+            katsu curry sauce, fresh red chilli and coriander.
+          </p>
+          <button class="menu-card-button" data-recipe="tofu-katsu">
+            See recipe &amp; ingredients →
+          </button>
+        </div>
+      </article>
+
+
+      <!-- ================================================
+           RECIPE CARD 3 — Turmeric Scramble
+      ================================================= -->
+      <article class="menu-recipe-card reveal reveal-delay-2" data-category="toasts" data-recipe="turmeric-scramble">
+        <div class="menu-card-photo">
+          <img src="../images/dishes/img-005.webp"
+               alt="Turmeric scrambled tofu on sourdough toast with red chilli"
+               loading="lazy">
+          <div class="menu-card-overlay">
+            <span class="menu-card-cta">View recipe →</span>
+          </div>
+        </div>
+        <div class="menu-card-body">
+          <div class="menu-card-top">
+            <span class="category-pill orange-pill">Toasts</span>
+            <span class="menu-card-time">20 min</span>
+          </div>
+          <h2 class="menu-card-title">Turmeric Scramble</h2>
+          <p class="menu-card-description">
+            Silken tofu scrambled with turmeric, nutritional yeast and cumin,
+            served on thick sourdough toast with fresh red chilli.
+          </p>
+          <button class="menu-card-button" data-recipe="turmeric-scramble">
+            See recipe &amp; ingredients →
+          </button>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+  <footer class="site-footer">
+    <div class="footer-logo-wrap">
+      <div class="footer-logo-icon" aria-hidden="true"></div>
+      <span class="footer-logo-text">Avocado <span>Bean</span></span>
+    </div>
+    <div class="footer-middle">
+      <p class="footer-address">Fresh ingredients · Dublin delivery</p>
+      <p class="footer-hours">Mon – Sat · Orders by 18:00</p>
+    </div>
+    <div class="footer-right">
+      <p class="footer-copyright">© 2026 Avocado Bean</p>
+      <div class="footer-social-links">
+        <a href="#" aria-label="Instagram">ig</a>
+        <a href="#" aria-label="Facebook">fb</a>
+        <a href="#" aria-label="Twitter">tw</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Single JS file for all pages -->
+  <script src="../js/main.js"></script>
+
+</body>
+</html>

@@ -628,7 +628,7 @@ button {
 
 /* Right side — full-bleed photo that fills the entire column */
 .hero-photo {
-  background: url('../images/dishes/img-003.webp') center / cover;
+  background: url('../images/dishes/img-hero.webp') center / cover;
   position: relative;
   /* needed for absolute positioning of the badge */
 }
@@ -904,7 +904,7 @@ button {
 
 /* Left column — full-bleed photo */
 .about-photo {
-  background: url('../images/dishes/img-002.webp') center 20% / cover;
+  background: url('../images/dishes/img-story.webp') center / cover;
 }
 
 /* Right column — text content */
@@ -1059,7 +1059,7 @@ button {
 }
 
 .blog-card-excerpt {
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.75;
   color: rgba(250, 248, 242, 0.7);
   font-weight: 400;
@@ -1378,6 +1378,8 @@ button {
   border-radius: 6px;
   overflow: hidden;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
   transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
     box-shadow 0.35s ease;
 }
@@ -1438,6 +1440,9 @@ button {
 /* Card body */
 .menu-card-body {
   padding: 22px 22px 0;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 /* Row with category pill and cooking time */
@@ -1467,17 +1472,18 @@ button {
 }
 
 .menu-card-description {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.75;
   color: var(--grey);
   font-weight: 400;
-  margin-bottom: 20px;
+  flex: 1;
+  /* pushes ingredient tags and button to the bottom */
 }
 
 /* "See recipe & ingredients" button at bottom of card */
 .menu-card-button {
   font-family: 'Montserrat', sans-serif;
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--green);
@@ -1503,7 +1509,141 @@ button {
 
 
 /* =============================================================
-   RECIPE MODAL — lightbox card that expands in the centre
+   RECIPES PAGE — SEARCH BAR
+   ============================================================= */
+.search-wrapper {
+  margin-left: auto;
+  /* pushes search to the right */
+}
+
+.recipe-search {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  padding: 9px 16px 9px 36px;
+  border: 1px solid var(--line-colour);
+  border-radius: 20px;
+  background: var(--cream) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%237a6e62' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E") no-repeat 12px center;
+  color: var(--dark);
+  width: 200px;
+  transition: border-color 0.2s, width 0.3s ease;
+  outline: none;
+}
+
+.recipe-search:focus {
+  border-color: var(--green);
+  width: 240px;
+}
+
+.recipe-search::placeholder {
+  color: var(--grey);
+}
+
+
+/* =============================================================
+   RECIPE CARD — BADGES ROW (time, serves, difficulty)
+   ============================================================= */
+.menu-card-badges {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.card-badge {
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--grey);
+  font-weight: 500;
+  background: var(--cream);
+  padding: 3px 8px;
+  border-radius: 10px;
+}
+
+/* Difficulty badge — used on cards and in the modal */
+.difficulty-easy,
+.difficulty-medium,
+.difficulty-hard {
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 10px;
+}
+
+.difficulty-easy {
+  background: rgba(74, 107, 66, 0.12);
+  color: var(--green);
+}
+
+.difficulty-medium {
+  background: rgba(200, 146, 42, 0.15);
+  color: var(--yellow);
+}
+
+.difficulty-hard {
+  background: rgba(184, 92, 42, 0.12);
+  color: var(--orange);
+}
+
+
+/* =============================================================
+   RECIPE CARD — INGREDIENT PREVIEW TAGS
+   ============================================================= */
+.ingredient-preview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 12px 0 16px;
+}
+
+.ingredient-tag {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--grey);
+  background: var(--cream);
+  border: 1px solid var(--line-colour);
+  padding: 4px 10px;
+  border-radius: 3px;
+}
+
+
+/* =============================================================
+   MODAL — STATS ROW & ALLERGENS
+   ============================================================= */
+.modal-stat {
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--grey);
+  font-weight: 500;
+  background: var(--cream);
+  padding: 4px 10px;
+  border-radius: 10px;
+}
+
+.modal-allergens {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 24px;
+}
+
+.allergen-tag {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--green);
+  border: 1px solid rgba(74, 107, 66, 0.3);
+  padding: 4px 10px;
+  border-radius: 3px;
+}
+
+
+/* =============================================================
+   RECIPE MODAL — lightbox card that expands in the centre.
    JavaScript adds "is-open" to .recipe-modal to show it.
    The card scales up from small → full size using transform.
    ============================================================= */
@@ -1675,7 +1815,7 @@ button {
 }
 
 .modal-description {
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1.8;
   color: var(--grey);
   font-weight: 400;
@@ -1702,7 +1842,7 @@ button {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 13px;
+  font-size: 15px;
   color: var(--dark);
   font-weight: 400;
   padding: 9px 0;
@@ -1727,7 +1867,7 @@ button {
 .steps-list li {
   display: flex;
   gap: 14px;
-  font-size: 13px;
+  font-size: 15px;
   color: var(--dark);
   font-weight: 400;
   padding: 12px 0;
@@ -1808,5 +1948,3 @@ button {
     padding: 24px 20px 32px;
   }
 }
-
-ƒ

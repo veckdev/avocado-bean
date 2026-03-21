@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
      Adds "is-scrolled" class to nav when user scrolls down.
      Works on both the snap container (homepage) and window (other pages).
   ----------------------------------------------------------- */
-  const nav          = document.getElementById('main-nav');
+  const nav = document.getElementById('main-nav');
   const pageScroller = document.getElementById('page-scroller');
 
   /* Homepage uses #page-scroller — other pages scroll normally on window */
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
      2. SCROLL DOTS — UPDATE ACTIVE DOT AS USER SCROLLS
      Only runs on the homepage where .scroll-indicator-dot exists.
   ----------------------------------------------------------- */
-  const allDots     = document.querySelectorAll('.scroll-indicator-dot');
+  const allDots = document.querySelectorAll('.scroll-indicator-dot');
   const allSections = document.querySelectorAll('.page-section');
 
   if (allDots.length > 0) {
@@ -131,11 +131,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const section = document.querySelector(sectionSelector);
     if (!section) return;
 
-    const sectionWidth  = section.offsetWidth  || window.innerWidth;
+    const sectionWidth = section.offsetWidth || window.innerWidth;
     const sectionHeight = section.offsetHeight || window.innerHeight;
     const numberOfIcons = 14;
-    const iconSize      = 42;
-    const edgeMargin    = iconSize * 1.2;
+    const iconSize = 42;
+    const edgeMargin = iconSize * 1.2;
 
     const patternWrapper = document.createElement('div');
     patternWrapper.setAttribute('aria-hidden', 'true');
@@ -148,12 +148,12 @@ document.addEventListener('DOMContentLoaded', () => {
     for (let i = 0; i < numberOfIcons; i++) {
       const iconPath = iconPaths[i % iconPaths.length];
       const rotation = Math.round(Math.random() * 340);
-      const opacity  = (0.07 + Math.random() * 0.08).toFixed(2);
-      const scale    = (0.7  + Math.random() * 0.6).toFixed(2);
+      const opacity = (0.07 + Math.random() * 0.08).toFixed(2);
+      const scale = (0.7 + Math.random() * 0.6).toFixed(2);
 
       let x, y, attempts = 0, tooClose;
       do {
-        x = edgeMargin + Math.random() * (sectionWidth  - edgeMargin * 2);
+        x = edgeMargin + Math.random() * (sectionWidth - edgeMargin * 2);
         y = edgeMargin + Math.random() * (sectionHeight - edgeMargin * 2);
         tooClose = placedPositions.some(pos =>
           Math.hypot(pos.x - x, pos.y - y) < iconSize * 2.4
@@ -208,13 +208,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const recipeData = {
 
     'chickpea-curry': {
-      title:       'Chickpea Curry Bowl',
-      category:    'Bowls',
-      pillClass:   'green-pill',
-      time:        '35 min',
-      photo:       '../images/dishes/img-003.webp',
-      photoAlt:    'Chickpea curry bowl with coconut sauce and fresh lime',
+      title: 'Chickpea Curry Bowl',
+      category: 'Bowls',
+      pillClass: 'green-pill',
+      time: '35 min',
+      serves: '2',
+      difficulty: 'Easy',
+      photo: '../images/dishes/img-chickpea-curry.webp',
+      photoAlt: 'Chickpea curry bowl with coconut sauce and fresh lime',
       description: 'Golden chickpeas in a rich tomato curry sauce, served with steamed jasmine rice, crispy falafel bites, fresh cucumber, cherry tomatoes, pickled red onion, coriander & lime.',
+      preview: ['Chickpeas', 'Coconut milk', 'Jasmine rice', 'Coriander'],
+      allergens: ['Gluten-free', 'Soy-free', 'Nut-free'],
       ingredients: [
         '400g tin of chickpeas, drained and rinsed',
         '400ml tin of coconut milk',
@@ -245,13 +249,17 @@ document.addEventListener('DOMContentLoaded', () => {
     },
 
     'tofu-katsu': {
-      title:       'Tofu Katsu Bowl',
-      category:    'Bowls',
-      pillClass:   'dark-pill',
-      time:        '40 min',
-      photo:       '../images/dishes/img-004.webp',
-      photoAlt:    'Tofu katsu bowl with crispy tofu and katsu curry sauce',
+      title: 'Tofu Katsu Bowl',
+      category: 'Bowls',
+      pillClass: 'dark-pill',
+      time: '40 min',
+      serves: '2',
+      difficulty: 'Medium',
+      photo: '../images/dishes/img-tofu-katsu.webp',
+      photoAlt: 'Tofu katsu bowl with crispy tofu and katsu curry sauce',
       description: 'Crispy panko-breaded tofu cutlet served over jasmine rice with a silky katsu curry sauce, fresh red chilli and coriander.',
+      preview: ['Firm tofu', 'Panko breadcrumbs', 'Jasmine rice', 'Katsu sauce'],
+      allergens: ['Contains soy', 'Contains gluten'],
       ingredients: [
         '400g firm tofu, pressed and cut into thick slices',
         '100g panko breadcrumbs',
@@ -281,35 +289,354 @@ document.addEventListener('DOMContentLoaded', () => {
       ]
     },
 
-    'turmeric-scramble': {
-      title:       'Turmeric Scramble',
-      category:    'Toasts',
-      pillClass:   'orange-pill',
-      time:        '20 min',
-      photo:       '../images/dishes/img-005.webp',
-      photoAlt:    'Turmeric scrambled tofu on sourdough toast with red chilli',
-      description: 'Silken tofu scrambled with turmeric, nutritional yeast and cumin, served on thick sourdough toast with fresh red chilli.',
+    'cauliflower-curry': {
+      title: 'Cauliflower & Chickpea Curry',
+      category: 'Bowls',
+      pillClass: 'yellow-pill',
+      time: '40 min',
+      serves: '2',
+      difficulty: 'Easy',
+      photo: '../images/dishes/img-cauliflower-curry.webp',
+      photoAlt: 'Cauliflower and chickpea coconut curry with jasmine rice and lime',
+      description: 'Golden cauliflower florets and chickpeas simmered in a rich coconut curry broth, served with steamed jasmine rice, fresh coriander, red chilli flakes and a wedge of lime.',
+      preview: ['Cauliflower', 'Chickpeas', 'Coconut milk', 'Jasmine rice'],
+      allergens: ['Gluten-free', 'Soy-free', 'Nut-free'],
       ingredients: [
-        '400g firm tofu, crumbled by hand',
-        '2 thick slices of sourdough bread',
-        '2 tbsp nutritional yeast',
-        '1 tsp turmeric powder',
-        '½ tsp cumin powder',
-        '½ tsp garlic powder',
-        '1 tbsp soy sauce',
-        '1 tbsp olive oil',
-        '1 fresh red chilli, thinly sliced',
-        'Salt and black pepper to taste',
-        'Fresh rocket or spinach to serve (optional)'
+        '1 medium cauliflower, cut into florets',
+        '400g tin of chickpeas, drained and rinsed',
+        '400ml tin of coconut milk',
+        '400g tin of chopped tomatoes',
+        '200g jasmine rice',
+        '1 medium onion, finely diced',
+        '3 cloves of garlic, minced',
+        '1 thumb-sized piece of ginger, grated',
+        '2 tbsp red curry paste',
+        '1 tsp turmeric',
+        '1 tsp ground coriander',
+        '1 lime, cut into wedges',
+        'Fresh coriander, a large handful',
+        'Dried chilli flakes to taste',
+        '2 tbsp coconut oil',
+        'Salt to taste'
       ],
       steps: [
-        'Crumble the tofu by hand into a bowl. It should look like rough scrambled eggs — some bigger pieces are fine.',
-        'Mix the turmeric, cumin, garlic powder, nutritional yeast and soy sauce together in a small bowl to make a seasoning paste.',
-        'Heat the olive oil in a non-stick pan over medium heat. Add the crumbled tofu and cook for 2 minutes without stirring to let it develop some colour.',
-        'Add the seasoning paste and stir well to coat all the tofu. Cook for another 3–4 minutes, stirring occasionally, until heated through and slightly golden.',
-        'While the tofu cooks, toast the sourdough until deep golden and crispy.',
-        'Season the scramble with salt and pepper. Taste and adjust turmeric if needed.',
-        'Pile the scramble generously onto the toast. Top with fresh sliced red chilli and serve immediately.'
+        'Cook the jasmine rice according to packet instructions. Set aside and keep warm.',
+        'Heat coconut oil in a large deep pan over medium heat. Add the diced onion and cook for 7–8 minutes until soft and golden.',
+        'Add the garlic and ginger. Cook for 1 minute, stirring constantly.',
+        'Add the red curry paste, turmeric and ground coriander. Stir well and cook for 1–2 minutes to release the flavours.',
+        'Pour in the chopped tomatoes and coconut milk. Stir to combine and bring to a simmer.',
+        'Add the cauliflower florets and chickpeas. Simmer for 20–25 minutes until the cauliflower is tender and the sauce has thickened.',
+        'Season with salt and taste. Add chilli flakes for extra heat if desired.',
+        'Serve over jasmine rice, topped with fresh coriander, a pinch of chilli flakes and a wedge of lime.'
+      ]
+    },
+
+    'spiced-lentil-soup': {
+      title: 'Spiced Lentil Soup',
+      category: 'Soups',
+      pillClass: 'blue-pill',
+      time: '45 min',
+      serves: '4',
+      difficulty: 'Easy',
+      photo: '../images/dishes/img-lentil-soup.webp',
+      photoAlt: 'Spiced lentil soup with chilli, coriander and lime in rustic bowls',
+      description: 'Hearty green lentils slow-simmered with carrots, tomatoes and warming spices, finished with fresh red chilli, coriander and a generous squeeze of lime.',
+      preview: ['Green lentils', 'Carrots', 'Tomatoes', 'Coriander'],
+      allergens: ['Gluten-free', 'Soy-free', 'Nut-free'],
+      ingredients: [
+        '300g green or brown lentils, rinsed',
+        '2 medium carrots, diced',
+        '2 celery stalks, diced',
+        '1 large onion, diced',
+        '3 cloves of garlic, minced',
+        '400g tin of chopped tomatoes',
+        '1.2 litres vegetable stock',
+        '2 fresh red chillies, sliced (plus more to serve)',
+        '2 tsp ground cumin',
+        '1 tsp smoked paprika',
+        '1 tsp ground coriander',
+        '½ tsp turmeric',
+        '2 limes — juice of 1, 1 cut into wedges',
+        'Fresh coriander, a large handful',
+        '2 tbsp olive oil',
+        'Salt and black pepper to taste'
+      ],
+      steps: [
+        'Heat olive oil in a large pot over medium heat. Add the onion, carrots and celery. Cook for 10 minutes until softened.',
+        'Add the garlic and chilli. Cook for 1 minute.',
+        'Add the cumin, paprika, ground coriander and turmeric. Stir well and cook for 1 minute to toast the spices.',
+        'Add the chopped tomatoes and stir to combine. Cook for 2 minutes.',
+        'Add the rinsed lentils and pour in the vegetable stock. Bring to the boil, then reduce to a gentle simmer.',
+        'Cook for 25–30 minutes until the lentils are completely soft and the soup has thickened. Stir occasionally.',
+        'Squeeze in the juice of one lime. Season with salt and pepper. Taste and adjust spices.',
+        'Ladle into bowls and top with fresh coriander, sliced red chilli and a wedge of lime.'
+      ]
+    },
+
+    'scramble-on-toast': {
+      title: 'Scramble on Toast',
+      category: 'Toasts',
+      pillClass: 'orange-pill',
+      time: '15 min',
+      serves: '2',
+      difficulty: 'Easy',
+      photo: '../images/dishes/img-scramble-toast.webp',
+      photoAlt: 'Turmeric tofu scramble piled on thick sourdough toast with rocket and tomatoes',
+      description: 'Creamy turmeric tofu scramble loaded on thick-cut sourdough toast, topped with sliced red chilli and served alongside fresh rocket, cherry tomatoes and half an avocado.',
+      preview: ['Firm tofu', 'Sourdough', 'Avocado', 'Cherry tomatoes'],
+      allergens: ['Contains gluten', 'Soy-free', 'Nut-free'],
+      ingredients: [
+        '400g firm tofu, crumbled by hand',
+        '4 thick slices of sourdough bread',
+        '1 ripe avocado, halved',
+        '100g cherry tomatoes, halved',
+        'A handful of fresh rocket',
+        '2 tbsp nutritional yeast',
+        '1 tsp turmeric powder',
+        '½ tsp garlic powder',
+        '½ tsp smoked paprika',
+        '1 tbsp soy sauce',
+        '2 tbsp olive oil',
+        '2 fresh red chillies, thinly sliced',
+        'Salt and black pepper to taste'
+      ],
+      steps: [
+        'Crumble the tofu into a bowl, leaving some larger chunks for texture.',
+        'Mix the nutritional yeast, turmeric, garlic powder, smoked paprika and soy sauce in a small bowl to form a paste.',
+        'Heat olive oil in a non-stick pan over medium-high heat. Add the tofu and press it flat into the pan. Cook for 2–3 minutes without stirring to get some golden colour on the bottom.',
+        'Stir in the seasoning paste and fold through the tofu. Cook for another 3–4 minutes until golden and fragrant.',
+        'While the tofu cooks, toast the sourdough slices until deep golden and crisp.',
+        'Season the scramble generously with salt and pepper.',
+        'Pile the scramble high on the toast. Top with sliced red chilli. Serve with fresh rocket, cherry tomatoes and the halved avocado on the side.'
+      ]
+    },
+
+    'scramble-pickles': {
+      title: 'Scramble with Pickles',
+      category: 'Toasts',
+      pillClass: 'orange-pill',
+      time: '15 min',
+      serves: '2',
+      difficulty: 'Easy',
+      photo: '../images/dishes/img-scramble-pickles.webp',
+      photoAlt: 'Turmeric tofu scramble on sourdough toast with cornichons and fresh coriander',
+      description: 'Golden turmeric scramble piled on thick sourdough toast, topped with fresh red chilli, coriander and tangy cornichons for a bold, punchy brunch.',
+      preview: ['Firm tofu', 'Sourdough', 'Cornichons', 'Coriander'],
+      allergens: ['Contains gluten', 'Soy-free', 'Nut-free'],
+      ingredients: [
+        '400g firm tofu, crumbled by hand',
+        '4 thick slices of sourdough bread',
+        '8–10 cornichons (small gherkins)',
+        'Fresh coriander, a large handful',
+        '2 fresh red chillies, thinly sliced',
+        '2 tbsp nutritional yeast',
+        '1 tsp turmeric powder',
+        '1 tsp smoked paprika',
+        '½ tsp garlic powder',
+        '1 tbsp soy sauce',
+        '2 tbsp olive oil',
+        'Salt and black pepper to taste'
+      ],
+      steps: [
+        'Crumble the tofu into a bowl, keeping some chunks for texture.',
+        'Mix the nutritional yeast, turmeric, smoked paprika, garlic powder and soy sauce in a small bowl.',
+        'Heat olive oil in a non-stick pan over medium-high heat. Add the tofu and let it sit for 2–3 minutes to develop a golden crust on the bottom.',
+        'Add the seasoning paste and stir well to coat all the tofu. Cook for another 3–4 minutes, stirring occasionally.',
+        'Toast the sourdough until deep golden and very crispy.',
+        'Season the scramble with salt and pepper.',
+        'Pile the scramble generously on the toast. Top with sliced red chilli, fresh coriander and cornichons. Serve immediately.'
+      ]
+    },
+
+    'spinach-berry-salad': {
+      title: 'Spinach & Berry Salad',
+      category: 'Salads',
+      pillClass: 'green-pill',
+      time: '10 min',
+      serves: '2',
+      difficulty: 'Easy',
+      photo: '../images/dishes/img-spinach-berry-salad.webp',
+      photoAlt: 'Spinach salad with raspberries, blueberries, pear slices and pecans',
+      description: 'Fresh baby spinach tossed with raspberries, blueberries, sliced pear, toasted pecans and vegan feta, dressed with a light lemon vinaigrette.',
+      preview: ['Baby spinach', 'Raspberries', 'Blueberries', 'Pecans'],
+      allergens: ['Contains nuts', 'Gluten-free', 'Soy-free'],
+      ingredients: [
+        '150g fresh baby spinach',
+        '100g fresh raspberries',
+        '100g fresh blueberries',
+        '1 ripe pear, thinly sliced',
+        '50g pecans, lightly toasted',
+        '60g vegan feta, crumbled',
+        '3 tbsp olive oil',
+        '2 tbsp lemon juice',
+        '1 tsp maple syrup',
+        '1 tsp Dijon mustard',
+        'Salt and black pepper to taste'
+      ],
+      steps: [
+        'Make the dressing: whisk together the olive oil, lemon juice, maple syrup and Dijon mustard. Season with salt and pepper.',
+        'Toast the pecans in a dry pan over medium heat for 3–4 minutes until fragrant. Set aside to cool.',
+        'Place the baby spinach in a large bowl.',
+        'Add the raspberries, blueberries and pear slices.',
+        'Scatter over the toasted pecans and crumbled vegan feta.',
+        'Drizzle with the dressing just before serving and toss gently to combine.'
+      ]
+    },
+
+    'kale-avocado-salad': {
+      title: 'Kale & Avocado Salad',
+      category: 'Salads',
+      pillClass: 'green-pill',
+      time: '15 min',
+      serves: '2',
+      difficulty: 'Easy',
+      photo: '../images/dishes/img-kale-avocado-salad.webp',
+      photoAlt: 'Kale salad with avocado, melon, cherry tomatoes and sesame seeds',
+      description: 'Massaged kale with ripe avocado, sweet melon chunks, cherry tomatoes, toasted pecans, fresh mint and a drizzle of sesame-lime dressing.',
+      preview: ['Kale', 'Avocado', 'Melon', 'Sesame'],
+      allergens: ['Contains sesame', 'Gluten-free', 'Soy-free'],
+      ingredients: [
+        '200g curly kale, stems removed and roughly chopped',
+        '1 ripe avocado, halved',
+        '200g melon (cantaloupe or honeydew), cut into chunks',
+        '100g cherry tomatoes, halved',
+        '40g pecans, roughly chopped',
+        'Fresh mint leaves, a large handful',
+        '2 tbsp sesame seeds',
+        '3 tbsp olive oil',
+        '2 tbsp lime juice',
+        '1 tbsp soy sauce',
+        '1 tsp maple syrup',
+        'Salt and pepper to taste'
+      ],
+      steps: [
+        'Place the kale in a large bowl. Drizzle with 1 tbsp olive oil and a pinch of salt. Massage firmly with your hands for 2–3 minutes until the kale softens and darkens in colour.',
+        'Make the dressing: whisk together the remaining olive oil, lime juice, soy sauce and maple syrup.',
+        'Toast the sesame seeds in a dry pan for 1–2 minutes until golden. Set aside.',
+        'Add the melon, cherry tomatoes and pecans to the kale.',
+        'Pour over the dressing and toss well to coat everything.',
+        'Top with the halved avocado, fresh mint and toasted sesame seeds. Serve immediately.'
+      ]
+    },
+
+    'cucumber-radish-toast': {
+      title: 'Cucumber & Radish Toast',
+      category: 'Toasts',
+      pillClass: 'blue-pill',
+      time: '10 min',
+      serves: '1',
+      difficulty: 'Easy',
+      photo: '../images/dishes/img-cucumber-radish-toast.webp',
+      photoAlt: 'Open sandwich with vegan cream cheese, cucumber and radish slices on rye bread',
+      description: 'Crisp rye bread spread generously with vegan cream cheese, topped with overlapping slices of fresh cucumber and radish, finished with black pepper and a drizzle of olive oil.',
+      preview: ['Rye bread', 'Vegan cream cheese', 'Cucumber', 'Radish'],
+      allergens: ['Contains gluten', 'Soy-free', 'Nut-free'],
+      ingredients: [
+        '2 thick slices of dark rye bread',
+        '4 tbsp vegan cream cheese',
+        '1 small cucumber, thinly sliced',
+        '6 radishes, thinly sliced',
+        '1 tbsp olive oil',
+        'Fresh black pepper',
+        'Flaky sea salt',
+        'Fresh dill to serve (optional)'
+      ],
+      steps: [
+        'Toast the rye bread lightly if desired.',
+        'Spread a generous layer of vegan cream cheese over each slice.',
+        'Arrange the cucumber slices overlapping across the toast.',
+        'Add the radish slices on top.',
+        'Finish with a drizzle of olive oil, a pinch of flaky salt and plenty of black pepper.',
+        'Garnish with fresh dill if using. Serve immediately.'
+      ]
+    },
+
+    'peanut-butter-jam-toast': {
+      title: 'Peanut Butter & Jam Toast',
+      category: 'Toasts',
+      pillClass: 'yellow-pill',
+      time: '5 min',
+      serves: '1',
+      difficulty: 'Easy',
+      photo: '../images/dishes/img-peanut-butter-jam-toast.webp',
+      photoAlt: 'Thick toast with peanut butter and berry jam on a rustic plate',
+      description: 'Thick-cut white bread toasted until golden, spread with natural peanut butter and topped with a generous spoonful of homemade berry jam. Simple, satisfying and entirely plant-based.',
+      preview: ['White bread', 'Peanut butter', 'Berry jam', 'Sea salt'],
+      allergens: ['Contains gluten', 'Contains peanuts', 'Soy-free'],
+      ingredients: [
+        '2 thick slices of white bread',
+        '4 tbsp natural peanut butter (no added sugar)',
+        '3 tbsp berry jam (raspberry or blackberry)',
+        'A pinch of flaky sea salt'
+      ],
+      steps: [
+        'Toast the bread until deep golden and crispy on both sides.',
+        'Spread peanut butter generously over each slice while still warm.',
+        'Spoon the berry jam on top and spread lightly, leaving some texture.',
+        'Finish with a pinch of flaky sea salt to balance the sweetness.',
+        'Serve immediately.'
+      ]
+    },
+
+    'peanut-butter-rice-cakes': {
+      title: 'Peanut Butter Rice Cakes',
+      category: 'Snacks',
+      pillClass: 'yellow-pill',
+      time: '5 min',
+      serves: '1',
+      difficulty: 'Easy',
+      photo: '../images/dishes/img-peanut-butter-rice-cakes.webp',
+      photoAlt: 'Rice cakes with peanut butter, blueberries and honey on a pink plate',
+      description: 'Light rice cakes topped with smooth peanut butter, fresh blueberries and a drizzle of maple syrup — a quick, protein-rich snack ready in minutes.',
+      preview: ['Rice cakes', 'Peanut butter', 'Blueberries', 'Maple syrup'],
+      allergens: ['Contains peanuts', 'Gluten-free', 'Soy-free'],
+      ingredients: [
+        '2 plain rice cakes',
+        '3 tbsp natural peanut butter',
+        '80g fresh blueberries',
+        '1 tbsp maple syrup',
+        'A pinch of sea salt (optional)'
+      ],
+      steps: [
+        'Spread peanut butter evenly over each rice cake.',
+        'Top generously with fresh blueberries.',
+        'Drizzle with maple syrup.',
+        'Finish with a pinch of sea salt if using. Serve immediately.'
+      ]
+    },
+
+    'granola-bars': {
+      title: 'Fruit & Oat Granola Bars',
+      category: 'Snacks',
+      pillClass: 'yellow-pill',
+      time: '35 min',
+      serves: '8',
+      difficulty: 'Easy',
+      photo: '../images/dishes/img-granola-bars.webp',
+      photoAlt: 'Homemade fruit and oat granola bars on baking paper with a cooling rack',
+      description: 'Chewy homemade granola bars packed with rolled oats, dried cranberries, sultanas and a hint of berry jam — naturally sweetened and perfect for on-the-go.',
+      preview: ['Rolled oats', 'Cranberries', 'Sultanas', 'Berry jam'],
+      allergens: ['Contains gluten', 'Contains oats', 'Nut-free'],
+      ingredients: [
+        '200g rolled oats',
+        '50g puffed rice',
+        '80g dried cranberries',
+        '60g sultanas',
+        '3 tbsp berry jam',
+        '4 tbsp maple syrup',
+        '3 tbsp coconut oil, melted',
+        '1 tsp vanilla extract',
+        'A pinch of salt'
+      ],
+      steps: [
+        'Preheat the oven to 180°C. Line a 20x20cm baking tin with baking paper.',
+        'Mix the oats, puffed rice, cranberries and sultanas in a large bowl.',
+        'In a small saucepan, gently warm the maple syrup, coconut oil, berry jam and vanilla together until combined. Do not boil.',
+        'Pour the wet mixture over the dry ingredients and stir well until everything is fully coated.',
+        'Press the mixture firmly into the lined tin, using the back of a spoon to pack it as tightly as possible.',
+        'Bake for 20–22 minutes until the edges are golden.',
+        'Leave to cool completely in the tin before cutting into bars — they firm up as they cool.',
+        'Store in an airtight container for up to 5 days.'
       ]
     }
 
@@ -321,29 +648,41 @@ document.addEventListener('DOMContentLoaded', () => {
      Only runs if filter buttons exist on the page.
   ----------------------------------------------------------- */
   const filterButtons = document.querySelectorAll('.filter-btn');
-  const recipeCards   = document.querySelectorAll('.menu-recipe-card');
+  const recipeCards = document.querySelectorAll('.menu-recipe-card');
+
+  /* Search bar filtering */
+  const searchInput = document.getElementById('recipe-search');
+
+  function applyFilters() {
+    const activeFilter = document.querySelector('.filter-btn.is-active')?.dataset.filter || 'all';
+    const searchQuery = searchInput ? searchInput.value.toLowerCase().trim() : '';
+
+    recipeCards.forEach(card => {
+      const matchesCategory = activeFilter === 'all' || card.dataset.category === activeFilter;
+      const cardTitle = card.querySelector('.menu-card-title')?.textContent.toLowerCase() || '';
+      const cardDesc = card.querySelector('.menu-card-description')?.textContent.toLowerCase() || '';
+      const matchesSearch = !searchQuery || cardTitle.includes(searchQuery) || cardDesc.includes(searchQuery);
+
+      if (matchesCategory && matchesSearch) {
+        card.classList.remove('is-hidden');
+      } else {
+        card.classList.add('is-hidden');
+      }
+    });
+  }
 
   if (filterButtons.length > 0) {
     filterButtons.forEach(button => {
       button.addEventListener('click', () => {
-
-        /* Update active button */
         filterButtons.forEach(btn => btn.classList.remove('is-active'));
         button.classList.add('is-active');
-
-        const selectedFilter = button.dataset.filter;
-
-        /* Show or hide each card */
-        recipeCards.forEach(card => {
-          if (selectedFilter === 'all' || card.dataset.category === selectedFilter) {
-            card.classList.remove('is-hidden');
-          } else {
-            card.classList.add('is-hidden');
-          }
-        });
-
+        applyFilters();
       });
     });
+  }
+
+  if (searchInput) {
+    searchInput.addEventListener('input', applyFilters);
   }
 
 
@@ -351,14 +690,13 @@ document.addEventListener('DOMContentLoaded', () => {
      8. RECIPE MODAL — open, fill content, close
      Only runs if the modal element exists on the page.
   ----------------------------------------------------------- */
-  const modal        = document.getElementById('recipe-modal');
+  const modal = document.getElementById('recipe-modal');
   const modalOverlay = document.getElementById('modal-overlay');
-  const modalClose   = document.getElementById('modal-close');
+  const modalClose = document.getElementById('modal-close');
   const modalContent = document.getElementById('modal-content');
 
   if (modal) {
 
-    /* Build the modal HTML from recipe data */
     function buildModalContent(recipeKey) {
       const recipe = recipeData[recipeKey];
       if (!recipe) return;
@@ -376,17 +714,23 @@ document.addEventListener('DOMContentLoaded', () => {
         `)
         .join('');
 
-      /* Two-column layout: photo on left, scrollable content on right */
+      const allergensHTML = recipe.allergens
+        .map(tag => `<span class="allergen-tag">${tag}</span>`)
+        .join('');
+
       modalContent.innerHTML = `
         <img class="modal-photo" src="${recipe.photo}" alt="${recipe.photoAlt}">
         <div class="modal-content">
           <div class="modal-body">
             <div class="modal-meta">
               <span class="category-pill ${recipe.pillClass}">${recipe.category}</span>
-              <span class="modal-time">${recipe.time}</span>
+              <span class="modal-stat">${recipe.time}</span>
+              <span class="modal-stat">Serves ${recipe.serves}</span>
+              <span class="difficulty-${recipe.difficulty.toLowerCase()}">${recipe.difficulty}</span>
             </div>
             <h2 class="modal-title">${recipe.title}</h2>
             <p class="modal-description">${recipe.description}</p>
+            <div class="modal-allergens">${allergensHTML}</div>
             <h3 class="modal-section-title">Ingredients</h3>
             <ul class="ingredients-list">${ingredientsHTML}</ul>
             <h3 class="modal-section-title">How to make it</h3>
@@ -404,10 +748,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function closeModal() {
-      /* Add closing class to trigger the scale-down animation */
       modal.classList.add('is-closing');
-
-      /* Wait for animation to finish (350ms) then fully hide */
       setTimeout(() => {
         modal.classList.remove('is-open');
         modal.classList.remove('is-closing');
@@ -415,7 +756,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 350);
     }
 
-    /* Open on card/button click */
     document.querySelectorAll('[data-recipe]').forEach(trigger => {
       trigger.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -423,7 +763,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    /* Close methods */
     modalClose.addEventListener('click', closeModal);
     modalOverlay.addEventListener('click', closeModal);
     document.addEventListener('keydown', (e) => {

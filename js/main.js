@@ -182,6 +182,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   addIconPattern('.philosophy-section');
   addIconPattern('.blog-section');
+  addIconPattern('.about-cta-section');
+  addIconPattern('.story-section');
+  addIconPattern('.about-cta-section');
+  addIconPattern('.story-section');
 
 
   /* -----------------------------------------------------------

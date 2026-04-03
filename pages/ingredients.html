@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Our Ingredients — Avocado Bean</title>
+    <meta name="description"
+        content="Discover the organic, locally sourced ingredients we use in our plant-based recipes. Tell us your dietary preferences and we'll find the perfect box for you.">
+    <meta name="keywords"
+        content="vegan ingredients Dublin, organic produce, plant-based delivery, dietary preferences">
+    <meta name="author" content="Avocado Bean">
+
+    <meta property="og:title" content="Our Ingredients — Avocado Bean">
+    <meta property="og:description" content="Organic, locally sourced plant-based ingredients delivered to your door.">
+    <meta property="og:type" content="website">
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Bootstrap 5 — used for the ingredient category cards grid -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="icon" href="../images/ui/logo.svg" type="image/svg+xml">
+</head>
+
+<body class="ingredients-page">
+
+    <!-- =====================================================
+       NAVIGATION BAR
+  ====================================================== -->
+    <nav class="top-nav" id="main-nav">
+        <a href="../index.html" class="site-logo" aria-label="Avocado Bean — go to homepage">
+            <div class="logo-icon" aria-hidden="true"></div>
+            <span class="logo-text">Avocado <span>Bean</span></span>
+        </a>
+        <ul class="nav-menu">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="recipes.html">Recipes</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="ingredients.html" class="current-page">Ingredients</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="contact.html">
+            <button class="nav-cta-button">Get Started</button>
+        </a>
+    </nav>
+
+
+    <!-- =====================================================
+       PAGE HEADER
+  ====================================================== -->
+    <header class="ingredients-header">
+        <div class="ingredients-header-inner">
+            <p class="section-label reveal">What's in your box</p>
+            <h1 class="ingredients-page-title reveal reveal-delay-1">
+                Ingredients<br>
+                <em>you can trust</em>
+            </h1>
+            <p class="ingredients-page-description reveal reveal-delay-2">
+                Every ingredient we source is organic where possible, always locally grown
+                and selected by hand. We work with Irish farms to bring you the freshest
+                produce delivered straight to your door.
+            </p>
+        </div>
+    </header>
+
+
+    <!-- =====================================================
+       INGREDIENT CATEGORIES — Bootstrap Cards
+       4 categories shown in a Bootstrap responsive grid.
+       Bootstrap col classes handle the responsive layout.
+  ====================================================== -->
+    <section class="categories-section" aria-label="Ingredient categories">
+        <div class="categories-inner">
+
+            <div class="categories-header reveal">
+                <p class="section-label">What we source</p>
+                <h2 class="section-heading">Four ingredient families</h2>
+            </div>
+
+            <!-- Bootstrap grid — 4 columns on desktop, 2 on tablet, 1 on mobile -->
+            <div class="row g-4">
+
+                <!-- Proteins -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="ingredient-card reveal reveal-delay-1">
+                        <div class="ingredient-card-icon">🫘</div>
+                        <h3 class="ingredient-card-title">Proteins</h3>
+                        <p class="ingredient-card-description">
+                            The heart of every dish. We source the finest plant proteins —
+                            firm tofu, chickpeas, green lentils and black beans — to keep
+                            you full and energised all day.
+                        </p>
+                        <ul class="ingredient-card-list">
+                            <li>Organic firm tofu</li>
+                            <li>Chickpeas</li>
+                            <li>Green & red lentils</li>
+                            <li>Black beans</li>
+                            <li>Edamame</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Grains & Carbs -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="ingredient-card reveal reveal-delay-2">
+                        <div class="ingredient-card-icon">🌾</div>
+                        <h3 class="ingredient-card-title">Grains & Carbs</h3>
+                        <p class="ingredient-card-description">
+                            Slow-release energy from whole grains and quality carbs.
+                            From jasmine rice to sourdough, our carbs are always
+                            minimally processed and full of flavour.
+                        </p>
+                        <ul class="ingredient-card-list">
+                            <li>Jasmine rice</li>
+                            <li>Sourdough bread</li>
+                            <li>Rolled oats</li>
+                            <li>Quinoa</li>
+                            <li>Rye bread</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Fresh Produce -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="ingredient-card reveal reveal-delay-3">
+                        <div class="ingredient-card-icon">🥬</div>
+                        <h3 class="ingredient-card-title">Fresh Produce</h3>
+                        <p class="ingredient-card-description">
+                            Seasonal vegetables sourced from Irish organic farms within
+                            48 hours of harvest. No cold storage, no long journeys —
+                            just fresh, vibrant produce.
+                        </p>
+                        <ul class="ingredient-card-list">
+                            <li>Curly kale</li>
+                            <li>Baby spinach</li>
+                            <li>Cauliflower</li>
+                            <li>Cherry tomatoes</li>
+                            <li>Cucumber & radish</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Herbs & Spices -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="ingredient-card reveal reveal-delay-4">
+                        <div class="ingredient-card-icon">🌿</div>
+                        <h3 class="ingredient-card-title">Herbs & Spices</h3>
+                        <p class="ingredient-card-description">
+                            Bold flavour starts with the right seasoning. We include
+                            fresh herbs and whole spices in every box — the building
+                            blocks of every great plant-based dish.
+                        </p>
+                        <ul class="ingredient-card-list">
+                            <li>Fresh coriander</li>
+                            <li>Turmeric</li>
+                            <li>Cumin seeds</li>
+                            <li>Smoked paprika</li>
+                            <li>Fresh red chilli</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- =====================================================
+       OUR SUPPLIERS
+       Dark background, 3 supplier cards.
+  ====================================================== -->
+    <section class="suppliers-section" aria-label="Our suppliers">
+        <div class="suppliers-inner">
+
+            <div class="suppliers-header reveal">
+                <p class="suppliers-label">Where it comes from</p>
+                <h2 class="suppliers-heading">
+                    Grown in Ireland,<br>
+                    <em>delivered to you</em>
+                </h2>
+            </div>
+
+            <div class="suppliers-grid">
+
+                <div class="supplier-card reveal reveal-delay-1">
+                    <div class="supplier-location">Co. Wicklow</div>
+                    <h3 class="supplier-name">Wicklow Way Organics</h3>
+                    <p class="supplier-text">
+                        Family-run organic farm supplying us with seasonal kale, spinach
+                        and root vegetables. Certified organic since 2009, no pesticides ever.
+                    </p>
+                    <div class="supplier-tag">Fresh produce</div>
+                </div>
+
+                <div class="supplier-card reveal reveal-delay-2">
+                    <div class="supplier-location">Co. Cork</div>
+                    <h3 class="supplier-name">Cork Grain Co.</h3>
+                    <p class="supplier-text">
+                        Artisan grain millers producing our sourdough flour and rye bread.
+                        Stone-milled from Irish heritage wheat varieties grown without chemicals.
+                    </p>
+                    <div class="supplier-tag">Grains & bread</div>
+                </div>
+
+                <div class="supplier-card reveal reveal-delay-3">
+                    <div class="supplier-location">Co. Dublin</div>
+                    <h3 class="supplier-name">Dublin Herb Gardens</h3>
+                    <p class="supplier-text">
+                        Urban herb growers based in D8, supplying us with fresh coriander,
+                        mint and seasonal herbs year-round. Harvested the morning of delivery.
+                    </p>
+                    <div class="supplier-tag">Fresh herbs</div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- =====================================================
+       DIETARY PREFERENCES FORM
+       Required for the assignment — form with JS + HTML5 validation.
+       Fields: name, email, dietary checkboxes, allergies textarea,
+       delivery frequency radio buttons, Dublin postcode select.
+  ====================================================== -->
+    <section class="preferences-section" aria-label="Dietary preferences form">
+        <div class="preferences-inner">
+
+            <div class="preferences-header reveal">
+                <p class="section-label">Personalise your box</p>
+                <h2 class="section-heading">Tell us what you eat</h2>
+                <p class="preferences-description reveal reveal-delay-1">
+                    Fill in your preferences and we'll make sure every box we send
+                    works for you. No unsuitable ingredients, no nasty surprises.
+                </p>
+            </div>
+
+            <!-- Form — JavaScript validates on submit, HTML5 validates on input -->
+            <form class="preferences-form" id="preferences-form" novalidate>
+
+                <!-- Row 1: Name + Email -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="pref-name">Full name <span class="form-required">*</span></label>
+                        <input type="text" id="pref-name" name="name" class="form-input" placeholder="e.g. Jane Murphy"
+                            required minlength="2" autocomplete="name">
+                        <span class="form-error" id="error-name"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="pref-email">Email address <span
+                                class="form-required">*</span></label>
+                        <input type="email" id="pref-email" name="email" class="form-input"
+                            placeholder="e.g. jane@email.com" required autocomplete="email">
+                        <span class="form-error" id="error-email"></span>
+                    </div>
+                </div>
+
+                <!-- Row 2: Dietary preferences checkboxes -->
+                <div class="form-group">
+                    <label class="form-label">Dietary preferences</label>
+                    <p class="form-hint">Select all that apply to you</p>
+                    <div class="checkbox-grid">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="dietary" value="vegan" checked>
+                            <span class="checkbox-box"></span>
+                            100% Vegan
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="dietary" value="gluten-free">
+                            <span class="checkbox-box"></span>
+                            Gluten-free
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="dietary" value="nut-free">
+                            <span class="checkbox-box"></span>
+                            Nut-free
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="dietary" value="soy-free">
+                            <span class="checkbox-box"></span>
+                            Soy-free
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="dietary" value="high-protein">
+                            <span class="checkbox-box"></span>
+                            High protein
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="dietary" value="low-carb">
+                            <span class="checkbox-box"></span>
+                            Low carb
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Row 3: Allergies textarea -->
+                <div class="form-group">
+                    <label class="form-label" for="pref-allergies">Allergies or intolerances</label>
+                    <p class="form-hint">List any ingredients we should never include in your box</p>
+                    <textarea id="pref-allergies" name="allergies" class="form-input form-textarea"
+                        placeholder="e.g. peanuts, sesame, mustard..." rows="3" maxlength="500"></textarea>
+                    <span class="form-char-count" id="allergy-count">0 / 500</span>
+                </div>
+
+                <!-- Row 4: Delivery frequency radio buttons -->
+                <div class="form-group">
+                    <label class="form-label">Delivery frequency <span class="form-required">*</span></label>
+                    <p class="form-hint">How often would you like your box?</p>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="frequency" value="weekly" required>
+                            <span class="radio-box"></span>
+                            <span class="radio-text">
+                                <strong>Weekly</strong>
+                                <span>Every Monday</span>
+                            </span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="frequency" value="biweekly">
+                            <span class="radio-box"></span>
+                            <span class="radio-text">
+                                <strong>Every two weeks</strong>
+                                <span>Alternate Mondays</span>
+                            </span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="frequency" value="monthly">
+                            <span class="radio-box"></span>
+                            <span class="radio-text">
+                                <strong>Monthly</strong>
+                                <span>First Monday of the month</span>
+                            </span>
+                        </label>
+                    </div>
+                    <span class="form-error" id="error-frequency"></span>
+                </div>
+
+                <!-- Row 5: Dublin postcode select -->
+                <div class="form-group">
+                    <label class="form-label" for="pref-postcode">Dublin delivery area <span
+                            class="form-required">*</span></label>
+                    <p class="form-hint">We currently deliver to Dublin city and county</p>
+                    <select id="pref-postcode" name="postcode" class="form-input form-select" required>
+                        <option value="">Select your area</option>
+                        <optgroup label="Dublin City">
+                            <option value="D01">D01 — City Centre</option>
+                            <option value="D02">D02 — South City</option>
+                            <option value="D04">D04 — Ballsbridge</option>
+                            <option value="D06">D06 — Ranelagh</option>
+                            <option value="D08">D08 — Portobello</option>
+                        </optgroup>
+                        <optgroup label="Dublin North">
+                            <option value="D03">D03 — East Wall</option>
+                            <option value="D05">D05 — Artane</option>
+                            <option value="D07">D07 — Cabra</option>
+                            <option value="D09">D09 — Clontarf</option>
+                            <option value="D11">D11 — Finglas</option>
+                            <option value="D13">D13 — Raheny</option>
+                            <option value="D15">D15 — Castleknock</option>
+                            <option value="D17">D17 — Coolock</option>
+                        </optgroup>
+                        <optgroup label="Dublin South">
+                            <option value="D10">D10 — Terenure</option>
+                            <option value="D12">D12 — Crumlin</option>
+                            <option value="D14">D14 — Churchtown</option>
+                            <option value="D16">D16 — Knocklyon</option>
+                            <option value="D18">D18 — Sandyford</option>
+                            <option value="D20">D20 — Palmerstown</option>
+                            <option value="D22">D22 — Clondalkin</option>
+                            <option value="D24">D24 — Tallaght</option>
+                        </optgroup>
+                    </select>
+                    <span class="form-error" id="error-postcode"></span>
+                </div>
+
+                <!-- Submit -->
+                <div class="form-submit-row">
+                    <button type="submit" class="form-submit-btn" id="submit-btn">
+                        Save my preferences
+                    </button>
+                    <p class="form-privacy">
+                        We'll only use this to personalise your box. No spam, ever.
+                    </p>
+                </div>
+
+                <!-- Success message — shown by JS after valid submission -->
+                <div class="form-success" id="form-success" aria-live="polite">
+                    <div class="form-success-icon">✓</div>
+                    <h3 class="form-success-title">Preferences saved!</h3>
+                    <p class="form-success-text">
+                        We've got your details. Your next box will be personalised just for you.
+                    </p>
+                    <a href="recipes.html" class="main-button" style="display:inline-block; margin-top: 16px;">
+                        Browse this week's recipes →
+                    </a>
+                </div>
+
+            </form>
+        </div>
+    </section>
+
+
+    <!-- =====================================================
+       CTA FINAL
+  ====================================================== -->
+    <section class="ingredients-cta-section" aria-label="Get started">
+        <div class="ingredients-cta-inner">
+            <p class="ingredients-cta-label reveal">Ready to order?</p>
+            <h2 class="ingredients-cta-heading reveal reveal-delay-1">
+                Great ingredients.<br>
+                <em>Great meals.</em>
+            </h2>
+            <p class="ingredients-cta-description reveal reveal-delay-2">
+                Pick a recipe, we'll handle the rest.
+            </p>
+            <div class="ingredients-cta-buttons reveal reveal-delay-3">
+                <a href="recipes.html">
+                    <button class="main-button">Browse recipes</button>
+                </a>
+                <a href="contact.html">
+                    <button class="outline-button">Get in touch</button>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+    <footer class="site-footer">
+        <div class="footer-logo-wrap">
+            <div class="footer-logo-icon" aria-hidden="true"></div>
+            <span class="footer-logo-text">Avocado <span>Bean</span></span>
+        </div>
+        <div class="footer-middle">
+            <p class="footer-address">Fresh ingredients · Dublin delivery</p>
+            <p class="footer-hours">Mon – Sat · Orders by 18:00</p>
+        </div>
+        <div class="footer-right">
+            <p class="footer-copyright">© 2026 Avocado Bean</p>
+            <div class="footer-social-links">
+                <a href="#" aria-label="Instagram">ig</a>
+                <a href="#" aria-label="Facebook">fb</a>
+                <a href="#" aria-label="Twitter">tw</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Shared JS -->
+    <script src="../js/main.js"></script>
+
+</body>
+
+</html>

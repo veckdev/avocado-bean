@@ -19,18 +19,12 @@ document.addEventListener('DOMContentLoaded', () => {
   /* -----------------------------------------------------------
      1. NAV — SHRINK ON SCROLL
      Adds "is-scrolled" class to nav when user scrolls down.
-     Works on both the snap container (homepage) and window (other pages).
   ----------------------------------------------------------- */
   const nav = document.getElementById('main-nav');
-  const pageScroller = document.getElementById('page-scroller');
-
-  /* Homepage uses #page-scroller — other pages scroll normally on window */
-  const scrollTarget = pageScroller || window;
 
   if (nav) {
-    scrollTarget.addEventListener('scroll', () => {
-      const scrolled = pageScroller ? pageScroller.scrollTop : window.scrollY;
-      if (scrolled > 10) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 10) {
         nav.classList.add('is-scrolled');
       } else {
         nav.classList.remove('is-scrolled');
@@ -39,60 +33,40 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
+
   /* -----------------------------------------------------------
-     2. SCROLL DOTS — UPDATE ACTIVE DOT AS USER SCROLLS
-     Only runs on the homepage where .scroll-indicator-dot exists.
+     2. HAMBURGER MENU — mobile navigation toggle
+     Toggles the nav menu open/closed on mobile.
   ----------------------------------------------------------- */
-  const allDots = document.querySelectorAll('.scroll-indicator-dot');
-  const allSections = document.querySelectorAll('.page-section');
+  const hamburger = document.getElementById('nav-hamburger');
+  const navMenu = document.querySelector('.nav-menu');
 
-  if (allDots.length > 0) {
-
-    /* Clicking a dot scrolls to the matching section */
-    allDots.forEach(dot => {
-      dot.addEventListener('click', () => {
-        const targetSection = document.getElementById(`section-${dot.dataset.section}`);
-        if (targetSection) {
-          targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
+  if (hamburger && navMenu) {
+    hamburger.addEventListener('click', () => {
+      const isOpen = navMenu.classList.toggle('is-open');
+      hamburger.classList.toggle('is-open');
+      hamburger.setAttribute('aria-expanded', isOpen);
     });
 
-    /* Watch sections — update active dot when section enters view */
-    if (allSections.length > 0) {
-      const sectionWatcher = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const sectionNumber = entry.target.id.replace('section-', '');
-            allDots.forEach(dot => dot.classList.remove('is-active'));
-            const matchingDot = document.querySelector(
-              `.scroll-indicator-dot[data-section="${sectionNumber}"]`
-            );
-            if (matchingDot) matchingDot.classList.add('is-active');
-          }
-        });
-      }, {
-        root: pageScroller,
-        threshold: 0.5
+    /* Close menu when a link is clicked */
+    navMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('is-open');
+        hamburger.classList.remove('is-open');
+        hamburger.setAttribute('aria-expanded', false);
       });
-
-      allSections.forEach(section => sectionWatcher.observe(section));
-    }
+    });
   }
+
 
 
   /* -----------------------------------------------------------
      3. REVEAL ANIMATIONS — FADE + SLIDE UP ON ENTER
-     Works on all pages.
-     On homepage: watches inside #page-scroller (snap container).
-     On other pages: watches the normal viewport (root: null).
+     Works on all pages. Watches the normal viewport (window).
   ----------------------------------------------------------- */
   const elementsToReveal = document.querySelectorAll('.reveal');
 
   if (elementsToReveal.length > 0) {
-
-    /* Use page-scroller as root on homepage, null (viewport) on other pages */
-    const revealRoot = pageScroller || null;
 
     const revealWatcher = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -102,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     }, {
-      root: revealRoot,
+      root: null,      /* null = watch the browser viewport (window scroll) */
       threshold: 0.15
     });
 
@@ -181,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   addIconPattern('.philosophy-section');
-  addIconPattern('.blog-section');
+  addIconPattern('.ingredients-preview-section');
   addIconPattern('.about-cta-section');
   addIconPattern('.story-section');
   addIconPattern('.suppliers-section');
@@ -775,180 +749,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
   }
 
-
-
-
-  /* -----------------------------------------------------------
-     INGREDIENTS PAGE
-     Character counter, real-time validation and form submit.
-     Only runs if the preferences form exists on the page.
-  ----------------------------------------------------------- */
-  const form = document.getElementById('preferences-form');
-  const successBox = document.getElementById('form-success');
-  const submitBtn = document.getElementById('submit-btn');
-
-
-  /* -----------------------------------------------------------
-     1. CHARACTER COUNTER — allergies textarea
-     Updates the counter below the textarea as the user types.
-  ----------------------------------------------------------- */
-  const allergyTextarea = document.getElementById('pref-allergies');
-  const allergyCount = document.getElementById('allergy-count');
-  const maxLength = 500;
-
-  if (allergyTextarea && allergyCount) {
-    allergyTextarea.addEventListener('input', () => {
-      const current = allergyTextarea.value.length;
-      allergyCount.textContent = `${current} / ${maxLength}`;
-
-      /* Turn counter orange when approaching limit */
-      allergyCount.style.color = current > 450 ? 'var(--orange)' : 'var(--grey)';
-    });
-  }
-
-
-  /* -----------------------------------------------------------
-     2. HELPER FUNCTIONS
-  ----------------------------------------------------------- */
-
-  /* Show an error message below a field */
-  function showError(fieldId, message) {
-    const errorEl = document.getElementById(`error-${fieldId}`);
-    const inputEl = document.getElementById(`pref-${fieldId}`) ||
-      document.querySelector(`[name="${fieldId}"]`);
-
-    if (errorEl) errorEl.textContent = message;
-    if (inputEl) inputEl.classList.add('has-error');
-  }
-
-  /* Clear an error message */
-  function clearError(fieldId) {
-    const errorEl = document.getElementById(`error-${fieldId}`);
-    const inputEl = document.getElementById(`pref-${fieldId}`) ||
-      document.querySelector(`[name="${fieldId}"]`);
-
-    if (errorEl) errorEl.textContent = '';
-    if (inputEl) inputEl.classList.remove('has-error');
-  }
-
-  /* Validate an email address format using a regular expression */
-  function isValidEmail(email) {
-    /* Standard email format: something@something.something */
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailPattern.test(email);
-  }
-
-
-  /* -----------------------------------------------------------
-     3. REAL-TIME VALIDATION — clear errors as user types
-     Once a field has been touched and had an error, we clear
-     the error as soon as the user starts correcting it.
-  ----------------------------------------------------------- */
-  const nameInput = document.getElementById('pref-name');
-  const emailInput = document.getElementById('pref-email');
-  const postcodeInput = document.getElementById('pref-postcode');
-
-  if (nameInput) {
-    nameInput.addEventListener('input', () => {
-      if (nameInput.value.trim().length >= 2) clearError('name');
-    });
-  }
-
-  if (emailInput) {
-    emailInput.addEventListener('input', () => {
-      if (isValidEmail(emailInput.value.trim())) clearError('email');
-    });
-  }
-
-  if (postcodeInput) {
-    postcodeInput.addEventListener('change', () => {
-      if (postcodeInput.value) clearError('postcode');
-    });
-  }
-
-  /* Clear frequency error when any radio is selected */
-  document.querySelectorAll('[name="frequency"]').forEach(radio => {
-    radio.addEventListener('change', () => clearError('frequency'));
-  });
-
-
-  /* -----------------------------------------------------------
-     4. FORM VALIDATION ON SUBMIT
-     Checks all required fields. If any fail, shows error
-     messages and stops the form from submitting.
-     If all pass, hides the form and shows the success message.
-  ----------------------------------------------------------- */
-  if (form) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault(); /* always prevent default browser submit */
-
-      let isValid = true; /* tracks whether the whole form passes */
-
-      /* --- Validate: Name --- */
-      const nameValue = nameInput ? nameInput.value.trim() : '';
-      if (!nameValue) {
-        showError('name', 'Please enter your full name.');
-        isValid = false;
-      } else if (nameValue.length < 2) {
-        showError('name', 'Name must be at least 2 characters.');
-        isValid = false;
-      } else {
-        clearError('name');
-      }
-
-      /* --- Validate: Email --- */
-      const emailValue = emailInput ? emailInput.value.trim() : '';
-      if (!emailValue) {
-        showError('email', 'Please enter your email address.');
-        isValid = false;
-      } else if (!isValidEmail(emailValue)) {
-        showError('email', 'Please enter a valid email address (e.g. name@email.com).');
-        isValid = false;
-      } else {
-        clearError('email');
-      }
-
-      /* --- Validate: Delivery frequency (radio buttons) --- */
-      const frequencySelected = document.querySelector('[name="frequency"]:checked');
-      if (!frequencySelected) {
-        showError('frequency', 'Please select a delivery frequency.');
-        isValid = false;
-      } else {
-        clearError('frequency');
-      }
-
-      /* --- Validate: Dublin postcode (select) --- */
-      const postcodeValue = postcodeInput ? postcodeInput.value : '';
-      if (!postcodeValue) {
-        showError('postcode', 'Please select your Dublin delivery area.');
-        isValid = false;
-      } else {
-        clearError('postcode');
-      }
-
-      /* --- If all valid: show success message --- */
-      if (isValid) {
-        /* Disable submit button to prevent double submission */
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Saving...';
-
-        /* Small delay for UX — feels more natural than instant */
-        setTimeout(() => {
-          form.style.display = 'none';
-          successBox.classList.add('is-visible');
-
-          /* Scroll success message into view */
-          successBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }, 600);
-      } else {
-        /* Scroll to the first error so the user can see it */
-        const firstError = form.querySelector('.form-error:not(:empty)');
-        if (firstError) {
-          firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-      }
-
-    });
-  }
 
 }); /* end DOMContentLoaded */

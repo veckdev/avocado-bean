@@ -56,10 +56,17 @@
             <li><a href="pages/contact.html">Contact</a></li>
         </ul>
 
-        <!-- Call-to-action button -->
-        <a href="pages/contact.html">
+        <!-- Call-to-action button (desktop only) -->
+        <a href="pages/contact.html" class="nav-cta-wrapper">
             <button class="nav-cta-button">Get Started</button>
         </a>
+
+        <!-- Hamburger (mobile only) -->
+        <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle navigation" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
 
     </nav>
 
@@ -292,41 +299,47 @@
 
 
         <!-- ===================================================
-         SECTION 5 — BLOG PREVIEW + FOOTER
+         SECTION 5 — INGREDIENTS PREVIEW + FOOTER
     ==================================================== -->
-        <section class="page-section" id="section-4" aria-label="Blog and footer">
-            <div class="blog-section">
+        <section class="page-section" id="section-4" aria-label="Our ingredients">
+            <div class="ingredients-preview-section">
 
-                <p class="blog-label reveal">02 — From the kitchen</p>
-                <h2 class="blog-heading reveal reveal-delay-1">Latest from the blog</h2>
+                <p class="ingredients-preview-label reveal">What's in your box</p>
+                <h2 class="ingredients-preview-heading reveal reveal-delay-1">Ingredients <em>you can trust</em></h2>
 
-                <div class="blog-cards-grid">
+                <div class="ingredients-preview-grid">
 
-                    <article class="blog-card reveal reveal-delay-1">
-                        <div class="blog-card-number">01</div>
-                        <h3 class="blog-card-title">Why plant protein is more powerful than you think</h3>
-                        <p class="blog-card-excerpt">Chickpeas, lentils, tofu — the science behind why they keep you
-                            full and energised all day.</p>
-                        <a href="pages/blog.html" class="blog-read-more">Read more →</a>
-                    </article>
+                    <div class="ingredients-preview-card reveal reveal-delay-1">
+                        <div class="ingredients-preview-icon">🫘</div>
+                        <h3 class="ingredients-preview-card-title">Proteins</h3>
+                        <p class="ingredients-preview-card-text">Organic tofu, chickpeas, lentils and black beans — the
+                            heart of every dish.</p>
+                        <a href="pages/ingredients.html" class="ingredients-preview-link">Explore →</a>
+                    </div>
 
-                    <article class="blog-card reveal reveal-delay-2">
-                        <div class="blog-card-number">02</div>
-                        <h3 class="blog-card-title">How we make our turmeric scramble so good</h3>
-                        <p class="blog-card-excerpt">The secret is in the spice ratio — and a really hot pan. Our chef
-                            shares the full method.</p>
-                        <a href="pages/blog.html" class="blog-read-more">Read more →</a>
-                    </article>
+                    <div class="ingredients-preview-card reveal reveal-delay-2">
+                        <div class="ingredients-preview-icon">🌾</div>
+                        <h3 class="ingredients-preview-card-title">Grains & Carbs</h3>
+                        <p class="ingredients-preview-card-text">Jasmine rice, sourdough, rolled oats — slow-release
+                            energy from whole grains.</p>
+                        <a href="pages/ingredients.html" class="ingredients-preview-link">Explore →</a>
+                    </div>
 
-                    <article class="blog-card reveal reveal-delay-3">
-                        <div class="blog-card-number">03</div>
-                        <h3 class="blog-card-title">Eating vegan in Dublin — our favourite spots</h3>
-                        <p class="blog-card-excerpt">A guide to the best plant-based food in the city, from us to you.
-                            Updated for 2026.</p>
-                        <a href="pages/blog.html" class="blog-read-more">Read more →</a>
-                    </article>
+                    <div class="ingredients-preview-card reveal reveal-delay-3">
+                        <div class="ingredients-preview-icon">🥬</div>
+                        <h3 class="ingredients-preview-card-title">Fresh Produce</h3>
+                        <p class="ingredients-preview-card-text">Seasonal kale, spinach, cauliflower — sourced from
+                            Irish organic farms within 48 hours.</p>
+                        <a href="pages/ingredients.html" class="ingredients-preview-link">Explore →</a>
+                    </div>
 
                 </div>
+
+                <a href="pages/ingredients.html" class="view-all-link reveal reveal-delay-4"
+                    style="margin-top: 32px; display: inline-block;">
+                    See all ingredients →
+                </a>
+
             </div>
 
             <!-- Footer -->

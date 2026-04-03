@@ -101,36 +101,16 @@ button {
 
 
 /* =============================================================
-   SCROLL SNAP
-   This creates the "card snap" effect where each section locks
-   into place in the viewport when you scroll.
-   - scroll-snap-type: y mandatory — snapping on the Y axis, strict
-   - scroll-snap-align: center — each section snaps to the centre
-   - scroll-snap-stop: always — prevents skipping sections
+   PAGE SCROLLER
+   Normal scroll behaviour — scroll snap was removed.
    ============================================================= */
 .page-scroller {
-  height: 100vh;
-  /* fills the full browser window height */
-  overflow-y: scroll;
-  /* allows vertical scrolling */
-  scroll-snap-type: y mandatory;
-  /* snap sections into place on scroll */
+  overflow-y: auto;
   scroll-behavior: smooth;
-  scrollbar-width: none;
-  /* hides the scrollbar in Firefox */
 }
 
-/* hides the scrollbar in Chrome, Safari and Edge */
-.page-scroller::-webkit-scrollbar {
-  display: none;
-}
-
-/* Each snap section takes up the full viewport height */
+/* Each section stacks normally */
 .page-section {
-  scroll-snap-align: center;
-  /* snaps section to centre of viewport */
-  scroll-snap-stop: always;
-  /* user must stop at every section, no skipping */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -1079,40 +1059,6 @@ button {
 /* Arrow spacing widens on hover for a subtle animation */
 .blog-card:hover .blog-read-more {
   letter-spacing: 0.2em;
-}
-
-
-/* =============================================================
-   SCROLL DOTS INDICATOR
-   Fixed to the right side of the screen.
-   Each dot represents one section. The active dot is highlighted.
-   JavaScript adds/removes the .is-active class as user scrolls.
-   ============================================================= */
-.scroll-indicator {
-  position: fixed;
-  right: 28px;
-  top: 50%;
-  transform: translateY(-50%);
-  /* centres vertically on screen */
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  z-index: 500;
-}
-
-.scroll-indicator-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: rgba(42, 34, 24, 0.2);
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.scroll-indicator-dot.is-active {
-  background: var(--orange);
-  transform: scale(1.4);
-  /* active dot is larger */
 }
 
 

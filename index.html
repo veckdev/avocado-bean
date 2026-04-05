@@ -304,67 +304,68 @@
         <section class="page-section" id="section-4" aria-label="Our ingredients">
             <div class="ingredients-preview-section">
 
-                <p class="ingredients-preview-label reveal">What's in your box</p>
-                <h2 class="ingredients-preview-heading reveal reveal-delay-1">Ingredients <em>you can trust</em></h2>
+                <div class="ingredients-preview-inner">
 
-                <div class="ingredients-preview-grid">
-
-                    <div class="ingredients-preview-card reveal reveal-delay-1">
-                        <div class="ingredients-preview-icon">🫘</div>
-                        <h3 class="ingredients-preview-card-title">Proteins</h3>
-                        <p class="ingredients-preview-card-text">Organic tofu, chickpeas, lentils and black beans — the
-                            heart of every dish.</p>
-                        <a href="pages/ingredients.html" class="ingredients-preview-link">Explore →</a>
+                    <!-- Top row: label + stats -->
+                    <div class="ingredients-preview-top">
+                        <div class="reveal">
+                            <p class="ingredients-preview-label">What's in your box</p>
+                            <h2 class="ingredients-preview-heading">Ingredients <em>you can trust</em></h2>
+                        </div>
+                        <div class="ingredients-preview-stats reveal reveal-delay-1">
+                            <div class="ingredients-stat">
+                                <span class="ingredients-stat-number">100%</span>
+                                <span class="ingredients-stat-label">Organic</span>
+                            </div>
+                            <div class="ingredients-stat">
+                                <span class="ingredients-stat-number">48h</span>
+                                <span class="ingredients-stat-label">Farm fresh</span>
+                            </div>
+                            <div class="ingredients-stat">
+                                <span class="ingredients-stat-number">6+</span>
+                                <span class="ingredients-stat-label">Irish farms</span>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="ingredients-preview-card reveal reveal-delay-2">
-                        <div class="ingredients-preview-icon">🌾</div>
-                        <h3 class="ingredients-preview-card-title">Grains & Carbs</h3>
-                        <p class="ingredients-preview-card-text">Jasmine rice, sourdough, rolled oats — slow-release
-                            energy from whole grains.</p>
-                        <a href="pages/ingredients.html" class="ingredients-preview-link">Explore →</a>
-                    </div>
-
-                    <div class="ingredients-preview-card reveal reveal-delay-3">
-                        <div class="ingredients-preview-icon">🥬</div>
-                        <h3 class="ingredients-preview-card-title">Fresh Produce</h3>
-                        <p class="ingredients-preview-card-text">Seasonal kale, spinach, cauliflower — sourced from
-                            Irish organic farms within 48 hours.</p>
-                        <a href="pages/ingredients.html" class="ingredients-preview-link">Explore →</a>
+                    <!-- Bottom row: description + CTAs -->
+                    <div class="ingredients-preview-bottom">
+                        <p class="ingredients-preview-description reveal reveal-delay-2">
+                            Every ingredient in your box is sourced from Irish organic farms, selected by hand
+                            and delivered within 48 hours. No compromise, no shortcuts — just real food done right.
+                        </p>
+                        <div class="ingredients-preview-actions reveal reveal-delay-3">
+                            <a href="pages/ingredients.html" class="main-button">See all ingredients</a>
+                            <a href="pages/ingredients.html" class="text-button">Proteins · Grains · Produce →</a>
+                        </div>
                     </div>
 
                 </div>
-
-                <a href="pages/ingredients.html" class="view-all-link reveal reveal-delay-4"
-                    style="margin-top: 32px; display: inline-block;">
-                    See all ingredients →
-                </a>
 
             </div>
-
-            <!-- Footer -->
-            <footer class="site-footer">
-                <div class="footer-logo-wrap">
-                    <div class="footer-logo-icon" aria-hidden="true"></div>
-                    <span class="footer-logo-text">Avocado <span>Bean</span></span>
-                </div>
-                <div class="footer-middle">
-                    <p class="footer-address">Fresh ingredients · Dublin delivery</p>
-                    <p class="footer-hours">Mon – Sat · Orders by 18:00</p>
-                </div>
-                <div class="footer-right">
-                    <p class="footer-copyright">© 2026 Avocado Bean</p>
-                    <div class="footer-social-links">
-                        <a href="#" aria-label="Instagram">ig</a>
-                        <a href="#" aria-label="Facebook">fb</a>
-                        <a href="#" aria-label="Twitter">tw</a>
-                    </div>
-                </div>
-            </footer>
 
         </section>
 
     </main><!-- end page-scroller -->
+
+    <footer class="site-footer">
+        <div class="footer-logo-wrap">
+            <div class="footer-logo-icon" aria-hidden="true"></div>
+            <span class="footer-logo-text">Avocado <span>Bean</span></span>
+        </div>
+        <div class="footer-middle">
+            <p class="footer-address">Fresh ingredients · Dublin delivery</p>
+            <p class="footer-hours">Mon – Sat · Orders by 18:00</p>
+        </div>
+        <div class="footer-right">
+            <p class="footer-copyright">© 2026 Avocado Bean</p>
+            <div class="footer-social-links">
+                <a href="#" aria-label="Instagram">ig</a>
+                <a href="#" aria-label="Facebook">fb</a>
+                <a href="#" aria-label="Twitter">tw</a>
+            </div>
+        </div>
+    </footer>
 
     <!-- JavaScript file — placed at end of body so HTML loads first -->
     <script src="js/main.js"></script>

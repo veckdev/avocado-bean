@@ -24,6 +24,8 @@
    Use them like this: color: var(--green);
    ============================================================= */
 :root {
+  --nav-height: 69px;
+  /* updated by JS when nav shrinks on scroll */
   --orange: #b85c2a;
   /* terracotta orange — used for highlights, CTAs */
   --green: #4a6b42;
@@ -976,8 +978,8 @@ button {
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 72px 52px;
+  justify-content: space-between;
+  padding: 80px 52px;
   position: relative;
   isolation: isolate;
 }
@@ -1017,62 +1019,94 @@ button {
   font-style: normal;
 }
 
-.ingredients-preview-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+/* Section 4 same height as all others */
+#section-4 {
+  min-height: 100vh;
 }
 
-.ingredients-preview-card {
-  background: rgba(250, 248, 242, 0.06);
-  border-radius: 4px;
-  padding: 28px;
-  border: 1px solid rgba(250, 248, 242, 0.1);
-  transition: background 0.2s, transform 0.25s ease;
-  position: relative;
-  z-index: 1;
+/* Inner wrapper: fills height, space between top and bottom */
+.ingredients-preview-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
 }
 
-.ingredients-preview-card:hover {
-  background: rgba(250, 248, 242, 0.12);
-  transform: translateY(-4px);
+/* Top: heading left, stats right */
+.ingredients-preview-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
 }
 
-.ingredients-preview-icon {
-  font-size: 28px;
-  margin-bottom: 14px;
+/* Stats row */
+.ingredients-preview-stats {
+  display: flex;
+  gap: 40px;
+  flex-shrink: 0;
+  padding-top: 8px;
+}
+
+.ingredients-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.ingredients-stat-number {
+  font-family: 'Averia Serif Libre', serif;
+  font-style: italic;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--yellow);
   line-height: 1;
 }
 
-.ingredients-preview-card-title {
-  font-family: 'Averia Serif Libre', serif;
-  font-style: italic;
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--white);
-  margin-bottom: 10px;
-  line-height: 1.2;
+.ingredients-stat-label {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(250, 248, 242, 0.4);
+  font-weight: 500;
 }
 
-.ingredients-preview-card-text {
-  font-size: 14px;
-  line-height: 1.75;
-  color: rgba(250, 248, 242, 0.65);
+/* Bottom: description + CTAs */
+.ingredients-preview-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-width: 640px;
+}
+
+.ingredients-preview-description {
+  font-size: 18px;
+  line-height: 1.8;
+  color: rgba(250, 248, 242, 0.6);
   font-weight: 400;
-  margin-bottom: 16px;
+  margin: 0;
 }
 
+.ingredients-preview-actions {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+/* Keep heading styles */
 .ingredients-preview-link {
   font-size: 12px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--yellow);
   font-weight: 600;
-  display: block;
+  display: inline-block;
   transition: letter-spacing 0.2s;
+  text-decoration: none;
 }
 
-.ingredients-preview-card:hover .ingredients-preview-link {
+.ingredients-preview-link:hover {
   letter-spacing: 0.2em;
 }
 
@@ -1341,9 +1375,8 @@ button {
   background: var(--white);
   border-bottom: 1px solid var(--line-colour);
   position: sticky;
-  /* sticks below the nav when scrolling */
-  top: 69px;
-  /* sits just below the fixed nav */
+  /* sticks just below the fixed nav */
+  top: var(--nav-height, 69px);
   z-index: 100;
 }
 
@@ -1380,19 +1413,39 @@ button {
    Three-column grid of recipe cards.
    Cards that are hidden by the filter get display: none.
    ============================================================= */
+/* =============================================================
+   RECIPES LIST — layout C
+   Horizontal card: photo left, text right
+   ============================================================= */
 .menu-grid-wrapper {
-  padding: 56px 52px 80px;
+  padding: 48px 52px 80px;
 }
 
-.menu-recipes-grid {
+.menu-recipes-list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
 }
 
-/* Cards hidden by the filter */
+/* Fixed height so photo fills the card correctly */
+.menu-recipes-list .menu-recipe-card {
+  height: 540px;
+}
+
+/* Cards hidden by filter/search */
 .menu-recipe-card.is-hidden {
   display: none;
+}
+
+/* Cards use the global reveal system — JS adds .is-visible on scroll */
+.menu-recipes-list .menu-recipe-card.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+}
+
+.menu-recipes-list .menu-recipe-card.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 
@@ -1402,27 +1455,24 @@ button {
    with category pill, time, title, description and button.
    ============================================================= */
 .menu-recipe-card {
-  background: var(--white);
   border-radius: 6px;
   overflow: hidden;
   cursor: pointer;
-  display: flex;
-  flex-direction: column;
+  position: relative;
   transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
     box-shadow 0.35s ease;
 }
 
 .menu-recipe-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-5px);
   box-shadow: var(--card-shadow);
 }
 
-/* Photo container */
+/* Photo fills the entire card */
 .menu-card-photo {
-  height: 260px;
-  overflow: hidden;
   position: relative;
-  /* needed for the overlay */
+  height: 100%;
+  overflow: hidden;
 }
 
 .menu-card-photo img {
@@ -1430,109 +1480,103 @@ button {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   display: block;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .menu-recipe-card:hover .menu-card-photo img {
-  transform: scale(1.05);
+  transform: scale(1.04);
 }
 
-/* Dark overlay with "View recipe" text — appears on hover */
+/* Category pill pinned to top-left */
+.menu-card-photo .category-pill {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 2;
+}
+
+/* Bottom overlay — gradient + blur */
 .menu-card-overlay {
   position: absolute;
-  inset: 0;
-  background: rgba(42, 34, 24, 0.45);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.menu-recipe-card:hover .menu-card-overlay {
-  opacity: 1;
-}
-
-.menu-card-cta {
-  font-size: 12px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--white);
-  font-weight: 600;
-  border: 1px solid rgba(250, 248, 242, 0.6);
-  padding: 10px 20px;
-  border-radius: 2px;
-}
-
-/* Card body */
-.menu-card-body {
-  padding: 22px 22px 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top,
+      rgba(42, 34, 24, 0.97) 0%,
+      rgba(42, 34, 24, 0.7) 45%,
+      transparent 100%);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  -webkit-mask-image: linear-gradient(to top, black 55%, transparent 100%);
+  mask-image: linear-gradient(to top, black 55%, transparent 100%);
+  padding: 52px 22px 22px;
+  z-index: 1;
   display: flex;
   flex-direction: column;
-  flex: 1;
+  gap: 6px;
 }
 
-/* Row with category pill and cooking time */
-.menu-card-top {
+/* Meta: time · serves · difficulty */
+.menu-card-meta {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: 10px;
+  gap: 7px;
+  font-size: 12px;
+  color: rgba(250, 248, 242, 0.6);
+  font-weight: 400;
 }
 
-.menu-card-time {
-  font-size: 12px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--grey);
-  font-weight: 500;
+.meta-dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: rgba(250, 248, 242, 0.3);
+  flex-shrink: 0;
 }
 
 .menu-card-title {
   font-family: 'Averia Serif Libre', serif;
   font-style: italic;
-  font-size: 22px;
-  color: var(--dark);
-  margin-bottom: 10px;
-  line-height: 1.2;
+  font-size: 20px;
+  color: var(--white);
+  line-height: 1.15;
   font-weight: 700;
+  margin: 0;
 }
 
 .menu-card-description {
-  font-size: 14px;
-  line-height: 1.75;
-  color: var(--grey);
+  font-size: 13px;
+  line-height: 1.65;
+  color: rgba(250, 248, 242, 0.6);
   font-weight: 400;
-  flex: 1;
-  /* pushes ingredient tags and button to the bottom */
+  margin: 0;
 }
 
-/* "See recipe & ingredients" button at bottom of card */
 .menu-card-button {
   font-family: 'Rubik', sans-serif;
   font-size: 12px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--green);
+  color: var(--white);
   font-weight: 600;
   background: none;
   border: none;
-  border-top: 1px solid var(--line-colour);
-  padding: 16px 0;
+  border-top: 1px solid rgba(250, 248, 242, 0.15);
+  padding: 10px 0 0;
+  margin-top: 4px;
   width: 100%;
   text-align: left;
   cursor: pointer;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 4px;
   transition: color 0.2s, gap 0.2s;
 }
 
 .menu-card-button:hover {
-  color: var(--orange);
+  color: var(--yellow);
   gap: 8px;
-  /* arrow moves right */
 }
 
 
@@ -1595,23 +1639,18 @@ button {
   font-size: 12px;
   letter-spacing: 0.06em;
   font-weight: 600;
-  padding: 3px 8px;
-  border-radius: 10px;
 }
 
 .difficulty-easy {
-  background: rgba(74, 107, 66, 0.12);
-  color: var(--green);
+  color: #7ec87a;
 }
 
 .difficulty-medium {
-  background: rgba(200, 146, 42, 0.15);
   color: var(--yellow);
 }
 
 .difficulty-hard {
-  background: rgba(184, 92, 42, 0.12);
-  color: var(--orange);
+  color: #e07a5a;
 }
 
 
@@ -1953,12 +1992,16 @@ button {
   }
 
   .menu-grid-wrapper {
-    padding: 36px 24px 60px;
+    padding: 32px 24px 60px;
   }
 
-  .menu-recipes-grid {
+  .menu-recipes-list {
     grid-template-columns: 1fr;
     gap: 16px;
+  }
+
+  .menu-recipes-list .menu-recipe-card {
+    height: 420px;
   }
 
   .modal-panel {

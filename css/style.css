@@ -10,10 +10,10 @@
    We import two fonts from Google Fonts:
    - Averia Serif Libre: used for headings and titles (has a nice
      hand-drawn, organic feel that suits a food brand)
-   - Montserrat: used for all body text, nav links, buttons
-     (clean and easy to read at small sizes)
+   - Rubik: used for all body text, nav links, buttons
+     (clean, geometric, and easy to read at small sizes)
    ============================================================= */
-@import url('https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
 
 /* =============================================================
@@ -68,7 +68,7 @@ html {
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Rubik', sans-serif;
   font-weight: 400;
   background: var(--cream);
   color: var(--dark);
@@ -95,7 +95,7 @@ a {
 button {
   cursor: pointer;
   /* shows a hand cursor on hover */
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Rubik', sans-serif;
   /* buttons don't inherit fonts by default */
 }
 
@@ -308,7 +308,7 @@ button {
    ============================================================= */
 .category-pill {
   display: inline-block;
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.10em;
   text-transform: uppercase;
   color: var(--white);
@@ -382,7 +382,7 @@ button {
   padding: 11px 24px;
   background: transparent;
   color: var(--white);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   border: 1px solid rgba(250, 248, 242, 0.4);
@@ -477,7 +477,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 10px;
+  font-size: 12px;
   color: rgba(250, 248, 242, 0.4);
   transition: all 0.2s;
   font-weight: 500;
@@ -640,7 +640,7 @@ button {
 }
 
 .hero-photo-badge-subtitle {
-  font-size: 8px;
+  font-size: 12px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--orange);
@@ -671,7 +671,7 @@ button {
 
 /* "See all recipes" link */
 .view-all-link {
-  font-size: 9px;
+  font-size: 12px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--green);
@@ -1063,7 +1063,7 @@ button {
 }
 
 .ingredients-preview-link {
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--yellow);
@@ -1348,8 +1348,8 @@ button {
 }
 
 .filter-btn {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 11px;
+  font-family: 'Rubik', sans-serif;
+  font-size: 12px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   font-weight: 600;
@@ -1482,7 +1482,7 @@ button {
 }
 
 .menu-card-time {
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--grey);
@@ -1510,7 +1510,7 @@ button {
 
 /* "See recipe & ingredients" button at bottom of card */
 .menu-card-button {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Rubik', sans-serif;
   font-size: 12px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -1545,7 +1545,7 @@ button {
 }
 
 .recipe-search {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Rubik', sans-serif;
   font-size: 12px;
   letter-spacing: 0.06em;
   padding: 9px 16px 9px 36px;
@@ -1579,7 +1579,7 @@ button {
 }
 
 .card-badge {
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.06em;
   color: var(--grey);
   font-weight: 500;
@@ -1592,7 +1592,7 @@ button {
 .difficulty-easy,
 .difficulty-medium,
 .difficulty-hard {
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.06em;
   font-weight: 600;
   padding: 3px 8px;
@@ -1626,7 +1626,7 @@ button {
 }
 
 .ingredient-tag {
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-weight: 600;
@@ -1642,7 +1642,7 @@ button {
    MODAL — STATS ROW & ALLERGENS
    ============================================================= */
 .modal-stat {
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.06em;
   color: var(--grey);
   font-weight: 500;
@@ -1659,7 +1659,7 @@ button {
 }
 
 .allergen-tag {
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-weight: 600;
@@ -1824,7 +1824,7 @@ button {
 }
 
 .modal-time {
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--grey);
@@ -1920,7 +1920,7 @@ button {
   padding: 15px;
   background: var(--green);
   color: var(--white);
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Rubik', sans-serif;
   font-size: 12px;
   letter-spacing: 0.11em;
   text-transform: uppercase;
@@ -2327,13 +2327,32 @@ button {
    PAGE HEADER
    ============================================================= */
 .ingredients-header {
-  padding: calc(69px + 80px) 52px 72px;
+  padding-top: 69px;
   background: var(--white);
   border-bottom: 1px solid var(--line-colour);
+  overflow: hidden;
 }
 
-.ingredients-header-inner {
-  max-width: 640px;
+/* Two-column grid — mirrors .hero-wrapper exactly */
+.ingredients-hero-wrapper {
+  display: grid;
+  grid-template-columns: 52% 48%;
+  min-height: calc(100vh - 69px);
+  background: var(--white);
+}
+
+/* Left column — same padding logic as .hero-content */
+.ingredients-hero-content {
+  padding: calc(68px + 69px) 56px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Right column — full-bleed photo, same as .hero-photo */
+.ingredients-hero-photo {
+  background: url('../images/dishes/img-plantation.jpg') center / cover;
+  position: relative;
 }
 
 .ingredients-page-title {
@@ -2526,7 +2545,7 @@ button {
 }
 
 .supplier-location {
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--yellow);
@@ -2554,7 +2573,7 @@ button {
 
 .supplier-tag {
   display: inline-block;
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   font-weight: 600;
@@ -2628,7 +2647,7 @@ button {
 
 /* Text, email, textarea, select inputs */
 .form-input {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Rubik', sans-serif;
   font-size: 14px;
   color: var(--dark);
   background: var(--cream);
@@ -2674,7 +2693,7 @@ button {
 
 /* Character counter for textarea */
 .form-char-count {
-  font-size: 11px;
+  font-size: 12px;
   color: var(--grey);
   text-align: right;
   margin-top: 4px;
@@ -2838,7 +2857,7 @@ button {
 }
 
 .form-submit-btn {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Rubik', sans-serif;
   font-size: 13px;
   letter-spacing: 0.11em;
   text-transform: uppercase;
@@ -2977,7 +2996,21 @@ button {
    ============================================================= */
 @media (max-width: 900px) {
   .ingredients-header {
-    padding: calc(69px + 48px) 24px 48px;
+    padding-top: 69px;
+  }
+
+  .ingredients-hero-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .ingredients-hero-photo {
+    display: block;
+    height: 260px;
+    width: 100%;
+  }
+
+  .ingredients-hero-content {
+    padding: 100px 24px 40px;
   }
 
   .categories-section {
@@ -3064,5 +3097,5 @@ button {
 .form-textarea,
 .form-select {
   box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Rubik', sans-serif;
 }

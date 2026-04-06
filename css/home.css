@@ -1,0 +1,621 @@
+/* =============================================================
+   AVOCADO BEAN — home.css
+   Styles specific to index.html only.
+   Requires: css/style.css
+   ============================================================= */
+
+
+/* =============================================================
+   HERO SECTION
+   ============================================================= */
+.hero-wrapper {
+  display: grid;
+  grid-template-columns: 52% 48%;
+  flex: 1;
+  background: var(--white);
+}
+
+.hero-content {
+  padding: calc(68px + 69px) 56px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--orange);
+  font-weight: 600;
+}
+
+.hero-eyebrow-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--orange);
+  flex-shrink: 0;
+}
+
+.hero-heading {
+  font-family: 'Averia Serif Libre', serif;
+  font-style: italic;
+  font-size: clamp(56px, 7vw, 92px);
+  line-height: 0.95;
+  color: var(--dark);
+  font-weight: 700;
+  margin-top: 20px;
+  letter-spacing: -0.02em;
+}
+
+.hero-heading .word-bold {
+  color: var(--orange);
+}
+
+.hero-heading .word-green {
+  color: var(--green);
+}
+
+.hero-description {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--grey);
+  font-weight: 400;
+  max-width: 360px;
+  margin-top: 24px;
+  letter-spacing: 0.01em;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-top: 32px;
+}
+
+.hero-stats-row {
+  display: flex;
+  border-top: 1px solid var(--line-colour);
+  margin-top: 40px;
+  padding-top: 28px;
+}
+
+.stat-item {
+  flex: 1;
+}
+
+.stat-item:not(:last-child) {
+  padding-right: 24px;
+  border-right: 1px solid var(--line-colour);
+}
+
+.stat-item:not(:first-child) {
+  padding-left: 24px;
+}
+
+.stat-number {
+  font-family: 'Averia Serif Libre', serif;
+  font-style: italic;
+  font-size: 34px;
+  color: var(--orange);
+  line-height: 1;
+  font-weight: 700;
+}
+
+.stat-label {
+  font-size: 12px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--grey);
+  margin-top: 5px;
+  font-weight: 500;
+}
+
+.hero-photo {
+  background: url('../images/dishes/img-hero.webp') center / cover;
+  position: relative;
+}
+
+.hero-photo-badge {
+  position: absolute;
+  bottom: 28px;
+  left: 28px;
+  background: rgba(250, 248, 242, 0.94);
+  backdrop-filter: blur(8px);
+  padding: 10px 16px;
+  border-radius: 3px;
+}
+
+.hero-photo-badge-title {
+  font-family: 'Averia Serif Libre', serif;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--dark);
+  font-weight: 400;
+}
+
+.hero-photo-badge-subtitle {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-top: 3px;
+  font-weight: 600;
+}
+
+
+/* =============================================================
+   RECIPES PREVIEW SECTION
+   ============================================================= */
+.recipes-section {
+  background: var(--cream);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 72px 52px;
+}
+
+.recipes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 44px;
+}
+
+.view-all-link {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--green);
+  font-weight: 600;
+  border-bottom: 0.5px solid var(--green);
+  padding-bottom: 3px;
+  transition: color 0.2s;
+}
+
+.view-all-link:hover {
+  color: var(--orange);
+  border-color: var(--orange);
+}
+
+.recipes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.recipe-card {
+  background: var(--white);
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow 0.35s ease;
+}
+
+.recipe-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--card-shadow);
+}
+
+.recipe-card-photo {
+  height: 200px;
+  overflow: hidden;
+}
+
+.recipe-card-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.recipe-card:hover .recipe-card-photo img {
+  transform: scale(1.05);
+}
+
+.recipe-card-body {
+  padding: 20px 20px 0;
+}
+
+.recipe-card-title {
+  font-family: 'Averia Serif Libre', serif;
+  font-style: italic;
+  font-size: 20px;
+  color: var(--dark);
+  margin: 10px 0 7px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.recipe-card-description {
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--grey);
+  font-weight: 400;
+}
+
+.recipe-card-footer {
+  padding: 14px 20px;
+  margin-top: 14px;
+  border-top: 1px solid var(--line-colour);
+}
+
+.see-recipe-link {
+  font-size: 12px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--green);
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.2s, gap 0.2s;
+}
+
+.see-recipe-link:hover {
+  color: var(--orange);
+  gap: 8px;
+}
+
+
+/* =============================================================
+   PHILOSOPHY SECTION
+   ============================================================= */
+.philosophy-section {
+  background: var(--dark);
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 0 52px;
+  position: relative;
+  isolation: isolate;
+}
+
+.philosophy-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  width: 100%;
+  padding: 80px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.philosophy-label {
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(250, 248, 242, 0.5);
+  font-weight: 600;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.philosophy-label::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 1px;
+  background: rgba(250, 248, 242, 0.5);
+}
+
+.philosophy-heading {
+  font-family: 'Averia Serif Libre', serif;
+  font-style: italic;
+  font-size: clamp(40px, 4.5vw, 62px);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.philosophy-heading em {
+  color: var(--yellow);
+  font-style: normal;
+}
+
+.philosophy-items {
+  display: flex;
+  flex-direction: column;
+}
+
+.philosophy-item {
+  padding: 24px 0;
+  border-top: 1px solid rgba(250, 248, 242, 0.1);
+}
+
+.philosophy-item-number {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: rgba(250, 248, 242, 0.4);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.philosophy-item-title {
+  font-family: 'Averia Serif Libre', serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+
+.philosophy-item-text {
+  font-size: 15px;
+  line-height: 1.8;
+  color: rgba(250, 248, 242, 0.7);
+  font-weight: 400;
+}
+
+
+/* =============================================================
+   ABOUT PREVIEW SECTION
+   ============================================================= */
+.about-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  flex: 1;
+  background: var(--white);
+}
+
+.about-photo {
+  background: url('../images/dishes/img-story.webp') center / cover;
+}
+
+.about-text {
+  padding: 72px 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-left: 1px solid var(--line-colour);
+}
+
+.about-label {
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 18px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.about-label::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 1px;
+  background: var(--blue);
+}
+
+.about-heading {
+  font-family: 'Averia Serif Libre', serif;
+  font-style: italic;
+  font-size: clamp(34px, 3.5vw, 48px);
+  color: var(--dark);
+  line-height: 1.15;
+  margin-bottom: 22px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.about-heading span {
+  color: var(--green);
+}
+
+.about-paragraph {
+  font-size: 15px;
+  line-height: 1.9;
+  color: var(--grey);
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+
+.about-read-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-top: 22px;
+  border-bottom: 0.5px solid var(--green);
+  padding-bottom: 3px;
+  width: fit-content;
+  font-weight: 600;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.about-read-more:hover {
+  color: var(--orange);
+  border-color: var(--orange);
+}
+
+
+/* =============================================================
+   INGREDIENTS PREVIEW SECTION — design C (centred)
+   ============================================================= */
+.ingredients-preview-section {
+  background: var(--dark);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 52px;
+  position: relative;
+  isolation: isolate;
+  text-align: center;
+}
+
+.ingredients-preview-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
+  width: 100%;
+}
+
+.ingredients-preview-heading-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.ingredients-preview-label {
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(250, 248, 242, 0.4);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ingredients-preview-label::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 1px;
+  background: rgba(250, 248, 242, 0.4);
+}
+
+.ingredients-preview-heading {
+  font-family: 'Averia Serif Libre', serif;
+  font-style: italic;
+  font-size: clamp(40px, 5vw, 60px);
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  margin: 0;
+}
+
+.ingredients-preview-heading em {
+  color: var(--yellow);
+  font-style: normal;
+}
+
+.ingredients-preview-description {
+  font-size: 16px;
+  line-height: 1.8;
+  color: rgba(250, 248, 242, 0.55);
+  font-weight: 400;
+  margin: 0;
+  max-width: 480px;
+}
+
+.ingredients-preview-stats {
+  display: flex;
+  gap: 48px;
+  align-items: center;
+}
+
+.ingredients-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.ingredients-stat-number {
+  font-family: 'Averia Serif Libre', serif;
+  font-style: italic;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--yellow);
+  line-height: 1;
+}
+
+.ingredients-stat-label {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(250, 248, 242, 0.35);
+  font-weight: 500;
+}
+
+/* =============================================================
+   RESPONSIVE — MOBILE
+   ============================================================= */
+@media (max-width: 900px) {
+
+  .hero-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-photo {
+    display: block;
+    height: 260px;
+    width: 100%;
+  }
+
+  .hero-content {
+    padding: 100px 24px 40px;
+  }
+
+  .hero-heading {
+    font-size: clamp(44px, 10vw, 64px);
+  }
+
+  .recipes-section {
+    padding: 48px 24px;
+  }
+
+  .recipes-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .philosophy-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .philosophy-section {
+    padding: 0 24px;
+  }
+
+  .about-section {
+    grid-template-columns: 1fr;
+  }
+
+  .about-photo {
+    min-height: 240px;
+  }
+
+  .about-text {
+    padding: 40px 24px;
+  }
+
+  .ingredients-preview-section {
+    padding: 48px 24px;
+  }
+
+  .ingredients-preview-stats {
+    gap: 28px;
+  }
+
+  .ingredients-stat-number {
+    font-size: 28px;
+  }
+}

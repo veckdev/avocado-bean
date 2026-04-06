@@ -26,6 +26,7 @@
 
     <!-- Link to our external stylesheet -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/home.css">
 
     <!-- Favicon — the small icon shown in the browser tab -->
     <link rel="icon" href="images/ui/logo.svg" type="image/svg+xml">
@@ -306,66 +307,60 @@
 
                 <div class="ingredients-preview-inner">
 
-                    <!-- Top row: label + stats -->
-                    <div class="ingredients-preview-top">
-                        <div class="reveal">
-                            <p class="ingredients-preview-label">What's in your box</p>
-                            <h2 class="ingredients-preview-heading">Ingredients <em>you can trust</em></h2>
+                    <!-- Heading block -->
+                    <div class="ingredients-preview-heading-block">
+                        <p class="ingredients-preview-label">What's in your box</p>
+                        <h2 class="ingredients-preview-heading">Ingredients<br><em>you can trust</em></h2>
+                        <p class="ingredients-preview-description">
+                            Organic, hand-selected and delivered within 48 hours from Irish farms.
+                        </p>
+                    </div>
+
+                    <!-- Stats row -->
+                    <div class="ingredients-preview-stats">
+                        <div class="ingredients-stat">
+                            <span class="ingredients-stat-number">100%</span>
+                            <span class="ingredients-stat-label">Organic</span>
                         </div>
-                        <div class="ingredients-preview-stats reveal reveal-delay-1">
-                            <div class="ingredients-stat">
-                                <span class="ingredients-stat-number">100%</span>
-                                <span class="ingredients-stat-label">Organic</span>
-                            </div>
-                            <div class="ingredients-stat">
-                                <span class="ingredients-stat-number">48h</span>
-                                <span class="ingredients-stat-label">Farm fresh</span>
-                            </div>
-                            <div class="ingredients-stat">
-                                <span class="ingredients-stat-number">6+</span>
-                                <span class="ingredients-stat-label">Irish farms</span>
-                            </div>
+                        <div class="ingredients-stat">
+                            <span class="ingredients-stat-number">48h</span>
+                            <span class="ingredients-stat-label">Farm fresh</span>
+                        </div>
+                        <div class="ingredients-stat">
+                            <span class="ingredients-stat-number">6+</span>
+                            <span class="ingredients-stat-label">Irish farms</span>
                         </div>
                     </div>
 
-                    <!-- Bottom row: description + CTAs -->
-                    <div class="ingredients-preview-bottom">
-                        <p class="ingredients-preview-description reveal reveal-delay-2">
-                            Every ingredient in your box is sourced from Irish organic farms, selected by hand
-                            and delivered within 48 hours. No compromise, no shortcuts — just real food done right.
-                        </p>
-                        <div class="ingredients-preview-actions reveal reveal-delay-3">
-                            <a href="pages/ingredients.html" class="main-button">See all ingredients</a>
-                            <a href="pages/ingredients.html" class="text-button">Proteins · Grains · Produce →</a>
-                        </div>
-                    </div>
+                    <!-- CTA -->
+                    <a href="pages/ingredients.html" class="main-button">See all ingredients</a>
 
                 </div>
 
             </div>
 
+            <footer class="site-footer">
+                <div class="footer-logo-wrap">
+                    <div class="footer-logo-icon" aria-hidden="true"></div>
+                    <span class="footer-logo-text">Avocado <span>Bean</span></span>
+                </div>
+                <div class="footer-middle">
+                    <p class="footer-address">Fresh ingredients · Dublin delivery</p>
+                    <p class="footer-hours">Mon – Sat · Orders by 18:00</p>
+                </div>
+                <div class="footer-right">
+                    <p class="footer-copyright">© 2026 Avocado Bean</p>
+                    <div class="footer-social-links">
+                        <a href="#" aria-label="Instagram">ig</a>
+                        <a href="#" aria-label="Facebook">fb</a>
+                        <a href="#" aria-label="Twitter">tw</a>
+                    </div>
+                </div>
+            </footer>
+
         </section>
 
     </main><!-- end page-scroller -->
-
-    <footer class="site-footer">
-        <div class="footer-logo-wrap">
-            <div class="footer-logo-icon" aria-hidden="true"></div>
-            <span class="footer-logo-text">Avocado <span>Bean</span></span>
-        </div>
-        <div class="footer-middle">
-            <p class="footer-address">Fresh ingredients · Dublin delivery</p>
-            <p class="footer-hours">Mon – Sat · Orders by 18:00</p>
-        </div>
-        <div class="footer-right">
-            <p class="footer-copyright">© 2026 Avocado Bean</p>
-            <div class="footer-social-links">
-                <a href="#" aria-label="Instagram">ig</a>
-                <a href="#" aria-label="Facebook">fb</a>
-                <a href="#" aria-label="Twitter">tw</a>
-            </div>
-        </div>
-    </footer>
 
     <!-- JavaScript file — placed at end of body so HTML loads first -->
     <script src="js/main.js"></script>

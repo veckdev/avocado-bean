@@ -1,0 +1,671 @@
+/* =============================================================
+   AVOCADO BEAN — recipes.css
+   Styles specific to recipes.html only.
+   Requires: css/style.css
+   ============================================================= */
+
+
+/* =============================================================
+   PAGE BODY
+   ============================================================= */
+.menu-page {
+  background: var(--cream);
+}
+
+
+/* =============================================================
+   PAGE HEADER
+   ============================================================= */
+.menu-header {
+  padding: calc(69px + 80px) 52px 64px;
+  background: var(--white);
+  border-bottom: 1px solid var(--line-colour);
+}
+
+.menu-header-inner {
+  max-width: 600px;
+}
+
+.menu-page-title {
+  font-family: 'Averia Serif Libre', serif;
+  font-weight: 700;
+  font-size: clamp(52px, 7vw, 88px);
+  line-height: 0.95;
+  color: var(--dark);
+  letter-spacing: -0.02em;
+  margin: 16px 0 24px;
+}
+
+.menu-page-title em {
+  font-style: italic;
+  color: var(--green);
+}
+
+.menu-page-description {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--grey);
+  font-weight: 400;
+  max-width: 480px;
+}
+
+
+/* =============================================================
+   FILTER BAR
+   ============================================================= */
+.filter-bar {
+  display: flex;
+  gap: 8px;
+  padding: 28px 52px;
+  background: var(--white);
+  border-bottom: 1px solid var(--line-colour);
+  position: sticky;
+  top: 69px;
+  z-index: 100;
+}
+
+.filter-btn {
+  font-family: 'Rubik', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 9px 20px;
+  border: 1px solid var(--line-colour);
+  border-radius: 20px;
+  background: transparent;
+  color: var(--grey);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+  border-color: var(--green);
+  color: var(--green);
+}
+
+.filter-btn.is-active {
+  background: var(--green);
+  border-color: var(--green);
+  color: var(--white);
+}
+
+
+/* =============================================================
+   RECIPES GRID
+   ============================================================= */
+.menu-grid-wrapper {
+  padding: 56px 52px 80px;
+}
+
+.menu-recipes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.menu-recipe-card.is-hidden {
+  display: none;
+}
+
+
+/* =============================================================
+   RECIPE CARD
+   ============================================================= */
+.menu-recipe-card {
+  background: var(--white);
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow 0.35s ease;
+}
+
+.menu-recipe-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--card-shadow);
+}
+
+.menu-card-photo {
+  height: 260px;
+  overflow: hidden;
+  position: relative;
+}
+
+.menu-card-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  display: block;
+}
+
+.menu-recipe-card:hover .menu-card-photo img {
+  transform: scale(1.05);
+}
+
+.menu-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(42, 34, 24, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.menu-recipe-card:hover .menu-card-overlay {
+  opacity: 1;
+}
+
+.menu-card-cta {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--white);
+  font-weight: 600;
+  border: 1px solid rgba(250, 248, 242, 0.6);
+  padding: 10px 20px;
+  border-radius: 2px;
+}
+
+.menu-card-body {
+  padding: 22px 22px 0;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.menu-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.menu-card-time {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--grey);
+  font-weight: 500;
+}
+
+.menu-card-title {
+  font-family: 'Averia Serif Libre', serif;
+  font-style: italic;
+  font-size: 22px;
+  color: var(--dark);
+  margin-bottom: 10px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.menu-card-description {
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--grey);
+  font-weight: 400;
+  flex: 1;
+}
+
+.menu-card-button {
+  font-family: 'Rubik', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--green);
+  font-weight: 600;
+  background: none;
+  border: none;
+  border-top: 1px solid var(--line-colour);
+  padding: 16px 0;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.2s, gap 0.2s;
+}
+
+.menu-card-button:hover {
+  color: var(--orange);
+  gap: 8px;
+}
+
+
+/* =============================================================
+   SEARCH BAR
+   ============================================================= */
+.search-wrapper {
+  margin-left: auto;
+}
+
+.recipe-search {
+  font-family: 'Rubik', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  padding: 9px 16px 9px 36px;
+  border: 1px solid var(--line-colour);
+  border-radius: 20px;
+  background: var(--cream) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%237a6e62' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E") no-repeat 12px center;
+  color: var(--dark);
+  width: 200px;
+  transition: border-color 0.2s, width 0.3s ease;
+  outline: none;
+}
+
+.recipe-search:focus {
+  border-color: var(--green);
+  width: 240px;
+}
+
+.recipe-search::placeholder {
+  color: var(--grey);
+}
+
+
+/* =============================================================
+   BADGES — time, serves, difficulty
+   ============================================================= */
+.menu-card-badges {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.card-badge {
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--grey);
+  font-weight: 500;
+  background: var(--cream);
+  padding: 3px 8px;
+  border-radius: 10px;
+}
+
+.difficulty-easy,
+.difficulty-medium,
+.difficulty-hard {
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 10px;
+}
+
+.difficulty-easy {
+  background: rgba(74, 107, 66, 0.12);
+  color: var(--green);
+}
+
+.difficulty-medium {
+  background: rgba(200, 146, 42, 0.15);
+  color: var(--yellow);
+}
+
+.difficulty-hard {
+  background: rgba(184, 92, 42, 0.12);
+  color: var(--orange);
+}
+
+
+/* =============================================================
+   INGREDIENT PREVIEW TAGS
+   ============================================================= */
+.ingredient-preview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 12px 0 16px;
+}
+
+.ingredient-tag {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--grey);
+  background: var(--cream);
+  border: 1px solid var(--line-colour);
+  padding: 4px 10px;
+  border-radius: 3px;
+}
+
+
+/* =============================================================
+   MODAL — STATS & ALLERGENS
+   ============================================================= */
+.modal-stat {
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--grey);
+  font-weight: 500;
+  background: var(--cream);
+  padding: 4px 10px;
+  border-radius: 10px;
+}
+
+.modal-allergens {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 24px;
+}
+
+.allergen-tag {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--green);
+  border: 1px solid rgba(74, 107, 66, 0.3);
+  padding: 4px 10px;
+  border-radius: 3px;
+}
+
+
+/* =============================================================
+   RECIPE MODAL
+   ============================================================= */
+.recipe-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  visibility: hidden;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.recipe-modal.is-open {
+  visibility: visible;
+  pointer-events: all;
+}
+
+.modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(42, 34, 24, 0.65);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.recipe-modal.is-open .modal-overlay {
+  opacity: 1;
+}
+
+.modal-panel {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  max-height: 88vh;
+  background: var(--white);
+  border-radius: 8px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  opacity: 0;
+  transform: scale(0.88);
+  transition: opacity 0.35s ease,
+    transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  scrollbar-width: none;
+}
+
+.modal-panel::-webkit-scrollbar {
+  display: none;
+}
+
+.recipe-modal.is-open .modal-panel {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.recipe-modal.is-closing .modal-panel {
+  opacity: 0;
+  transform: scale(0.88);
+}
+
+.recipe-modal.is-closing .modal-overlay {
+  opacity: 0;
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 34px;
+  height: 34px;
+  background: rgba(250, 248, 242, 0.9);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  z-index: 10;
+  transition: background 0.2s;
+}
+
+.modal-close:hover {
+  background: var(--dark);
+}
+
+.modal-close span {
+  display: block;
+  width: 13px;
+  height: 1.5px;
+  background: var(--dark);
+  transition: background 0.2s;
+}
+
+.modal-close:hover span {
+  background: var(--white);
+}
+
+.modal-close span:first-child {
+  transform: rotate(45deg) translate(2px, 2px);
+}
+
+.modal-close span:last-child {
+  transform: rotate(-45deg) translate(2px, -2px);
+}
+
+.modal-photo {
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  grid-row: 1;
+  position: sticky;
+  top: 0;
+}
+
+.modal-content {
+  padding: 0;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.modal-content::-webkit-scrollbar {
+  display: none;
+}
+
+.modal-body {
+  padding: 36px 32px 40px;
+}
+
+.modal-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.modal-time {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--grey);
+  font-weight: 500;
+}
+
+.modal-title {
+  font-family: 'Averia Serif Libre', serif;
+  font-style: italic;
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 700;
+  color: var(--dark);
+  line-height: 1.1;
+  margin-bottom: 10px;
+  letter-spacing: -0.01em;
+}
+
+.modal-description {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--grey);
+  font-weight: 400;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--line-colour);
+  margin-bottom: 24px;
+}
+
+.modal-section-title {
+  font-family: 'Averia Serif Libre', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+
+.ingredients-list {
+  list-style: none;
+  margin-bottom: 28px;
+}
+
+.ingredients-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  color: var(--dark);
+  font-weight: 400;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--line-colour);
+  line-height: 1.4;
+}
+
+.ingredients-list li::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+  flex-shrink: 0;
+}
+
+.steps-list {
+  list-style: none;
+  margin-bottom: 28px;
+}
+
+.steps-list li {
+  display: flex;
+  gap: 14px;
+  font-size: 15px;
+  color: var(--dark);
+  font-weight: 400;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line-colour);
+  line-height: 1.7;
+}
+
+.step-number {
+  font-family: 'Averia Serif Libre', serif;
+  font-style: italic;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--orange);
+  flex-shrink: 0;
+  line-height: 1.3;
+  width: 22px;
+}
+
+.modal-cta {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  background: var(--green);
+  color: var(--white);
+  font-family: 'Rubik', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  font-weight: 600;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.2s;
+  margin-top: 8px;
+}
+
+.modal-cta:hover {
+  background: var(--orange);
+}
+
+
+/* =============================================================
+   RESPONSIVE — MOBILE
+   ============================================================= */
+@media (max-width: 900px) {
+
+  .menu-header {
+    padding: calc(69px + 48px) 24px 40px;
+  }
+
+  .filter-bar {
+    padding: 20px 24px;
+    flex-wrap: wrap;
+  }
+
+  .menu-grid-wrapper {
+    padding: 36px 24px 60px;
+  }
+
+  .menu-recipes-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .modal-panel {
+    grid-template-columns: 1fr;
+    max-height: 92vh;
+  }
+
+  .modal-photo {
+    min-height: 220px;
+    position: relative;
+  }
+
+  .modal-body {
+    padding: 24px 20px 32px;
+  }
+}

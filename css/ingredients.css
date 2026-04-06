@@ -1,0 +1,727 @@
+/* =============================================================
+   AVOCADO BEAN — ingredients.css
+   Styles specific to ingredients.html only.
+   Requires: css/style.css
+   Bootstrap handles the ingredient category card grid.
+   ============================================================= */
+
+
+/* =============================================================
+   PAGE HEADER
+   ============================================================= */
+.ingredients-header {
+  padding: calc(69px + 80px) 52px 72px;
+  background: var(--white);
+  border-bottom: 1px solid var(--line-colour);
+}
+
+.ingredients-header-inner {
+  max-width: 640px;
+}
+
+.ingredients-page-title {
+  font-family: 'Averia Serif Libre', serif;
+  font-weight: 700;
+  font-size: clamp(52px, 7vw, 88px);
+  line-height: 0.95;
+  color: var(--dark);
+  letter-spacing: -0.02em;
+  margin: 16px 0 24px;
+}
+
+.ingredients-page-title em {
+  font-style: italic;
+  color: var(--green);
+}
+
+.ingredients-page-description {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--grey);
+  font-weight: 400;
+  max-width: 520px;
+}
+
+
+/* =============================================================
+   INGREDIENT CATEGORIES — Bootstrap cards
+   ============================================================= */
+.categories-section {
+  background: var(--cream);
+  padding: 80px 52px;
+}
+
+.categories-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.categories-header {
+  margin-bottom: 52px;
+}
+
+.ingredient-card {
+  background: var(--white);
+  border-radius: 6px;
+  padding: 36px 28px;
+  height: 100%;
+  border: 1px solid var(--line-colour);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ingredient-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--card-shadow);
+}
+
+.ingredient-card-icon {
+  font-size: 36px;
+  margin-bottom: 20px;
+  line-height: 1;
+}
+
+.ingredient-card-title {
+  font-family: 'Averia Serif Libre', serif;
+  font-style: italic;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.ingredient-card-description {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--grey);
+  font-weight: 400;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--line-colour);
+}
+
+.ingredient-card-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ingredient-card-list li {
+  font-size: 13px;
+  color: var(--dark);
+  font-weight: 500;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--line-colour);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ingredient-card-list li:last-child {
+  border-bottom: none;
+}
+
+.ingredient-card-list li::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--green);
+  flex-shrink: 0;
+}
+
+
+/* =============================================================
+   SUPPLIERS SECTION
+   ============================================================= */
+.suppliers-section {
+  background: var(--dark);
+  padding: 80px 52px;
+  position: relative;
+  isolation: isolate;
+}
+
+.suppliers-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.suppliers-header {
+  margin-bottom: 56px;
+}
+
+.suppliers-label {
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(250, 248, 242, 0.4);
+  font-weight: 600;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.suppliers-label::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 1px;
+  background: rgba(250, 248, 242, 0.4);
+}
+
+.suppliers-heading {
+  font-family: 'Averia Serif Libre', serif;
+  font-style: italic;
+  font-size: clamp(36px, 4.5vw, 56px);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.suppliers-heading em {
+  color: var(--yellow);
+  font-style: normal;
+}
+
+.suppliers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: rgba(250, 248, 242, 0.08);
+}
+
+.supplier-card {
+  background: var(--dark);
+  padding: 40px 36px;
+  transition: background 0.2s;
+}
+
+.supplier-card:hover {
+  background: rgba(250, 248, 242, 0.04);
+}
+
+.supplier-location {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.supplier-name {
+  font-family: 'Averia Serif Libre', serif;
+  font-style: italic;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+
+.supplier-text {
+  font-size: 14px;
+  line-height: 1.8;
+  color: rgba(250, 248, 242, 0.65);
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.supplier-tag {
+  display: inline-block;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--green);
+  border: 1px solid rgba(74, 107, 66, 0.4);
+  padding: 4px 12px;
+  border-radius: 2px;
+}
+
+
+/* =============================================================
+   DIETARY PREFERENCES FORM
+   ============================================================= */
+.preferences-section {
+  background: var(--white);
+  padding: 80px 52px;
+}
+
+.preferences-inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.preferences-header {
+  margin-bottom: 52px;
+}
+
+.preferences-description {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--grey);
+  margin-top: 16px;
+}
+
+.preferences-form {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-label {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--dark);
+}
+
+.form-required {
+  color: var(--orange);
+}
+
+.form-hint {
+  font-size: 12px;
+  color: var(--grey);
+  margin: 0;
+  font-weight: 400;
+}
+
+.form-input {
+  font-family: 'Rubik', sans-serif;
+  font-size: 14px;
+  color: var(--dark);
+  background: var(--cream);
+  border: 1.5px solid var(--line-colour);
+  border-radius: 3px;
+  padding: 12px 16px;
+  outline: none;
+  transition: border-color 0.2s;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form-input:focus {
+  border-color: var(--green);
+  background: var(--white);
+}
+
+.form-input.has-error {
+  border-color: var(--orange);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.form-select {
+  appearance: none;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237a6e62' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 40px;
+}
+
+.form-error {
+  font-size: 12px;
+  color: var(--orange);
+  font-weight: 500;
+  min-height: 18px;
+}
+
+.form-char-count {
+  font-size: 11px;
+  color: var(--grey);
+  text-align: right;
+  margin-top: 4px;
+}
+
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--dark);
+  font-weight: 500;
+  cursor: pointer;
+  padding: 10px 14px;
+  border: 1.5px solid var(--line-colour);
+  border-radius: 3px;
+  transition: border-color 0.2s, background 0.2s;
+  user-select: none;
+}
+
+.checkbox-label:hover {
+  border-color: var(--green);
+}
+
+.checkbox-label input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.checkbox-box {
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid var(--grey);
+  border-radius: 2px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+}
+
+.checkbox-label input[type="checkbox"]:checked~.checkbox-box {
+  background: var(--green);
+  border-color: var(--green);
+}
+
+.checkbox-label input[type="checkbox"]:checked~.checkbox-box::after {
+  content: '';
+  width: 9px;
+  height: 5px;
+  border-left: 2px solid var(--white);
+  border-bottom: 2px solid var(--white);
+  transform: rotate(-45deg) translateY(-1px);
+  display: block;
+}
+
+.checkbox-label:has(input:checked) {
+  border-color: var(--green);
+  background: rgba(74, 107, 66, 0.06);
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px;
+  border: 1.5px solid var(--line-colour);
+  border-radius: 3px;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  user-select: none;
+}
+
+.radio-label:hover {
+  border-color: var(--green);
+}
+
+.radio-label input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.radio-box {
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid var(--grey);
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+}
+
+.radio-label input[type="radio"]:checked~.radio-box {
+  border-color: var(--green);
+}
+
+.radio-label input[type="radio"]:checked~.radio-box::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--green);
+  display: block;
+}
+
+.radio-label:has(input:checked) {
+  border-color: var(--green);
+  background: rgba(74, 107, 66, 0.06);
+}
+
+.radio-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.radio-text strong {
+  font-size: 14px;
+  color: var(--dark);
+  font-weight: 600;
+}
+
+.radio-text span {
+  font-size: 12px;
+  color: var(--grey);
+  font-weight: 400;
+}
+
+.form-submit-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-top: 8px;
+}
+
+.form-submit-btn {
+  font-family: 'Rubik', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 15px 36px;
+  background: var(--green);
+  color: var(--white);
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.form-submit-btn:hover {
+  background: var(--orange);
+  transform: translateY(-1px);
+}
+
+.form-submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.form-privacy {
+  font-size: 12px;
+  color: var(--grey);
+  font-weight: 400;
+  margin: 0;
+}
+
+.form-success {
+  display: none;
+  text-align: center;
+  padding: 48px 40px;
+  background: rgba(74, 107, 66, 0.06);
+  border: 1px solid rgba(74, 107, 66, 0.2);
+  border-radius: 6px;
+}
+
+.form-success.is-visible {
+  display: block;
+}
+
+.form-success-icon {
+  width: 52px;
+  height: 52px;
+  background: var(--green);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  margin: 0 auto 20px;
+}
+
+.form-success-title {
+  font-family: 'Averia Serif Libre', serif;
+  font-style: italic;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 10px;
+}
+
+.form-success-text {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--grey);
+  margin: 0;
+}
+
+
+/* =============================================================
+   CTA FINAL SECTION
+   ============================================================= */
+.ingredients-cta-section {
+  background: var(--dark);
+  padding: 100px 52px;
+  text-align: center;
+  position: relative;
+  isolation: isolate;
+}
+
+.ingredients-cta-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.ingredients-cta-label {
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(250, 248, 242, 0.4);
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.ingredients-cta-heading {
+  font-family: 'Averia Serif Libre', serif;
+  font-style: italic;
+  font-size: clamp(40px, 5vw, 60px);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+
+.ingredients-cta-heading em {
+  color: var(--yellow);
+  font-style: normal;
+}
+
+.ingredients-cta-description {
+  font-size: 16px;
+  color: rgba(250, 248, 242, 0.6);
+  margin-bottom: 36px;
+}
+
+.ingredients-cta-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* =============================================================
+   BOOTSTRAP OVERRIDES
+   ============================================================= */
+.top-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ingredient-card-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.ingredient-card-list li {
+  padding: 7px 0;
+  margin: 0;
+}
+
+.categories-section .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.form-input,
+.form-textarea,
+.form-select {
+  box-sizing: border-box;
+  font-family: 'Rubik', sans-serif;
+}
+
+
+/* =============================================================
+   RESPONSIVE — MOBILE
+   ============================================================= */
+@media (max-width: 900px) {
+
+  .ingredients-header {
+    padding: calc(69px + 48px) 24px 48px;
+  }
+
+  .categories-section {
+    padding: 56px 24px;
+  }
+
+  .suppliers-section {
+    padding: 56px 24px;
+  }
+
+  .suppliers-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .supplier-card {
+    padding: 32px 24px;
+  }
+
+  .preferences-section {
+    padding: 56px 24px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .checkbox-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .form-submit-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .ingredients-cta-section {
+    padding: 72px 24px;
+  }
+
+  .ingredients-cta-buttons {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .checkbox-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -125,15 +125,22 @@ document.addEventListener('DOMContentLoaded', () => {
       const opacity = (0.07 + Math.random() * 0.08).toFixed(2);
       const scale = (0.7 + Math.random() * 0.6).toFixed(2);
 
-      let x, y, attempts = 0, tooClose;
+      const centerX = sectionWidth / 2;
+      const centerY = sectionHeight / 2;
+      const exclusionW = sectionWidth * 0.45;
+      const exclusionH = sectionHeight * 0.55;
+
+      let x, y, attempts = 0, tooClose, inCenter;
       do {
         x = edgeMargin + Math.random() * (sectionWidth - edgeMargin * 2);
         y = edgeMargin + Math.random() * (sectionHeight - edgeMargin * 2);
         tooClose = placedPositions.some(pos =>
           Math.hypot(pos.x - x, pos.y - y) < iconSize * 2.4
         );
+        inCenter = Math.abs(x - centerX) < exclusionW / 2 &&
+          Math.abs(y - centerY) < exclusionH / 2;
         attempts++;
-      } while (tooClose && attempts < 30);
+      } while ((tooClose || inCenter) && attempts < 40);
 
       placedPositions.push({ x, y });
 

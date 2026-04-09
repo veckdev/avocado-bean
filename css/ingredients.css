@@ -6,23 +6,41 @@
    ============================================================= */
 
 
+
 /* =============================================================
-   PAGE HEADER
+   PAGE HEADER — layout C (photo left, text right)
    ============================================================= */
 .ingredients-header {
-  padding: calc(69px + 80px) 52px 72px;
+  padding-top: 69px;
   background: var(--white);
   border-bottom: 1px solid var(--line-colour);
+  overflow: hidden;
 }
 
-.ingredients-header-inner {
-  max-width: 640px;
+.ingredients-hero-wrapper {
+  display: grid;
+  grid-template-columns: 48% 52%;
+  min-height: calc(100vh - 69px);
+}
+
+/* LEFT — full-bleed photo */
+.ingredients-hero-photo {
+  background: url('../images/dishes/img-plantation.jpg') center / cover;
+}
+
+/* RIGHT — text content */
+.ingredients-hero-content {
+  padding: calc(60px + 69px) 56px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-left: 1px solid var(--line-colour);
 }
 
 .ingredients-page-title {
   font-family: 'Averia Serif Libre', serif;
   font-weight: 700;
-  font-size: clamp(52px, 7vw, 88px);
+  font-size: clamp(44px, 5vw, 72px);
   line-height: 0.95;
   color: var(--dark);
   letter-spacing: -0.02em;
@@ -39,9 +57,8 @@
   line-height: 1.8;
   color: var(--grey);
   font-weight: 400;
-  max-width: 520px;
+  max-width: 420px;
 }
-
 
 /* =============================================================
    INGREDIENT CATEGORIES — Bootstrap cards
@@ -637,6 +654,52 @@
 
 
 /* =============================================================
+   BOOTSTRAP OVERRIDES — stats row inside ingredients header
+   ============================================================= */
+.ingredients-hero-content .hero-stats-row {
+  display: flex;
+  border-top: 1px solid var(--line-colour);
+  margin-top: 40px;
+  padding-top: 28px;
+}
+
+.ingredients-hero-content .stat-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.ingredients-hero-content .stat-item:not(:last-child) {
+  padding-right: 24px;
+  border-right: 1px solid var(--line-colour);
+  margin-right: 0;
+}
+
+.ingredients-hero-content .stat-item:not(:first-child) {
+  padding-left: 24px;
+}
+
+.ingredients-hero-content .stat-number {
+  font-family: 'Averia Serif Libre', serif;
+  font-style: italic;
+  font-size: 34px;
+  color: var(--orange);
+  line-height: 1;
+  font-weight: 700;
+  display: block;
+}
+
+.ingredients-hero-content .stat-label {
+  font-size: 12px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--grey);
+  margin-top: 5px;
+  font-weight: 500;
+  display: block;
+}
+
+/* =============================================================
    BOOTSTRAP OVERRIDES
    ============================================================= */
 .top-nav ul {
@@ -674,8 +737,18 @@
    ============================================================= */
 @media (max-width: 900px) {
 
-  .ingredients-header {
-    padding: calc(69px + 48px) 24px 48px;
+  .ingredients-hero-wrapper {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .ingredients-hero-photo {
+    min-height: 280px;
+  }
+
+  .ingredients-hero-content {
+    padding: 48px 24px 48px;
+    gap: 40px;
   }
 
   .categories-section {

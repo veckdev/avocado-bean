@@ -60,7 +60,7 @@
   background: var(--white);
   border-bottom: 1px solid var(--line-colour);
   position: sticky;
-  top: 69px;
+  top: 68px;
   z-index: 100;
 }
 
@@ -185,14 +185,6 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: 10px;
-}
-
-.menu-card-time {
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--grey);
-  font-weight: 500;
 }
 
 .menu-card-title {

@@ -88,7 +88,7 @@
    ============================================================= */
 .how-section {
   background: var(--cream);
-  padding: 100px 52px;
+  padding: 80px 52px;
 }
 
 .how-inner {
@@ -153,7 +153,7 @@
    ============================================================= */
 .values-section {
   background: var(--white);
-  padding: 100px 52px;
+  padding: 80px 52px;
 }
 
 .values-inner {
@@ -216,7 +216,7 @@
    ============================================================= */
 .about-cta-section {
   background: var(--dark);
-  padding: 120px 52px;
+  padding: 100px 52px;
   text-align: center;
   position: relative;
   isolation: isolate;

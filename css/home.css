@@ -169,18 +169,33 @@
 
 .view-all-link {
   font-size: 11px;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
-  color: var(--green);
+  color: var(--dark);
   font-weight: 600;
-  border-bottom: 0.5px solid var(--green);
-  padding-bottom: 3px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   transition: color 0.2s;
 }
 
-.view-all-link:hover {
-  color: var(--orange);
-  border-color: var(--orange);
+.view-all-link::after {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background-color: var(--orange);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Crect x='9' y='4' width='2' height='12' fill='%23faf8f2'/%3E%3Crect x='4' y='9' width='12' height='2' fill='%23faf8f2'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: transform 0.2s ease;
+}
+
+.view-all-link:hover::after {
+  transform: rotate(90deg) scale(1.1);
 }
 
 .recipes-grid {
@@ -248,21 +263,34 @@
 }
 
 .see-recipe-link {
-  font-size: 12px;
-  letter-spacing: 0.10em;
+  font-size: 11px;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
-  color: var(--green);
+  color: var(--dark);
   font-weight: 600;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
-  gap: 4px;
-  transition: color 0.2s, gap 0.2s;
+  gap: 10px;
+  transition: color 0.2s;
 }
 
-.see-recipe-link:hover {
-  color: var(--orange);
-  gap: 8px;
+.see-recipe-link::after {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background-color: var(--orange);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Crect x='9' y='4' width='2' height='12' fill='%23faf8f2'/%3E%3Crect x='4' y='9' width='12' height='2' fill='%23faf8f2'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: transform 0.2s ease;
+}
+
+.see-recipe-link:hover::after {
+  transform: rotate(90deg) scale(1.1);
 }
 
 
@@ -374,7 +402,7 @@
 }
 
 .about-text {
-  padding: 72px 56px;
+  padding: 72px 52px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -427,22 +455,34 @@
 .about-read-more {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  font-size: 12px;
-  letter-spacing: 0.12em;
+  gap: 10px;
+  font-size: 11px;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
-  color: var(--green);
+  color: var(--dark);
   margin-top: 22px;
-  border-bottom: 0.5px solid var(--green);
-  padding-bottom: 3px;
   width: fit-content;
   font-weight: 600;
-  transition: color 0.2s, border-color 0.2s;
+  text-decoration: none;
+  transition: color 0.2s;
 }
 
-.about-read-more:hover {
-  color: var(--orange);
-  border-color: var(--orange);
+.about-read-more::after {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background-color: var(--orange);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Crect x='9' y='4' width='2' height='12' fill='%23faf8f2'/%3E%3Crect x='4' y='9' width='12' height='2' fill='%23faf8f2'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: transform 0.2s ease;
+}
+
+.about-read-more:hover::after {
+  transform: rotate(90deg) scale(1.1);
 }
 
 
@@ -570,7 +610,7 @@
   }
 
   .hero-content {
-    padding: calc(57px + 32px) 24px 40px;
+    padding: 100px 24px 40px;
   }
 
   .hero-heading {
@@ -579,13 +619,6 @@
 
   .recipes-section {
     padding: 48px 24px;
-  }
-
-  .recipes-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-    margin-bottom: 28px;
   }
 
   .recipes-grid {
@@ -616,10 +649,6 @@
 
   .ingredients-preview-section {
     padding: 48px 24px;
-  }
-
-  .ingredients-preview-inner {
-    gap: 28px;
   }
 
   .ingredients-preview-stats {

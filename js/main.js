@@ -73,6 +73,12 @@ document.addEventListener('DOMContentLoaded', () => {
       elementsToReveal.forEach(el => el.classList.add('is-visible'));
     } else {
 
+      /* Cards get dynamic stagger delay based on column position */
+      const cardSelectors = '.recipe-card, .menu-recipe-card, .ingredient-card, .value-card, .supplier-card';
+      const cards = document.querySelectorAll(cardSelectors);
+      cards.forEach(card => card.dataset.isCard = 'true');
+
+      /* Observer for regular (non-card) elements */
       const revealWatcher = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -86,7 +92,36 @@ document.addEventListener('DOMContentLoaded', () => {
         rootMargin: '0px 0px -60px 0px'
       });
 
-      elementsToReveal.forEach(el => revealWatcher.observe(el));
+      /* Observer for cards — stagger by column index */
+      const cardWatcher = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const card = entry.target;
+            const allCards = Array.from(document.querySelectorAll(cardSelectors));
+            const visibleInRow = allCards.filter(c => {
+              const r = c.getBoundingClientRect();
+              const cardR = card.getBoundingClientRect();
+              return Math.abs(r.top - cardR.top) < 40;
+            });
+            const colIndex = visibleInRow.indexOf(card);
+            card.style.transitionDelay = colIndex * 0.08 + 's';
+            card.classList.add('is-visible');
+            cardWatcher.unobserve(card);
+          }
+        });
+      }, {
+        root: null,
+        threshold: 0,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      elementsToReveal.forEach(el => {
+        if (el.dataset.isCard === 'true') {
+          cardWatcher.observe(el);
+        } else {
+          revealWatcher.observe(el);
+        }
+      });
     }
   }
 
@@ -727,7 +762,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <ul class="ingredients-list">${ingredientsHTML}</ul>
             <h3 class="modal-section-title">How to make it</h3>
             <ol class="steps-list">${stepsHTML}</ol>
-            <a href="contact.html" class="modal-cta">Order ingredients →</a>
+            <a href="contact.html" class="modal-cta">Order ingredients</a>
           </div>
         </div>
       `;

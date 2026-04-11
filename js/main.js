@@ -68,19 +68,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (elementsToReveal.length > 0) {
 
-    const revealWatcher = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          revealWatcher.unobserve(entry.target);
-        }
-      });
-    }, {
-      root: null,      /* null = watch the browser viewport (window scroll) */
-      threshold: 0.15
-    });
+    /* If user prefers reduced motion, skip animation entirely */
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      elementsToReveal.forEach(el => el.classList.add('is-visible'));
+    } else {
 
-    elementsToReveal.forEach(el => revealWatcher.observe(el));
+      const revealWatcher = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            revealWatcher.unobserve(entry.target);
+          }
+        });
+      }, {
+        root: null,
+        threshold: 0,
+        rootMargin: '0px 0px -60px 0px'
+      });
+
+      elementsToReveal.forEach(el => revealWatcher.observe(el));
+    }
   }
 
 

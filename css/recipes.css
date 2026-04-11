@@ -70,9 +70,9 @@
   letter-spacing: 0.12em;
   text-transform: uppercase;
   font-weight: 600;
-  padding: 9px 18px;
+  padding: 9px 20px;
   border: 1px solid var(--line-colour);
-  border-radius: 5px;
+  border-radius: 20px;
   background: transparent;
   color: var(--grey);
   cursor: pointer;
@@ -602,16 +602,16 @@
 .modal-cta {
   display: block;
   width: 100%;
-  padding: 14px;
+  padding: 15px;
   background: var(--green);
   color: var(--white);
   font-family: 'Rubik', sans-serif;
-  font-size: 11px;
-  letter-spacing: 0.13em;
+  font-size: 12px;
+  letter-spacing: 0.11em;
   text-transform: uppercase;
   font-weight: 600;
   border: none;
-  border-radius: 5px;
+  border-radius: 2px;
   cursor: pointer;
   text-align: center;
   text-decoration: none;
@@ -630,12 +630,27 @@
 @media (max-width: 900px) {
 
   .menu-header {
-    padding: calc(69px + 48px) 24px 40px;
+    padding: calc(57px + 32px) 24px 36px;
   }
 
   .filter-bar {
-    padding: 20px 24px;
+    padding: 16px 24px;
     flex-wrap: wrap;
+    top: 57px;
+    gap: 8px;
+  }
+
+  .search-wrapper {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .recipe-search {
+    width: 100%;
+  }
+
+  .recipe-search:focus {
+    width: 100%;
   }
 
   .menu-grid-wrapper {
@@ -660,4 +675,4 @@
   .modal-body {
     padding: 24px 20px 32px;
   }
-}
+}ﬁ

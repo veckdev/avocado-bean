@@ -570,7 +570,7 @@
   }
 
   .hero-content {
-    padding: 100px 24px 40px;
+    padding: calc(57px + 32px) 24px 40px;
   }
 
   .hero-heading {
@@ -579,6 +579,13 @@
 
   .recipes-section {
     padding: 48px 24px;
+  }
+
+  .recipes-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 28px;
   }
 
   .recipes-grid {
@@ -609,6 +616,10 @@
 
   .ingredients-preview-section {
     padding: 48px 24px;
+  }
+
+  .ingredients-preview-inner {
+    gap: 28px;
   }
 
   .ingredients-preview-stats {

@@ -522,15 +522,15 @@
 
 .form-submit-btn {
   font-family: 'Rubik', sans-serif;
-  font-size: 13px;
-  letter-spacing: 0.11em;
+  font-size: 11px;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
   font-weight: 600;
-  padding: 15px 36px;
+  padding: 14px 34px;
   background: var(--green);
   color: var(--white);
   border: none;
-  border-radius: 2px;
+  border-radius: 5px;
   cursor: pointer;
   transition: background 0.2s, transform 0.15s;
 }

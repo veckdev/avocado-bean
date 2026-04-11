@@ -189,14 +189,14 @@ button {
 }
 
 .nav-cta-button {
-  font-size: 13px;
-  letter-spacing: 0.09em;
+  font-size: 11px;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  padding: 12px 26px;
+  padding: 10px 22px;
   background: var(--green);
   color: var(--white);
   border: none;
-  border-radius: 2px;
+  border-radius: 5px;
   font-weight: 600;
   transition: background 0.2s, transform 0.15s;
 }
@@ -280,16 +280,17 @@ button {
    BUTTONS
    ============================================================= */
 .main-button {
-  padding: 13px 30px;
+  padding: 13px 28px;
   background: var(--dark);
   color: var(--white);
-  font-size: 13px;
-  letter-spacing: 0.11em;
+  font-size: 11px;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
   border: none;
-  border-radius: 2px;
+  border-radius: 5px;
   font-weight: 600;
   transition: background 0.2s, transform 0.15s;
+  display: inline-block;
 }
 
 .main-button:hover {
@@ -302,10 +303,12 @@ button {
   color: var(--grey);
   background: none;
   border: none;
-  text-decoration: underline;
-  text-underline-offset: 5px;
-  font-weight: 300;
+  text-decoration: none;
+  font-weight: 400;
   transition: color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .text-button:hover {
@@ -313,16 +316,17 @@ button {
 }
 
 .outline-button {
-  padding: 11px 24px;
+  padding: 12px 24px;
   background: transparent;
   color: var(--white);
-  font-size: 10px;
-  letter-spacing: 0.12em;
+  font-size: 11px;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
-  border: 1px solid rgba(250, 248, 242, 0.4);
-  border-radius: 2px;
-  font-weight: 500;
+  border: 1.5px solid rgba(250, 248, 242, 0.4);
+  border-radius: 5px;
+  font-weight: 600;
   transition: all 0.2s;
+  display: inline-block;
 }
 
 .outline-button:hover {

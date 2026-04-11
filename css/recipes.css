@@ -70,9 +70,9 @@
   letter-spacing: 0.12em;
   text-transform: uppercase;
   font-weight: 600;
-  padding: 9px 20px;
+  padding: 9px 18px;
   border: 1px solid var(--line-colour);
-  border-radius: 20px;
+  border-radius: 5px;
   background: transparent;
   color: var(--grey);
   cursor: pointer;
@@ -602,16 +602,16 @@
 .modal-cta {
   display: block;
   width: 100%;
-  padding: 15px;
+  padding: 14px;
   background: var(--green);
   color: var(--white);
   font-family: 'Rubik', sans-serif;
-  font-size: 12px;
-  letter-spacing: 0.11em;
+  font-size: 11px;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
   font-weight: 600;
   border: none;
-  border-radius: 2px;
+  border-radius: 5px;
   cursor: pointer;
   text-align: center;
   text-decoration: none;

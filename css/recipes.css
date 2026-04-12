@@ -258,6 +258,16 @@
   border-radius: 10px;
 }
 
+.difficulty-easy,
+.difficulty-medium,
+.difficulty-hard {
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  font-weight: 500;
+  padding: 3px 8px;
+  border-radius: 10px;
+}
+
 .difficulty-easy {
   background: rgba(74, 107, 66, 0.12);
   color: var(--green);

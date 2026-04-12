@@ -5,14 +5,12 @@
    pills, reveal animations, and shared responsive rules.
    ============================================================= */
 
-
 /* =============================================================
    FONTS
    - Averia Serif Libre: headings and titles
    - Rubik: body text, nav links, buttons
    ============================================================= */
 @import url('https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
-
 
 /* =============================================================
    COLOUR PALETTE
@@ -29,7 +27,6 @@
   --line-colour: rgba(42, 34, 24, 0.09);
   --card-shadow: 0 20px 60px rgba(42, 34, 24, 0.10);
 }
-
 
 /* =============================================================
    RESET
@@ -70,9 +67,8 @@ button {
   font-family: 'Rubik', sans-serif;
 }
 
-
 /* =============================================================
-   PAGE SCROLLER
+   PAGE SCROLLER — used by index.html scroll-snap layout
    ============================================================= */
 .page-scroller {
   overflow-y: auto;
@@ -206,7 +202,6 @@ button {
   transform: translateY(-1px);
 }
 
-
 /* =============================================================
    SHARED SECTION HEADING STYLES
    ============================================================= */
@@ -239,7 +234,6 @@ button {
   line-height: 1.05;
   letter-spacing: -0.01em;
 }
-
 
 /* =============================================================
    CATEGORY PILLS / BADGES
@@ -275,7 +269,6 @@ button {
   background: var(--dark);
 }
 
-
 /* =============================================================
    BUTTONS
    ============================================================= */
@@ -298,53 +291,6 @@ button {
   transform: translateY(-1px);
 }
 
-.text-button {
-  font-size: 13px;
-  color: var(--grey);
-  background: none;
-  border: none;
-  text-decoration: none;
-  font-weight: 400;
-  transition: color 0.2s;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.text-button:hover {
-  color: var(--dark);
-}
-
-/* =============================================================
-   CIRCLE-PLUS LINK SYMBOL — option C
-   Adds a terracotta circle with a white + after any link.
-   The + is drawn via a background SVG.
-   ============================================================= */
-.circle-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
-}
-
-.circle-link::after {
-  content: '';
-  display: inline-block;
-  width: 22px;
-  height: 22px;
-  flex-shrink: 0;
-  border-radius: 50%;
-  background-color: var(--orange);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 22'%3E%3Crect x='10' y='5' width='2' height='12' fill='%23faf8f2'/%3E%3Crect x='5' y='10' width='12' height='2' fill='%23faf8f2'/%3E%3C/svg%3E");
-  background-size: contain;
-  background-repeat: no-repeat;
-  transition: transform 0.2s ease;
-}
-
-.circle-link:hover::after {
-  transform: rotate(90deg) scale(1.1);
-}
-
 .outline-button {
   padding: 12px 24px;
   background: transparent;
@@ -363,7 +309,6 @@ button {
   background: rgba(250, 248, 242, 0.12);
   border-color: var(--white);
 }
-
 
 /* =============================================================
    FOOTER
@@ -456,7 +401,6 @@ button {
   color: var(--green);
 }
 
-
 /* =============================================================
    REVEAL ANIMATIONS
    ============================================================= */
@@ -487,7 +431,6 @@ button {
 .reveal-delay-4 {
   transition-delay: 0.4s;
 }
-
 
 /* =============================================================
    RESPONSIVE — MOBILE (shared rules)

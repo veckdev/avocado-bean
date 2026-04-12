@@ -30,7 +30,7 @@
 
 /* RIGHT — text content */
 .ingredients-hero-content {
-  padding: calc(60px + 69px) 56px 60px;
+  padding: calc(60px + 69px) 52px 60px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -79,7 +79,7 @@
 
 .ingredient-card {
   background: var(--white);
-  border-radius: 6px;
+  border-radius: 12px;
   padding: 36px 28px;
   height: 100%;
   border: 1px solid var(--line-colour);
@@ -601,7 +601,7 @@
    ============================================================= */
 .ingredients-cta-section {
   background: var(--dark);
-  padding: 100px 52px;
+  padding: 80px 52px;
   text-align: center;
   position: relative;
   isolation: isolate;
@@ -709,10 +709,32 @@
 /* =============================================================
    BOOTSTRAP OVERRIDES
    ============================================================= */
+.top-nav {
+  padding: 20px 52px !important;
+  min-height: unset !important;
+  height: auto !important;
+}
+
+.top-nav.is-scrolled {
+  padding: 14px 52px !important;
+}
+
 .top-nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
+  flex-direction: row !important;
+  gap: 32px !important;
+}
+
+.top-nav li {
+  margin: 0;
+  padding: 0;
+}
+
+.nav-cta-button {
+  line-height: 1 !important;
+  padding: 11px 22px !important;
 }
 
 .ingredient-card-list {

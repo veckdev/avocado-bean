@@ -4,29 +4,27 @@
    Requires: css/style.css
    ============================================================= */
 
-
 /* =============================================================
    PAGE BODY
    ============================================================= */
-.menu-page {
+.recipes-page {
   background: var(--cream);
 }
-
 
 /* =============================================================
    PAGE HEADER
    ============================================================= */
-.menu-header {
+.recipes-header {
   padding: calc(100px + 40px) 52px 40px;
   background: var(--white);
   border-bottom: 1px solid var(--line-colour);
 }
 
-.menu-header-inner {
+.recipes-header-inner {
   max-width: 600px;
 }
 
-.menu-page-title {
+.recipes-page-title {
   font-family: 'Averia Serif Libre', serif;
   font-weight: 700;
   font-size: clamp(52px, 7vw, 88px);
@@ -36,19 +34,18 @@
   margin: 16px 0 24px;
 }
 
-.menu-page-title em {
+.recipes-page-title em {
   font-style: italic;
   color: var(--green);
 }
 
-.menu-page-description {
+.recipes-page-description {
   font-size: 16px;
   line-height: 1.8;
   color: var(--grey);
   font-weight: 400;
   max-width: 480px;
 }
-
 
 /* =============================================================
    FILTER BAR
@@ -90,29 +87,27 @@
   color: var(--white);
 }
 
-
 /* =============================================================
    RECIPES GRID
    ============================================================= */
-.menu-grid-wrapper {
+.recipes-grid-wrapper {
   padding: 48px 52px 80px;
 }
 
-.menu-recipes-grid {
+.recipes-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 32px;
 }
 
-.menu-recipe-card.is-hidden {
+.recipe-card.is-hidden {
   display: none;
 }
-
 
 /* =============================================================
    RECIPE CARD
    ============================================================= */
-.menu-recipe-card {
+.recipe-card {
   background: var(--white);
   border-radius: 12px;
   overflow: hidden;
@@ -123,18 +118,18 @@
     box-shadow 0.35s ease;
 }
 
-.menu-recipe-card:hover {
+.recipe-card:hover {
   transform: translateY(-6px);
   box-shadow: var(--card-shadow);
 }
 
-.menu-card-photo {
+.recipe-card-photo {
   height: 260px;
   overflow: hidden;
   position: relative;
 }
 
-.menu-card-photo img {
+.recipe-card-photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -143,27 +138,25 @@
   display: block;
 }
 
-.menu-recipe-card:hover .menu-card-photo img {
+.recipe-card:hover .recipe-card-photo img {
   transform: scale(1.05);
 }
 
-
-
-.menu-card-body {
+.recipe-card-body {
   padding: 22px 22px 0;
   display: flex;
   flex-direction: column;
   flex: 1;
 }
 
-.menu-card-top {
+.recipe-card-meta {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 10px;
 }
 
-.menu-card-title {
+.recipe-card-title {
   font-family: 'Averia Serif Libre', serif;
   font-style: italic;
   font-size: 22px;
@@ -173,7 +166,7 @@
   font-weight: 700;
 }
 
-.menu-card-description {
+.recipe-card-description {
   font-size: 14px;
   line-height: 1.75;
   color: var(--grey);
@@ -181,7 +174,7 @@
   flex: 1;
 }
 
-.menu-card-button {
+.recipe-card-button {
   font-family: 'Rubik', sans-serif;
   font-size: 11px;
   letter-spacing: 0.13em;
@@ -201,7 +194,7 @@
   transition: color 0.2s;
 }
 
-.menu-card-button::after {
+.recipe-card-button::after {
   content: '';
   display: inline-block;
   width: 20px;
@@ -215,10 +208,9 @@
   transition: transform 0.2s ease;
 }
 
-.menu-card-button:hover::after {
+.recipe-card-button:hover::after {
   transform: rotate(90deg) scale(1.1);
 }
-
 
 /* =============================================================
    SEARCH BAR
@@ -250,11 +242,10 @@
   color: var(--grey);
 }
 
-
 /* =============================================================
    BADGES — time, serves, difficulty
    ============================================================= */
-.menu-card-badges {
+.recipe-card-badges {
   display: flex;
   gap: 6px;
   align-items: center;
@@ -273,13 +264,6 @@
 
 .difficulty-easy,
 .difficulty-medium,
-.difficulty-hard {
-  font-size: 11px;
-  letter-spacing: 0.06em;
-  font-weight: 600;
-  padding: 3px 8px;
-  border-radius: 10px;
-}
 
 .difficulty-easy {
   background: rgba(74, 107, 66, 0.12);
@@ -290,12 +274,6 @@
   background: rgba(200, 146, 42, 0.15);
   color: var(--yellow);
 }
-
-.difficulty-hard {
-  background: rgba(184, 92, 42, 0.12);
-  color: var(--orange);
-}
-
 
 /* =============================================================
    INGREDIENT PREVIEW TAGS
@@ -318,7 +296,6 @@
   padding: 4px 10px;
   border-radius: 3px;
 }
-
 
 /* =============================================================
    MODAL — STATS & ALLERGENS
@@ -350,7 +327,6 @@
   padding: 4px 10px;
   border-radius: 3px;
 }
-
 
 /* =============================================================
    RECIPE MODAL
@@ -391,7 +367,7 @@
   max-width: 1000px;
   max-height: 88vh;
   background: var(--white);
-  border-radius: 8px;
+  border-radius: 12px;
   overflow-y: auto;
   overflow-x: hidden;
   display: grid;
@@ -495,14 +471,6 @@
   align-items: center;
   gap: 12px;
   margin-bottom: 14px;
-}
-
-.modal-time {
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--grey);
-  font-weight: 500;
 }
 
 .modal-title {
@@ -612,13 +580,12 @@
   background: var(--orange);
 }
 
-
 /* =============================================================
    RESPONSIVE — MOBILE
    ============================================================= */
 @media (max-width: 900px) {
 
-  .menu-header {
+  .recipes-header {
     padding: calc(57px + 24px) 24px 28px;
   }
 
@@ -642,11 +609,11 @@
     width: 100%;
   }
 
-  .menu-grid-wrapper {
+  .recipes-grid-wrapper {
     padding: 36px 24px 60px;
   }
 
-  .menu-recipes-grid {
+  .recipes-grid {
     grid-template-columns: 1fr;
     gap: 16px;
   }

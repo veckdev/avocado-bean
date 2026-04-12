@@ -4,7 +4,6 @@
    Requires: css/style.css
    ============================================================= */
 
-
 /* =============================================================
    HERO SECTION
    ============================================================= */
@@ -82,7 +81,6 @@
   color: rgba(250, 248, 242, 0.2);
 }
 
-
 /* =============================================================
    OUR STORY SECTION
    ============================================================= */
@@ -98,6 +96,9 @@
 }
 
 .story-label {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
   font-size: 12px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -126,7 +127,7 @@
   margin: 0 auto;
 }
 
-.story-left {
+.story-quote-col {
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -171,7 +172,7 @@
   margin-right: 4px;
 }
 
-.story-right {
+.story-text-col {
   display: flex;
   flex-direction: column;
   gap: 18px;
@@ -184,11 +185,10 @@
   font-weight: 400;
 }
 
-
 /* =============================================================
    HOW IT WORKS SECTION
    ============================================================= */
-.how-section {
+.process-section {
   background: var(--white);
   padding: 80px 52px;
   min-height: 100vh;
@@ -197,29 +197,29 @@
   justify-content: center;
 }
 
-.how-inner {
+.process-inner {
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
 }
 
-.how-header {
+.process-header {
   margin-bottom: 52px;
 }
 
-.how-steps {
+.process-steps {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2px;
   background: var(--line-colour);
 }
 
-.how-step {
+.process-step {
   background: var(--white);
   padding: 40px 32px;
 }
 
-.how-step-number {
+.process-step-number {
   font-family: 'Averia Serif Libre', serif;
   font-style: italic;
   font-size: 52px;
@@ -230,7 +230,7 @@
   letter-spacing: -0.02em;
 }
 
-.how-step-title {
+.process-step-title {
   font-family: 'Averia Serif Libre', serif;
   font-style: italic;
   font-size: 22px;
@@ -240,13 +240,12 @@
   line-height: 1.2;
 }
 
-.how-step-text {
+.process-step-text {
   font-size: 14px;
   line-height: 1.85;
   color: var(--grey);
   font-weight: 400;
 }
-
 
 /* =============================================================
    VALUES SECTION
@@ -268,43 +267,6 @@
 
 .values-header {
   margin-bottom: 40px;
-}
-
-.values-stats {
-  display: flex;
-  border-top: 1px solid var(--line-colour);
-  border-bottom: 1px solid var(--line-colour);
-  margin-bottom: 48px;
-}
-
-.values-stat {
-  flex: 1;
-  padding: 24px 0;
-}
-
-.values-stat:not(:last-child) {
-  padding-right: 24px;
-  border-right: 1px solid var(--line-colour);
-  margin-right: 24px;
-}
-
-.values-stat-number {
-  font-family: 'Averia Serif Libre', serif;
-  font-style: italic;
-  font-size: 32px;
-  font-weight: 700;
-  color: var(--orange);
-  line-height: 1;
-  user-select: none;
-}
-
-.values-stat-label {
-  font-size: 11px;
-  letter-spacing: 0.10em;
-  text-transform: uppercase;
-  color: var(--grey);
-  margin-top: 6px;
-  font-weight: 500;
 }
 
 .values-grid {
@@ -352,13 +314,12 @@
   font-weight: 400;
 }
 
-
 /* =============================================================
    CTA FINAL SECTION
    ============================================================= */
 .about-cta-section {
   background: var(--dark);
-  padding: 100px 52px;
+  padding: 80px 52px;
   text-align: center;
   position: relative;
   isolation: isolate;
@@ -418,7 +379,6 @@
   align-items: center;
 }
 
-
 /* =============================================================
    RESPONSIVE — MOBILE
    ============================================================= */
@@ -448,16 +408,16 @@
     gap: 32px;
   }
 
-  .how-section {
+  .process-section {
     padding: 56px 24px;
     min-height: auto;
   }
 
-  .how-steps {
+  .process-steps {
     grid-template-columns: 1fr;
   }
 
-  .how-step {
+  .process-step {
     padding: 28px 24px;
   }
 

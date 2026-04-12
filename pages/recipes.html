@@ -13,6 +13,7 @@
 
     <meta property="og:title" content="Recipes — Avocado Bean">
     <meta property="og:description" content="Fresh plant-based recipes with ingredients delivered to your door.">
+    <meta property="og:image" content="../images/ui/og-image.jpg">
     <meta property="og:type" content="website">
 
     <!-- Shared stylesheet — one level up from pages/ -->
@@ -22,7 +23,7 @@
     <link rel="icon" href="../images/ui/logo.svg" type="image/svg+xml">
 </head>
 
-<body class="menu-page">
+<body class="recipes-page">
 
     <!-- =====================================================
        NAVIGATION BAR — same as index.html
@@ -84,11 +85,11 @@
     <!-- =====================================================
        PAGE HEADER
   ====================================================== -->
-    <header class="menu-header">
-        <div class="menu-header-inner">
+    <header class="recipes-header">
+        <div class="recipes-header-inner">
             <p class="section-label">Our recipes</p>
-            <h1 class="menu-page-title">Cook it<br><em>yourself</em></h1>
-            <p class="menu-page-description">
+            <h1 class="recipes-page-title">Cook it<br><em>yourself</em></h1>
+            <p class="recipes-page-description">
                 Choose a recipe, we deliver the ingredients fresh to your door.
                 Follow our step-by-step guide and cook like a chef at home.
             </p>
@@ -122,28 +123,28 @@
        the filter, and a data-recipe attribute that tells
        JavaScript which recipe to load into the modal.
   ====================================================== -->
-    <main class="menu-grid-wrapper">
-        <div class="menu-recipes-grid" id="recipes-grid">
+    <main class="recipes-grid-wrapper">
+        <div class="recipes-grid" id="recipes-grid">
 
             <!-- ================================================
            RECIPE CARD 1 — Chickpea Curry Bowl
       ================================================= -->
-            <article class="menu-recipe-card reveal" data-category="bowls" data-recipe="chickpea-curry">
-                <div class="menu-card-photo">
+            <article class="recipe-card reveal" data-category="bowls" data-recipe="chickpea-curry">
+                <div class="recipe-card-photo">
                     <img src="../images/dishes/img-chickpea-curry.webp"
                         alt="Chickpea curry bowl with coconut sauce, cauliflower and fresh lime" loading="lazy">
                 </div>
-                <div class="menu-card-body">
-                    <div class="menu-card-top">
+                <div class="recipe-card-body">
+                    <div class="recipe-card-meta">
                         <span class="category-pill green-pill">Bowls</span>
-                        <div class="menu-card-badges">
+                        <div class="recipe-card-badges">
                             <span class="card-badge">35 min</span>
                             <span class="card-badge">Serves 2</span>
                             <span class="card-badge difficulty-easy">Easy</span>
                         </div>
                     </div>
-                    <h2 class="menu-card-title">Chickpea Curry Bowl</h2>
-                    <p class="menu-card-description">
+                    <h2 class="recipe-card-title">Chickpea Curry Bowl</h2>
+                    <p class="recipe-card-description">
                         Golden chickpeas in a rich tomato curry sauce, served with steamed jasmine rice,
                         crispy falafel bites, fresh cucumber, cherry tomatoes, pickled red onion, coriander &amp; lime.
                     </p>
@@ -153,7 +154,7 @@
                         <span class="ingredient-tag">Jasmine rice</span>
                         <span class="ingredient-tag">Coriander</span>
                     </div>
-                    <button class="menu-card-button" data-recipe="chickpea-curry">
+                    <button class="recipe-card-button" data-recipe="chickpea-curry">
                         See recipe &amp; ingredients
                     </button>
                 </div>
@@ -163,22 +164,22 @@
             <!-- ================================================
            RECIPE CARD 2 — Tofu Katsu Bowl
       ================================================= -->
-            <article class="menu-recipe-card reveal reveal-delay-1" data-category="bowls" data-recipe="tofu-katsu">
-                <div class="menu-card-photo">
+            <article class="recipe-card reveal reveal-delay-1" data-category="bowls" data-recipe="tofu-katsu">
+                <div class="recipe-card-photo">
                     <img src="../images/dishes/img-tofu-katsu.webp"
                         alt="Tofu katsu with crispy breading, jasmine rice and chilli" loading="lazy">
                 </div>
-                <div class="menu-card-body">
-                    <div class="menu-card-top">
+                <div class="recipe-card-body">
+                    <div class="recipe-card-meta">
                         <span class="category-pill dark-pill">Bowls</span>
-                        <div class="menu-card-badges">
+                        <div class="recipe-card-badges">
                             <span class="card-badge">40 min</span>
                             <span class="card-badge">Serves 2</span>
                             <span class="card-badge difficulty-medium">Medium</span>
                         </div>
                     </div>
-                    <h2 class="menu-card-title">Tofu Katsu Bowl</h2>
-                    <p class="menu-card-description">
+                    <h2 class="recipe-card-title">Tofu Katsu Bowl</h2>
+                    <p class="recipe-card-description">
                         Crispy panko-breaded tofu cutlet served over jasmine rice with a silky
                         katsu curry sauce, fresh red chilli and coriander.
                     </p>
@@ -188,7 +189,7 @@
                         <span class="ingredient-tag">Jasmine rice</span>
                         <span class="ingredient-tag">Katsu sauce</span>
                     </div>
-                    <button class="menu-card-button" data-recipe="tofu-katsu">
+                    <button class="recipe-card-button" data-recipe="tofu-katsu">
                         See recipe &amp; ingredients
                     </button>
                 </div>
@@ -198,22 +199,22 @@
             <!-- ================================================
            RECIPE CARD 4 — Cauliflower & Chickpea Curry
       ================================================= -->
-            <article class="menu-recipe-card reveal" data-category="bowls" data-recipe="cauliflower-curry">
-                <div class="menu-card-photo">
+            <article class="recipe-card reveal" data-category="bowls" data-recipe="cauliflower-curry">
+                <div class="recipe-card-photo">
                     <img src="../images/dishes/img-cauliflower-curry.webp"
                         alt="Cauliflower and chickpea coconut curry with jasmine rice and lime" loading="lazy">
                 </div>
-                <div class="menu-card-body">
-                    <div class="menu-card-top">
+                <div class="recipe-card-body">
+                    <div class="recipe-card-meta">
                         <span class="category-pill yellow-pill">Bowls</span>
-                        <div class="menu-card-badges">
+                        <div class="recipe-card-badges">
                             <span class="card-badge">40 min</span>
                             <span class="card-badge">Serves 2</span>
                             <span class="card-badge difficulty-easy">Easy</span>
                         </div>
                     </div>
-                    <h2 class="menu-card-title">Cauliflower &amp; Chickpea Curry</h2>
-                    <p class="menu-card-description">
+                    <h2 class="recipe-card-title">Cauliflower &amp; Chickpea Curry</h2>
+                    <p class="recipe-card-description">
                         Golden cauliflower and chickpeas simmered in a rich coconut curry broth,
                         served with jasmine rice, fresh coriander and lime.
                     </p>
@@ -223,7 +224,7 @@
                         <span class="ingredient-tag">Coconut milk</span>
                         <span class="ingredient-tag">Jasmine rice</span>
                     </div>
-                    <button class="menu-card-button" data-recipe="cauliflower-curry">
+                    <button class="recipe-card-button" data-recipe="cauliflower-curry">
                         See recipe &amp; ingredients
                     </button>
                 </div>
@@ -233,23 +234,23 @@
             <!-- ================================================
            RECIPE CARD 5 — Spiced Lentil Soup
       ================================================= -->
-            <article class="menu-recipe-card reveal reveal-delay-1" data-category="soups"
+            <article class="recipe-card reveal reveal-delay-1" data-category="soups"
                 data-recipe="spiced-lentil-soup">
-                <div class="menu-card-photo">
+                <div class="recipe-card-photo">
                     <img src="../images/dishes/img-lentil-soup.webp"
                         alt="Spiced lentil soup with chilli, coriander and lime" loading="lazy">
                 </div>
-                <div class="menu-card-body">
-                    <div class="menu-card-top">
+                <div class="recipe-card-body">
+                    <div class="recipe-card-meta">
                         <span class="category-pill blue-pill">Soups</span>
-                        <div class="menu-card-badges">
+                        <div class="recipe-card-badges">
                             <span class="card-badge">45 min</span>
                             <span class="card-badge">Serves 4</span>
                             <span class="card-badge difficulty-easy">Easy</span>
                         </div>
                     </div>
-                    <h2 class="menu-card-title">Spiced Lentil Soup</h2>
-                    <p class="menu-card-description">
+                    <h2 class="recipe-card-title">Spiced Lentil Soup</h2>
+                    <p class="recipe-card-description">
                         Hearty green lentils slow-simmered with carrots, tomatoes and warming spices,
                         finished with fresh chilli, coriander and lime.
                     </p>
@@ -259,7 +260,7 @@
                         <span class="ingredient-tag">Tomatoes</span>
                         <span class="ingredient-tag">Coriander</span>
                     </div>
-                    <button class="menu-card-button" data-recipe="spiced-lentil-soup">
+                    <button class="recipe-card-button" data-recipe="spiced-lentil-soup">
                         See recipe &amp; ingredients
                     </button>
                 </div>
@@ -269,23 +270,23 @@
             <!-- ================================================
            RECIPE CARD 6 — Scramble on Toast
       ================================================= -->
-            <article class="menu-recipe-card reveal reveal-delay-2" data-category="toasts"
+            <article class="recipe-card reveal reveal-delay-2" data-category="toasts"
                 data-recipe="scramble-on-toast">
-                <div class="menu-card-photo">
+                <div class="recipe-card-photo">
                     <img src="../images/dishes/img-scramble-toast.webp"
                         alt="Turmeric tofu scramble on sourdough toast with rocket and cherry tomatoes" loading="lazy">
                 </div>
-                <div class="menu-card-body">
-                    <div class="menu-card-top">
+                <div class="recipe-card-body">
+                    <div class="recipe-card-meta">
                         <span class="category-pill orange-pill">Toasts</span>
-                        <div class="menu-card-badges">
+                        <div class="recipe-card-badges">
                             <span class="card-badge">15 min</span>
                             <span class="card-badge">Serves 2</span>
                             <span class="card-badge difficulty-easy">Easy</span>
                         </div>
                     </div>
-                    <h2 class="menu-card-title">Scramble on Toast</h2>
-                    <p class="menu-card-description">
+                    <h2 class="recipe-card-title">Scramble on Toast</h2>
+                    <p class="recipe-card-description">
                         Creamy turmeric scramble loaded on thick sourdough toast, served with
                         rocket, cherry tomatoes and avocado.
                     </p>
@@ -295,7 +296,7 @@
                         <span class="ingredient-tag">Avocado</span>
                         <span class="ingredient-tag">Tomatoes</span>
                     </div>
-                    <button class="menu-card-button" data-recipe="scramble-on-toast">
+                    <button class="recipe-card-button" data-recipe="scramble-on-toast">
                         See recipe &amp; ingredients
                     </button>
                 </div>
@@ -304,24 +305,24 @@
             <!-- ================================================
            RECIPE CARD 7 — Scramble with Pickles
       ================================================= -->
-            <article class="menu-recipe-card reveal reveal-delay-1" data-category="toasts"
+            <article class="recipe-card reveal reveal-delay-1" data-category="toasts"
                 data-recipe="scramble-pickles">
-                <div class="menu-card-photo">
+                <div class="recipe-card-photo">
                     <img src="../images/dishes/img-scramble-pickles.webp"
                         alt="Turmeric tofu scramble on sourdough toast with cornichons and fresh coriander"
                         loading="lazy">
                 </div>
-                <div class="menu-card-body">
-                    <div class="menu-card-top">
+                <div class="recipe-card-body">
+                    <div class="recipe-card-meta">
                         <span class="category-pill orange-pill">Toasts</span>
-                        <div class="menu-card-badges">
+                        <div class="recipe-card-badges">
                             <span class="card-badge">15 min</span>
                             <span class="card-badge">Serves 2</span>
                             <span class="card-badge difficulty-easy">Easy</span>
                         </div>
                     </div>
-                    <h2 class="menu-card-title">Scramble with Pickles</h2>
-                    <p class="menu-card-description">
+                    <h2 class="recipe-card-title">Scramble with Pickles</h2>
+                    <p class="recipe-card-description">
                         Golden turmeric scramble on thick sourdough toast, topped with red chilli,
                         coriander and tangy cornichons for a bold, punchy brunch.
                     </p>
@@ -331,7 +332,7 @@
                         <span class="ingredient-tag">Cornichons</span>
                         <span class="ingredient-tag">Coriander</span>
                     </div>
-                    <button class="menu-card-button" data-recipe="scramble-pickles">
+                    <button class="recipe-card-button" data-recipe="scramble-pickles">
                         See recipe &amp; ingredients
                     </button>
                 </div>
@@ -340,22 +341,22 @@
             <!-- ================================================
            RECIPE CARD 8 — Spinach & Berry Salad
       ================================================= -->
-            <article class="menu-recipe-card reveal" data-category="salads" data-recipe="spinach-berry-salad">
-                <div class="menu-card-photo">
+            <article class="recipe-card reveal" data-category="salads" data-recipe="spinach-berry-salad">
+                <div class="recipe-card-photo">
                     <img src="../images/dishes/img-spinach-berry-salad.webp"
                         alt="Spinach salad with raspberries, blueberries, pear slices and pecans" loading="lazy">
                 </div>
-                <div class="menu-card-body">
-                    <div class="menu-card-top">
+                <div class="recipe-card-body">
+                    <div class="recipe-card-meta">
                         <span class="category-pill green-pill">Salads</span>
-                        <div class="menu-card-badges">
+                        <div class="recipe-card-badges">
                             <span class="card-badge">10 min</span>
                             <span class="card-badge">Serves 2</span>
                             <span class="card-badge difficulty-easy">Easy</span>
                         </div>
                     </div>
-                    <h2 class="menu-card-title">Spinach & Berry Salad</h2>
-                    <p class="menu-card-description">
+                    <h2 class="recipe-card-title">Spinach & Berry Salad</h2>
+                    <p class="recipe-card-description">
                         Baby spinach with raspberries, blueberries, pear, toasted pecans
                         and vegan feta with a lemon vinaigrette.
                     </p>
@@ -365,7 +366,7 @@
                         <span class="ingredient-tag">Blueberries</span>
                         <span class="ingredient-tag">Pecans</span>
                     </div>
-                    <button class="menu-card-button" data-recipe="spinach-berry-salad">
+                    <button class="recipe-card-button" data-recipe="spinach-berry-salad">
                         See recipe &amp; ingredients
                     </button>
                 </div>
@@ -374,23 +375,23 @@
             <!-- ================================================
            RECIPE CARD 9 — Kale & Avocado Salad
       ================================================= -->
-            <article class="menu-recipe-card reveal reveal-delay-1" data-category="salads"
+            <article class="recipe-card reveal reveal-delay-1" data-category="salads"
                 data-recipe="kale-avocado-salad">
-                <div class="menu-card-photo">
+                <div class="recipe-card-photo">
                     <img src="../images/dishes/img-kale-avocado-salad.webp"
                         alt="Kale salad with avocado, melon, cherry tomatoes and sesame seeds" loading="lazy">
                 </div>
-                <div class="menu-card-body">
-                    <div class="menu-card-top">
+                <div class="recipe-card-body">
+                    <div class="recipe-card-meta">
                         <span class="category-pill green-pill">Salads</span>
-                        <div class="menu-card-badges">
+                        <div class="recipe-card-badges">
                             <span class="card-badge">15 min</span>
                             <span class="card-badge">Serves 2</span>
                             <span class="card-badge difficulty-easy">Easy</span>
                         </div>
                     </div>
-                    <h2 class="menu-card-title">Kale & Avocado Salad</h2>
-                    <p class="menu-card-description">
+                    <h2 class="recipe-card-title">Kale & Avocado Salad</h2>
+                    <p class="recipe-card-description">
                         Massaged kale with avocado, sweet melon, cherry tomatoes,
                         pecans, fresh mint and a sesame-lime dressing.
                     </p>
@@ -400,7 +401,7 @@
                         <span class="ingredient-tag">Melon</span>
                         <span class="ingredient-tag">Sesame</span>
                     </div>
-                    <button class="menu-card-button" data-recipe="kale-avocado-salad">
+                    <button class="recipe-card-button" data-recipe="kale-avocado-salad">
                         See recipe &amp; ingredients
                     </button>
                 </div>
@@ -409,23 +410,23 @@
             <!-- ================================================
            RECIPE CARD 10 — Cucumber & Radish Toast
       ================================================= -->
-            <article class="menu-recipe-card reveal reveal-delay-2" data-category="toasts"
+            <article class="recipe-card reveal reveal-delay-2" data-category="toasts"
                 data-recipe="cucumber-radish-toast">
-                <div class="menu-card-photo">
+                <div class="recipe-card-photo">
                     <img src="../images/dishes/img-cucumber-radish-toast.webp"
                         alt="Open sandwich with vegan cream cheese, cucumber and radish on rye bread" loading="lazy">
                 </div>
-                <div class="menu-card-body">
-                    <div class="menu-card-top">
+                <div class="recipe-card-body">
+                    <div class="recipe-card-meta">
                         <span class="category-pill blue-pill">Toasts</span>
-                        <div class="menu-card-badges">
+                        <div class="recipe-card-badges">
                             <span class="card-badge">10 min</span>
                             <span class="card-badge">Serves 1</span>
                             <span class="card-badge difficulty-easy">Easy</span>
                         </div>
                     </div>
-                    <h2 class="menu-card-title">Cucumber & Radish Toast</h2>
-                    <p class="menu-card-description">
+                    <h2 class="recipe-card-title">Cucumber & Radish Toast</h2>
+                    <p class="recipe-card-description">
                         Rye bread with vegan cream cheese, fresh cucumber and radish slices,
                         finished with black pepper and olive oil.
                     </p>
@@ -435,7 +436,7 @@
                         <span class="ingredient-tag">Cucumber</span>
                         <span class="ingredient-tag">Radish</span>
                     </div>
-                    <button class="menu-card-button" data-recipe="cucumber-radish-toast">
+                    <button class="recipe-card-button" data-recipe="cucumber-radish-toast">
                         See recipe &amp; ingredients
                     </button>
                 </div>
@@ -444,22 +445,22 @@
             <!-- ================================================
            RECIPE CARD 11 — Peanut Butter & Jam Toast
       ================================================= -->
-            <article class="menu-recipe-card reveal" data-category="toasts" data-recipe="peanut-butter-jam-toast">
-                <div class="menu-card-photo">
+            <article class="recipe-card reveal" data-category="toasts" data-recipe="peanut-butter-jam-toast">
+                <div class="recipe-card-photo">
                     <img src="../images/dishes/img-peanut-butter-jam-toast.webp"
                         alt="Thick toast with peanut butter and berry jam" loading="lazy">
                 </div>
-                <div class="menu-card-body">
-                    <div class="menu-card-top">
+                <div class="recipe-card-body">
+                    <div class="recipe-card-meta">
                         <span class="category-pill yellow-pill">Toasts</span>
-                        <div class="menu-card-badges">
+                        <div class="recipe-card-badges">
                             <span class="card-badge">5 min</span>
                             <span class="card-badge">Serves 1</span>
                             <span class="card-badge difficulty-easy">Easy</span>
                         </div>
                     </div>
-                    <h2 class="menu-card-title">Peanut Butter & Jam Toast</h2>
-                    <p class="menu-card-description">
+                    <h2 class="recipe-card-title">Peanut Butter & Jam Toast</h2>
+                    <p class="recipe-card-description">
                         Thick golden toast with natural peanut butter and a generous
                         spoonful of homemade berry jam.
                     </p>
@@ -469,7 +470,7 @@
                         <span class="ingredient-tag">Berry jam</span>
                         <span class="ingredient-tag">Sea salt</span>
                     </div>
-                    <button class="menu-card-button" data-recipe="peanut-butter-jam-toast">
+                    <button class="recipe-card-button" data-recipe="peanut-butter-jam-toast">
                         See recipe &amp; ingredients
                     </button>
                 </div>
@@ -478,23 +479,23 @@
             <!-- ================================================
            RECIPE CARD 12 — Peanut Butter Rice Cakes
       ================================================= -->
-            <article class="menu-recipe-card reveal reveal-delay-1" data-category="snacks"
+            <article class="recipe-card reveal reveal-delay-1" data-category="snacks"
                 data-recipe="peanut-butter-rice-cakes">
-                <div class="menu-card-photo">
+                <div class="recipe-card-photo">
                     <img src="../images/dishes/img-peanut-butter-rice-cakes.webp"
                         alt="Rice cakes with peanut butter and blueberries" loading="lazy">
                 </div>
-                <div class="menu-card-body">
-                    <div class="menu-card-top">
+                <div class="recipe-card-body">
+                    <div class="recipe-card-meta">
                         <span class="category-pill yellow-pill">Snacks</span>
-                        <div class="menu-card-badges">
+                        <div class="recipe-card-badges">
                             <span class="card-badge">5 min</span>
                             <span class="card-badge">Serves 1</span>
                             <span class="card-badge difficulty-easy">Easy</span>
                         </div>
                     </div>
-                    <h2 class="menu-card-title">Peanut Butter Rice Cakes</h2>
-                    <p class="menu-card-description">
+                    <h2 class="recipe-card-title">Peanut Butter Rice Cakes</h2>
+                    <p class="recipe-card-description">
                         Light rice cakes with smooth peanut butter, fresh blueberries
                         and a drizzle of maple syrup.
                     </p>
@@ -504,7 +505,7 @@
                         <span class="ingredient-tag">Blueberries</span>
                         <span class="ingredient-tag">Maple syrup</span>
                     </div>
-                    <button class="menu-card-button" data-recipe="peanut-butter-rice-cakes">
+                    <button class="recipe-card-button" data-recipe="peanut-butter-rice-cakes">
                         See recipe &amp; ingredients
                     </button>
                 </div>
@@ -513,22 +514,22 @@
             <!-- ================================================
            RECIPE CARD 13 — Fruit & Oat Granola Bars
       ================================================= -->
-            <article class="menu-recipe-card reveal reveal-delay-2" data-category="snacks" data-recipe="granola-bars">
-                <div class="menu-card-photo">
+            <article class="recipe-card reveal reveal-delay-2" data-category="snacks" data-recipe="granola-bars">
+                <div class="recipe-card-photo">
                     <img src="../images/dishes/img-granola-bars.webp"
                         alt="Homemade fruit and oat granola bars on baking paper" loading="lazy">
                 </div>
-                <div class="menu-card-body">
-                    <div class="menu-card-top">
+                <div class="recipe-card-body">
+                    <div class="recipe-card-meta">
                         <span class="category-pill yellow-pill">Snacks</span>
-                        <div class="menu-card-badges">
+                        <div class="recipe-card-badges">
                             <span class="card-badge">35 min</span>
                             <span class="card-badge">Makes 8</span>
                             <span class="card-badge difficulty-easy">Easy</span>
                         </div>
                     </div>
-                    <h2 class="menu-card-title">Fruit & Oat Granola Bars</h2>
-                    <p class="menu-card-description">
+                    <h2 class="recipe-card-title">Fruit & Oat Granola Bars</h2>
+                    <p class="recipe-card-description">
                         Chewy homemade bars with rolled oats, dried cranberries,
                         sultanas and berry jam — naturally sweetened.
                     </p>
@@ -538,7 +539,7 @@
                         <span class="ingredient-tag">Sultanas</span>
                         <span class="ingredient-tag">Berry jam</span>
                     </div>
-                    <button class="menu-card-button" data-recipe="granola-bars">
+                    <button class="recipe-card-button" data-recipe="granola-bars">
                         See recipe &amp; ingredients
                     </button>
                 </div>

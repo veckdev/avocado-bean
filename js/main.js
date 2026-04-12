@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
 
       /* Cards get dynamic stagger delay based on column position */
-      const cardSelectors = '.recipe-card, .menu-recipe-card, .ingredient-card, .value-card, .supplier-card';
+      const cardSelectors = '.recipe-card, .recipe-card, .ingredient-card, .value-card, .supplier-card';
       const cards = document.querySelectorAll(cardSelectors);
       cards.forEach(card => card.dataset.isCard = 'true');
 
@@ -675,7 +675,7 @@ document.addEventListener('DOMContentLoaded', () => {
      Only runs if filter buttons exist on the page.
   ----------------------------------------------------------- */
   const filterButtons = document.querySelectorAll('.filter-btn');
-  const recipeCards = document.querySelectorAll('.menu-recipe-card');
+  const recipeCards = document.querySelectorAll('.recipe-card');
 
   /* Search bar filtering */
   const searchInput = document.getElementById('recipe-search');
@@ -686,8 +686,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     recipeCards.forEach(card => {
       const matchesCategory = activeFilter === 'all' || card.dataset.category === activeFilter;
-      const cardTitle = card.querySelector('.menu-card-title')?.textContent.toLowerCase() || '';
-      const cardDesc = card.querySelector('.menu-card-description')?.textContent.toLowerCase() || '';
+      const cardTitle = card.querySelector('.recipe-card-title')?.textContent.toLowerCase() || '';
+      const cardDesc = card.querySelector('.recipe-card-description')?.textContent.toLowerCase() || '';
       const matchesSearch = !searchQuery || cardTitle.includes(searchQuery) || cardDesc.includes(searchQuery);
 
       if (matchesCategory && matchesSearch) {

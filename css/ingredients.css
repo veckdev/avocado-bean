@@ -156,6 +156,10 @@
   padding: 80px 52px;
   position: relative;
   isolation: isolate;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .suppliers-inner {
@@ -213,10 +217,6 @@
   background: var(--dark);
   padding: 40px 36px;
   transition: background 0.2s;
-}
-
-.supplier-card:hover {
-  background: rgba(250, 248, 242, 0.04);
 }
 
 .supplier-location {
@@ -605,12 +605,19 @@
   text-align: center;
   position: relative;
   isolation: isolate;
+  min-height: calc(100vh - 120px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
 }
 
 .ingredients-cta-inner {
   position: relative;
   z-index: 1;
   max-width: 560px;
+  width: 100%;
   margin: 0 auto;
 }
 

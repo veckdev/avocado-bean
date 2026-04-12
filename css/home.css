@@ -358,6 +358,7 @@
   flex-direction: column;
 }
 
+
 .philosophy-item {
   padding: 24px 0;
   border-top: 1px solid rgba(250, 248, 242, 0.1);
@@ -386,6 +387,9 @@
   font-weight: 400;
 }
 
+.philosophy-item:last-child {
+  border-bottom: 1px solid rgba(250, 248, 242, 0.1);
+}
 
 /* =============================================================
    ABOUT PREVIEW SECTION

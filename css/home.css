@@ -212,7 +212,6 @@
   border: 1px solid var(--line-colour);
 }
 
-.recipe-card:hover {}
 
 .recipe-card-photo {
   height: 260px;
@@ -224,12 +223,8 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
-  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.recipe-card:hover .recipe-card-photo img {
-  transform: scale(1.05);
-}
 
 .recipe-card-body {
   padding: 20px 20px 0;

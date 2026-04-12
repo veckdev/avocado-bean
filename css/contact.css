@@ -620,7 +620,7 @@
     }
 
     .contact-hero-content {
-        padding: 56px 24px 40px;
+        padding: calc(57px + 40px) 24px 40px;
         border-right: none;
         border-bottom: 1px solid var(--line-colour);
     }

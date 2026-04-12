@@ -817,9 +817,19 @@ document.addEventListener('DOMContentLoaded', () => {
   const MAX_RECIPES = 3;
   let selectedRecipes = [];
 
+  const pickerHint = document.getElementById('recipe-picker-hint');
+  const PICKER_HINT_DEFAULT = 'Select between 1 and 3 recipes';
+
   function updateSidebar() {
     if (!sidebarList) return;
     sidebarList.innerHTML = '';
+
+    /* Reset picker hint error when user makes a valid selection */
+    if (selectedRecipes.length > 0 && pickerHint) {
+      pickerHint.textContent = PICKER_HINT_DEFAULT;
+      pickerHint.classList.remove('has-error');
+    }
+
     if (selectedRecipes.length === 0) {
       sidebarEmpty.style.display = 'block';
       sidebarSummary.style.display = 'none';

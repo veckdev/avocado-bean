@@ -378,7 +378,7 @@
   }
 
   .about-hero-photo {
-    min-height: none;
+    display: none;
   }
 
   .about-hero-content {

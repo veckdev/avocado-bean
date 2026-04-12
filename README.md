@@ -1,17 +1,19 @@
 # Avocado Bean
 
-> Plant-based take away website built with HTML5, CSS3 and vanilla JavaScript.
+> Plant-based ingredient delivery website built with HTML5, CSS3 and vanilla JavaScript.
 
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
-![Bootstrap](https://img.shields.io/badge/Bootstrap-7952B3?style=flat&logo=bootstrap&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/Bootstrap_5-7952B3?style=flat&logo=bootstrap&logoColor=white)
 
 ---
 
 ## Overview
 
-Avocado Bean is a fictional plant-based take away based in Dublin City Centre. This project is a fully responsive multi-page website featuring a modern editorial design, scroll-snap navigation, JavaScript interactivity, and an order enquiry form with full validation.
+Avocado Bean is a fictional plant-based ingredient delivery service based in Dublin. Inspired by HelloFresh, customers browse weekly recipes, select up to 3, and place an order for pre-measured ingredients delivered to their door.
+
+This project is a fully responsive multi-page website featuring a modern editorial design, scroll-snap navigation on the homepage, JavaScript interactivity, and a complete order/contact form with full client-side validation.
 
 ---
 
@@ -29,34 +31,43 @@ avocado-bean/
 ├── index.html              # Homepage (root)
 │
 ├── pages/
-│   ├── menu.html           # Menu with category filter
-│   ├── about.html          # About us / our story
-│   ├── contact.html        # Order form with JS validation
-│   └── blog.html           # Recipes & articles
+│   ├── recipes.html        # Recipes with category filter + search
+│   ├── about.html          # About us / our story / values
+│   ├── ingredients.html    # Ingredient sourcing & Irish suppliers
+│   └── contact.html        # Order form + contact form with JS validation
 │
 ├── css/
-│   └── style.css           # Global styles & design system
+│   ├── style.css           # Global styles & design system (shared)
+│   ├── home.css            # Homepage-specific styles
+│   ├── recipes.css         # Recipes page + modal styles
+│   ├── about.css           # About page styles
+│   ├── ingredients.css     # Ingredients page + Bootstrap overrides
+│   └── contact.css         # Contact & order page styles
 │
 ├── js/
 │   └── main.js             # All JavaScript functionality
 │
 └── images/
-    ├── dishes/             # Food photography
-    └── ui/                 # Logo, icons, og-image
+    ├── dishes/             # Food photography (.webp / .jpg)
+    └── ui/                 # Logo, og-image
 ```
 
 ---
 
 ## Features
 
-- **Responsive design** — mobile-first layout using CSS Grid and Flexbox
-- **Scroll-snap sections** — full-viewport card sections with smooth snapping
-- **Menu filter** — filter dishes by category using vanilla JavaScript
-- **Form validation** — contact/order form with HTML5 + JavaScript validation
-- **Reveal animations** — Intersection Observer API for scroll-triggered animations
-- **Sticky navbar** — shrinks on scroll with active link highlighting
-- **SEO optimised** — semantic HTML, meta tags, Open Graph, alt attributes
-- **Performance** — lazy loading images, WebP format, optimised assets
+- **Responsive design** — mobile-first layout using CSS Grid and Flexbox, tested on iOS and Android
+- **Scroll-snap sections** — full-viewport sections with smooth snapping (homepage, desktop only)
+- **Recipe filter + search** — filter by category and search by name simultaneously using a single `applyFilters()` function
+- **Recipe modal** — lightbox with photo, ingredients, steps and allergens; closes on overlay click or Escape key
+- **Order form** — recipe picker (max 3), real-time order summary sidebar with live price total, full JS + HTML5 validation
+- **Contact form** — name, email, message with live error feedback and success state
+- **Reveal animations** — Intersection Observer API for scroll-triggered fade-in with stagger on cards
+- **Sticky navbar** — shrinks on scroll with active page link highlighting
+- **Mobile hamburger menu** — animated toggle with full-screen overlay
+- **Decorative icon pattern** — SVG icons scattered randomly on dark sections using DOM manipulation and Math.hypot() collision avoidance
+- **SEO optimised** — semantic HTML5, meta tags, Open Graph, alt attributes on all images
+- **Performance** — lazy loading on recipe images, WebP format where available
 
 ---
 
@@ -64,58 +75,71 @@ avocado-bean/
 
 | Technology | Usage |
 |---|---|
-| HTML5 | Semantic markup, forms, accessibility |
-| CSS3 | Custom properties, Grid, Flexbox, animations |
-| JavaScript (ES6+) | DOM manipulation, Intersection Observer, form validation |
-| Bootstrap 5 | Responsive grid, utility classes |
-| jQuery | DOM helpers, event handling |
-| Google Fonts | Averia Serif Libre, Montserrat |
+| HTML5 | Semantic markup, forms, accessibility attributes |
+| CSS3 | Custom properties, Grid, Flexbox, clamp(), transitions, pseudo-elements |
+| JavaScript (ES6+) | DOM manipulation, Intersection Observer, form validation, dynamic content |
+| Bootstrap 5 | Responsive grid on ingredients page; overridden to match design system |
+| Google Fonts | Averia Serif Libre (headings), Rubik (body) |
 
 ---
 
 ## Design System
 
 **Fonts**
-- Display: [Averia Serif Libre](https://fonts.google.com/specimen/Averia+Serif+Libre) — titles & headings
-- Body: [Montserrat](https://fonts.google.com/specimen/Montserrat) — all other text
+- Display: [Averia Serif Libre](https://fonts.google.com/specimen/Averia+Serif+Libre) — titles & headings (italic, bold)
+- Body: [Rubik](https://fonts.google.com/specimen/Rubik) — all other text
 
 **Colour Palette**
 
 | Name | Hex | Usage |
 |---|---|---|
-| Terracotta | `#b85c2a` | CTAs, prices, accents |
-| Forest | `#4a6b42` | Nav, logo, primary buttons |
-| Turmeric | `#c8922a` | Badges, highlights |
-| Delft Blue | `#4a6880` | Blog section, info elements |
-| Cream | `#f2ebe0` | Background |
-| Ivory | `#faf8f2` | Cards, panels |
-| Ink | `#2a2218` | Body text |
+| Terracotta | `#b85c2a` | CTAs, prices, orange accents |
+| Forest | `#4a6b42` | Nav, logo, primary buttons, easy badge |
+| Turmeric | `#c8922a` | Badges, highlights, medium difficulty badge |
+| Delft Blue | `#4a6880` | About preview label, info elements |
+| Cream | `#f2ebe0` | Page background, input fields |
+| Ivory | `#faf8f2` | Cards, panels, nav background |
+| Ink | `#2a2218` | Body text, dark sections |
+| Grey | `#7a6e62` | Secondary text, labels |
+
+**Spacing**
+- Section padding desktop: `80px 52px`
+- Section padding mobile: `56px 24px`
+- Card border radius: `12px`
+- Card border: `1px solid rgba(42, 34, 24, 0.09)`
 
 ---
 
 ## Setup
 
-No build tools or dependencies required. Just open in a browser:
+No build tools or dependencies required:
 
 ```bash
-# Clone the repository
-git clone https://github.com/YOUR_USERNAME/avocado-bean.git
-
-# Open in browser
+git clone https://github.com/veckdev/avocado-bean.git
 open index.html
-# or simply drag index.html into your browser
 ```
 
 For the best experience, serve with a local server:
 
 ```bash
-# Using VS Code — install Live Server extension, then:
-# Right-click index.html → Open with Live Server
+# VS Code — Right-click index.html → Open with Live Server
 
-# Using Python
+# Python
 python -m http.server 8000
-# then visit http://localhost:8000
+# visit http://localhost:8000
 ```
+
+---
+
+## Pages
+
+| Page | File | Description |
+|---|---|---|
+| Home | `index.html` | Hero, recipe preview, philosophy, about preview, ingredients CTA |
+| Recipes | `pages/recipes.html` | Full recipe grid with filter, search and lightbox modal |
+| About | `pages/about.html` | Brand story, how it works, values, CTA |
+| Ingredients | `pages/ingredients.html` | Ingredient sourcing, Irish supplier profiles, dietary form |
+| Contact | `pages/contact.html` | Recipe picker, order form, contact form |
 
 ---
 
@@ -124,17 +148,26 @@ python -m http.server 8000
 - [W3C HTML Validator](https://validator.w3.org/)
 - [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
 - [Google PageSpeed Insights](https://pagespeed.web.dev/)
-- Tested on Chrome, Firefox, Safari, Edge
-- Tested on mobile (iOS & Android)
+- Tested on Chrome, Firefox, Safari
+- Tested on mobile (iOS Safari, Chrome Android)
 
 ---
 
-## Pages
+## Recipe List
 
-| Page | File | Description |
-|---|---|---|
-| Home | `index.html` | Hero, featured dishes, philosophy, about preview, blog preview |
-| Menu | `pages/menu.html` | Full menu with category filter and order add |
-| About | `pages/about.html` | Brand story, values, team |
-| Contact | `pages/contact.html` | Order enquiry form with full validation |
-| Blog | `pages/blog.html` | Recipes and articles |
+12 recipes across 5 categories:
+
+| Recipe | Category | Time | Difficulty |
+|---|---|---|---|
+| Chickpea Curry Bowl | Bowls | 35 min | Easy |
+| Tofu Katsu Bowl | Bowls | 40 min | Medium |
+| Cauliflower & Chickpea Curry | Bowls | 40 min | Easy |
+| Spiced Lentil Soup | Soups | 45 min | Easy |
+| Scramble on Toast | Toasts | 15 min | Easy |
+| Scramble with Pickles | Toasts | 15 min | Easy |
+| Cucumber & Radish Toast | Toasts | 10 min | Easy |
+| Peanut Butter & Jam Toast | Toasts | 5 min | Easy |
+| Spinach & Berry Salad | Salads | 10 min | Easy |
+| Kale & Avocado Salad | Salads | 15 min | Easy |
+| Peanut Butter Rice Cakes | Snacks | 5 min | Easy |
+| Fruit & Oat Granola Bars | Snacks | 35 min | Easy |

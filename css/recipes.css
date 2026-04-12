@@ -95,13 +95,13 @@
    RECIPES GRID
    ============================================================= */
 .menu-grid-wrapper {
-  padding: 32px 52px 80px;
+  padding: 48px 52px 80px;
 }
 
 .menu-recipes-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 32px;
 }
 
 .menu-recipe-card.is-hidden {
@@ -114,7 +114,7 @@
    ============================================================= */
 .menu-recipe-card {
   background: var(--white);
-  border-radius: 6px;
+  border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
   display: flex;
@@ -147,31 +147,7 @@
   transform: scale(1.05);
 }
 
-.menu-card-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(42, 34, 24, 0.45);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
 
-.menu-recipe-card:hover .menu-card-overlay {
-  opacity: 1;
-}
-
-.menu-card-cta {
-  font-size: 12px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--white);
-  font-weight: 600;
-  border: 1px solid rgba(250, 248, 242, 0.6);
-  padding: 10px 20px;
-  border-radius: 2px;
-}
 
 .menu-card-body {
   padding: 22px 22px 0;

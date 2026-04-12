@@ -116,7 +116,7 @@
 }
 
 .hero-photo {
-  background: url('../images/dishes/img-hero.webp') center / cover;
+  background: url('../images/dishes/img-hero.jpg') center / cover;
   position: relative;
 }
 
@@ -401,7 +401,7 @@
 }
 
 .story-preview-photo {
-  background: url('../images/dishes/img-story.webp') center / cover;
+  background: url('../images/dishes/img-story.jpg') center / cover;
 }
 
 .story-preview-text {

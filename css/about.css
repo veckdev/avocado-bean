@@ -11,12 +11,11 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   min-height: 100vh;
-  padding-top: 69px;
   background: var(--cream);
 }
 
 .about-hero-content {
-  padding: 72px 52px;
+  padding: calc(69px + 72px) 52px 72px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -68,17 +67,7 @@
 }
 
 .about-hero-photo {
-  background: var(--dark);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.about-hero-photo-placeholder {
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(250, 248, 242, 0.2);
+  background: url('../images/dishes/img-hero-about.jpg') center / cover;
 }
 
 /* =============================================================
@@ -91,14 +80,16 @@
   isolation: isolate;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  align-items: center;
+}
+
+.story-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .story-label {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
   font-size: 12px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -121,10 +112,9 @@
 .story-inner {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 64px;
+  gap: 0 64px;
   align-items: start;
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 100%;
 }
 
 .story-quote-col {
@@ -134,20 +124,17 @@
 }
 
 .story-photo {
-  background: rgba(250, 248, 242, 0.06);
   border-radius: 4px;
-  height: 220px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid rgba(250, 248, 242, 0.08);
+  height: 280px;
+  overflow: hidden;
 }
 
-.story-photo-placeholder {
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(250, 248, 242, 0.2);
+.story-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
 
 .story-quote {

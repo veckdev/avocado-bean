@@ -204,7 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   addIconPattern('.philosophy-section');
-  addIconPattern('.ingredients-preview-section');
+  addIconPattern('.ingredients-cta-preview');
   addIconPattern('.about-cta-section');
   addIconPattern('.story-section');
   addIconPattern('.suppliers-section');

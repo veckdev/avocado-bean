@@ -723,8 +723,15 @@
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+.top-nav ul:not(.is-open) {
   flex-direction: row !important;
   gap: 32px !important;
+}
+
+.nav-menu.is-open {
+  flex-direction: column !important;
 }
 
 .top-nav li {
@@ -769,7 +776,6 @@
   .ingredients-hero-wrapper {
     grid-template-columns: 1fr;
     min-height: auto;
-    padding-top: 57px;
   }
 
   .ingredients-hero-photo {
@@ -777,7 +783,7 @@
   }
 
   .ingredients-hero-content {
-    padding: 40px 24px 48px;
+    padding: calc(57px + 32px) 24px 48px;
     gap: 32px;
   }
 

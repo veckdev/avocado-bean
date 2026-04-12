@@ -378,11 +378,11 @@
   }
 
   .about-hero-photo {
-    min-height: 240px;
+    min-height: none;
   }
 
   .about-hero-content {
-    padding: 48px 24px;
+    padding: calc(57px + 48px) 24px 48px;
     border-right: none;
   }
 

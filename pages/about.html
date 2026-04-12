@@ -23,9 +23,7 @@
 
 <body class="about-page">
 
-    <!-- =====================================================
-       NAVIGATION BAR
-  ====================================================== -->
+    <!-- NAVIGATION BAR -->
     <nav class="top-nav" id="main-nav">
         <a href="../index.html" class="site-logo" aria-label="Avocado Bean — go to homepage">
             <div class="logo-icon" aria-hidden="true"></div>
@@ -41,34 +39,44 @@
         <a href="contact.html" class="nav-cta-wrapper">
             <button class="nav-cta-button">Get Started</button>
         </a>
-
-        <!-- Hamburger (mobile only) -->
         <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle navigation" aria-expanded="false">
             <span></span>
             <span></span>
             <span></span>
         </button>
-
     </nav>
 
 
-    <!-- =====================================================
-       SECTION 2 — OUR STORY
-       Dark background, two columns: large quote left,
-       paragraphs right.
-  ====================================================== -->
-    <section class="story-section" aria-label="Our story">
-        <div class="story-inner">
+    <!-- SECTION 1 — HERO -->
+    <section class="about-hero" aria-label="About us">
+        <div class="about-hero-content">
+            <p class="about-hero-label reveal">About us</p>
+            <h1 class="about-hero-heading reveal reveal-delay-1">
+                Where <em>great</em><br>meals begin.
+            </h1>
+            <p class="about-hero-description reveal reveal-delay-2">
+                A Dublin-based ingredient delivery service built for people who believe
+                cooking at home should never be a compromise.
+            </p>
+        </div>
+        <div class="about-hero-photo" aria-hidden="true">
+            <span class="about-hero-photo-placeholder">Photo coming soon</span>
+        </div>
+    </section>
 
-            <!-- Left: large pull quote -->
-            <div class="story-left reveal">
-                <p class="story-label">Our story</p>
-                <blockquote class="story-quote">
+
+    <!-- SECTION 2 — OUR STORY -->
+    <section class="story-section" aria-label="Our story">
+        <p class="story-label reveal">Our story</p>
+        <div class="story-inner">
+            <div class="story-left">
+                <div class="story-photo reveal">
+                    <span class="story-photo-placeholder">Team photo coming soon</span>
+                </div>
+                <blockquote class="story-quote reveal reveal-delay-1">
                     The best meal you'll ever cook is the one you make yourself — with the right ingredients.
                 </blockquote>
             </div>
-
-            <!-- Right: story paragraphs -->
             <div class="story-right">
                 <p class="story-paragraph reveal reveal-delay-1">
                     Avocado Bean was born in a small Dublin kitchen in 2024. We were tired of
@@ -81,123 +89,101 @@
                     step-by-step recipes, and delivers them to your door.
                 </p>
                 <p class="story-paragraph reveal reveal-delay-3">
-                    No subscriptions. No pressure. Just great food, made by you, at home.
-                    We do the choosing. You do the cooking. Everyone eats well.
+                    No subscriptions. No pressure. We do the choosing. You do the cooking.
+                    Everyone eats well.
                 </p>
             </div>
-
         </div>
     </section>
 
 
-    <!-- =====================================================
-       SECTION 3 — HOW IT WORKS
-       Three numbered steps on a cream background.
-  ====================================================== -->
+    <!-- SECTION 3 — HOW IT WORKS -->
     <section class="how-section" aria-label="How it works">
         <div class="how-inner">
-
             <div class="how-header reveal">
                 <p class="section-label">The process</p>
                 <h2 class="section-heading">How it works</h2>
             </div>
-
             <div class="how-steps">
-
                 <div class="how-step reveal reveal-delay-1">
                     <div class="how-step-number">01</div>
-                    <div class="how-step-body">
-                        <h3 class="how-step-title">Browse & choose</h3>
-                        <p class="how-step-text">
-                            Explore our weekly recipe selection — bowls, soups, salads, toasts and snacks.
-                            Each recipe shows the ingredients, prep time and difficulty level upfront.
-                            No surprises.
-                        </p>
-                    </div>
+                    <h3 class="how-step-title">Browse & choose</h3>
+                    <p class="how-step-text">
+                        Explore our weekly recipe selection — bowls, soups, salads, toasts and snacks.
+                        Each recipe shows the ingredients, prep time and difficulty level upfront.
+                        No surprises.
+                    </p>
                 </div>
-
                 <div class="how-step reveal reveal-delay-2">
                     <div class="how-step-number">02</div>
-                    <div class="how-step-body">
-                        <h3 class="how-step-title">We prepare your order</h3>
-                        <p class="how-step-text">
-                            We source your ingredients fresh — organic where possible, always locally grown.
-                            Everything arrives pre-measured and labelled, ready for you to cook.
-                            No waste, no guesswork.
-                        </p>
-                    </div>
+                    <h3 class="how-step-title">We prepare your order</h3>
+                    <p class="how-step-text">
+                        We source your ingredients fresh — organic where possible, always locally grown.
+                        Everything arrives pre-measured and labelled, ready for you to cook.
+                        No waste, no guesswork.
+                    </p>
                 </div>
-
                 <div class="how-step reveal reveal-delay-3">
                     <div class="how-step-number">03</div>
-                    <div class="how-step-body">
-                        <h3 class="how-step-title">Cook like a chef</h3>
-                        <p class="how-step-text">
-                            Follow our clear, step-by-step recipe guide and cook something extraordinary
-                            at home. No experience needed — just a pan, your ingredients, and about
-                            30 minutes of your time.
-                        </p>
-                    </div>
+                    <h3 class="how-step-title">Cook like a chef</h3>
+                    <p class="how-step-text">
+                        Follow our clear, step-by-step recipe guide and cook something extraordinary
+                        at home. No experience needed — just a pan, your ingredients, and about
+                        30 minutes of your time.
+                    </p>
                 </div>
-
             </div>
         </div>
     </section>
 
 
-    <!-- =====================================================
-       SECTION 4 — VALUES
-       Three cards on a white background.
-  ====================================================== -->
+    <!-- SECTION 4 — VALUES -->
     <section class="values-section" aria-label="Our values">
         <div class="values-inner">
-
             <div class="values-header reveal">
                 <p class="section-label">What we stand for</p>
                 <h2 class="section-heading">Our values</h2>
             </div>
-
             <div class="values-grid">
-
                 <div class="value-card reveal reveal-delay-1">
                     <div class="value-card-number">01</div>
-                    <h3 class="value-card-title">Organically sourced</h3>
-                    <p class="value-card-text">
-                        We work directly with Irish organic farms to source seasonal produce.
-                        No pesticides, no long supply chains — just honest ingredients grown
-                        the right way.
-                    </p>
+                    <div class="value-card-body">
+                        <h3 class="value-card-title">Organically sourced</h3>
+                        <p class="value-card-text">
+                            We work directly with Irish organic farms to source seasonal produce.
+                            No pesticides, no long supply chains — just honest ingredients grown
+                            the right way.
+                        </p>
+                    </div>
                 </div>
-
                 <div class="value-card reveal reveal-delay-2">
                     <div class="value-card-number">02</div>
-                    <h3 class="value-card-title">Zero compromise</h3>
-                    <p class="value-card-text">
-                        Plant-based food should be the most exciting food on the table.
-                        Every recipe we create is designed to be bold in flavour, satisfying
-                        in texture, and genuinely delicious — not just nutritious.
-                    </p>
+                    <div class="value-card-body">
+                        <h3 class="value-card-title">Zero compromise</h3>
+                        <p class="value-card-text">
+                            Plant-based food should be the most exciting food on the table.
+                            Every recipe we create is designed to be bold in flavour, satisfying
+                            in texture, and genuinely delicious — not just nutritious.
+                        </p>
+                    </div>
                 </div>
-
                 <div class="value-card reveal reveal-delay-3">
                     <div class="value-card-number">03</div>
-                    <h3 class="value-card-title">Less waste, more taste</h3>
-                    <p class="value-card-text">
-                        Pre-measured ingredients mean you only get exactly what you need.
-                        Less food waste, less packaging, less guilt — and a cleaner kitchen
-                        at the end of it.
-                    </p>
+                    <div class="value-card-body">
+                        <h3 class="value-card-title">Less waste, more taste</h3>
+                        <p class="value-card-text">
+                            Pre-measured ingredients mean you only get exactly what you need.
+                            Less food waste, less packaging, less guilt — and a cleaner kitchen
+                            at the end of it.
+                        </p>
+                    </div>
                 </div>
-
             </div>
         </div>
     </section>
 
 
-    <!-- =====================================================
-       SECTION 5 — CTA FINAL
-       Dark background with a call to action.
-  ====================================================== -->
+    <!-- SECTION 5 — CTA -->
     <section class="about-cta-section" aria-label="Get started">
         <div class="about-cta-inner">
             <p class="about-cta-label reveal">Ready to cook?</p>
@@ -221,9 +207,7 @@
     </section>
 
 
-    <!-- =====================================================
-       FOOTER
-  ====================================================== -->
+    <!-- FOOTER -->
     <footer class="site-footer">
         <div class="footer-logo-wrap">
             <div class="footer-logo-icon" aria-hidden="true"></div>

@@ -209,14 +209,10 @@
   border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
-  transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-    box-shadow 0.35s ease;
+  border: 1px solid var(--line-colour);
 }
 
-.recipe-card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--card-shadow);
-}
+.recipe-card:hover {}
 
 .recipe-card-photo {
   height: 200px;

@@ -799,4 +799,221 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
+
+
+  /* -----------------------------------------------------------
+     9. RECIPE PICKER — select/deselect recipes for order
+     Updates sidebar in real time. Max 3 recipes.
+  ----------------------------------------------------------- */
+  const recipePickerCards = document.querySelectorAll('.order-recipe-card');
+  const sidebarList = document.getElementById('sidebar-list');
+  const sidebarEmpty = document.getElementById('sidebar-empty');
+  const sidebarCount = document.getElementById('sidebar-count');
+  const sidebarPrice = document.getElementById('sidebar-price');
+  const sidebarSummary = document.getElementById('sidebar-summary');
+  const submitBtn = document.getElementById('order-submit-btn');
+
+  const PRICE_PER_RECIPE = 12.45;
+  const MAX_RECIPES = 3;
+  let selectedRecipes = [];
+
+  function updateSidebar() {
+    if (!sidebarList) return;
+    sidebarList.innerHTML = '';
+    if (selectedRecipes.length === 0) {
+      sidebarEmpty.style.display = 'block';
+      sidebarSummary.style.display = 'none';
+    } else {
+      sidebarEmpty.style.display = 'none';
+      sidebarSummary.style.display = 'flex';
+      selectedRecipes.forEach(recipe => {
+        const li = document.createElement('li');
+        li.className = 'order-sidebar-item';
+        li.innerHTML = `
+          <span class="order-sidebar-item-name">${recipe.name}</span>
+          <button class="order-sidebar-item-remove" data-recipe-id="${recipe.id}" aria-label="Remove ${recipe.name}">Remove</button>
+        `;
+        sidebarList.appendChild(li);
+      });
+      sidebarList.querySelectorAll('.order-sidebar-item-remove').forEach(btn => {
+        btn.addEventListener('click', () => deselectRecipe(btn.dataset.recipeId));
+      });
+    }
+    const total = (selectedRecipes.length * PRICE_PER_RECIPE).toFixed(2);
+    sidebarCount.textContent = `${selectedRecipes.length} of ${MAX_RECIPES} recipes`;
+    sidebarPrice.textContent = `€${total}`;
+    recipePickerCards.forEach(card => {
+      const isSelected = selectedRecipes.some(r => r.id === card.dataset.recipeId);
+      if (!isSelected && selectedRecipes.length >= MAX_RECIPES) {
+        card.classList.add('is-disabled');
+      } else {
+        card.classList.remove('is-disabled');
+      }
+    });
+  }
+
+  function deselectRecipe(id) {
+    selectedRecipes = selectedRecipes.filter(r => r.id !== id);
+    const card = document.querySelector(`.order-recipe-card[data-recipe-id="${id}"]`);
+    if (card) { card.classList.remove('is-selected'); card.setAttribute('aria-checked', 'false'); }
+    updateSidebar();
+  }
+
+  if (recipePickerCards.length > 0) {
+    recipePickerCards.forEach(card => {
+      card.addEventListener('click', () => {
+        const id = card.dataset.recipeId;
+        const name = card.dataset.recipeName;
+        if (card.classList.contains('is-selected')) {
+          deselectRecipe(id);
+        } else if (selectedRecipes.length < MAX_RECIPES) {
+          selectedRecipes.push({ id, name });
+          card.classList.add('is-selected');
+          card.setAttribute('aria-checked', 'true');
+          updateSidebar();
+        }
+      });
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); }
+      });
+    });
+    updateSidebar();
+  }
+
+
+  /* -----------------------------------------------------------
+     10. ORDER FORM VALIDATION — JS + HTML5
+  ----------------------------------------------------------- */
+  const orderForm = document.getElementById('order-form');
+  const orderSuccess = document.getElementById('order-success');
+  const orderInner = document.querySelector('.order-inner');
+  const notesTextarea = document.getElementById('order-notes');
+  const notesCharCount = document.getElementById('notes-char-count');
+
+  if (notesTextarea && notesCharCount) {
+    notesTextarea.addEventListener('input', () => {
+      const len = notesTextarea.value.length;
+      if (len > 300) notesTextarea.value = notesTextarea.value.substring(0, 300);
+      notesCharCount.textContent = `${Math.min(len, 300)} / 300`;
+    });
+  }
+
+  function showFieldError(fieldId, errorId, message) {
+    const field = document.getElementById(fieldId);
+    const error = document.getElementById(errorId);
+    if (field) field.classList.add('has-error');
+    if (error) error.textContent = message;
+  }
+
+  if (orderForm) {
+    orderForm.querySelectorAll('.order-form-input').forEach(input => {
+      input.addEventListener('input', () => {
+        input.classList.remove('has-error');
+        const errorEl = document.getElementById(`error-${input.id.replace('order-', '')}`);
+        if (errorEl) errorEl.textContent = '';
+      });
+    });
+  }
+
+  function validateOrderForm() {
+    let valid = true;
+    ['error-first-name', 'error-last-name', 'error-email', 'error-phone', 'error-address', 'error-date', 'error-recipes'].forEach(id => {
+      const el = document.getElementById(id); if (el) el.textContent = '';
+    });
+    if (orderForm) orderForm.querySelectorAll('.order-form-input').forEach(f => f.classList.remove('has-error'));
+
+    if (selectedRecipes.length === 0) {
+      const hint = document.getElementById('recipe-picker-hint');
+      if (hint) { hint.textContent = 'Please select at least one recipe.'; hint.classList.add('has-error'); }
+      const err = document.getElementById('error-recipes');
+      if (err) err.textContent = 'Please select at least one recipe to continue.';
+      valid = false;
+    }
+
+    const firstName = document.getElementById('order-first-name');
+    if (!firstName?.value.trim()) { showFieldError('order-first-name', 'error-first-name', 'First name is required.'); valid = false; }
+
+    const lastName = document.getElementById('order-last-name');
+    if (!lastName?.value.trim()) { showFieldError('order-last-name', 'error-last-name', 'Last name is required.'); valid = false; }
+
+    const email = document.getElementById('order-email');
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email?.value.trim()) { showFieldError('order-email', 'error-email', 'Email address is required.'); valid = false; }
+    else if (!emailPattern.test(email.value.trim())) { showFieldError('order-email', 'error-email', 'Please enter a valid email address.'); valid = false; }
+
+    const phone = document.getElementById('order-phone');
+    const phonePattern = /^[\d\s\+\-\(\)]{7,15}$/;
+    if (!phone?.value.trim()) { showFieldError('order-phone', 'error-phone', 'Phone number is required.'); valid = false; }
+    else if (!phonePattern.test(phone.value.trim())) { showFieldError('order-phone', 'error-phone', 'Please enter a valid phone number.'); valid = false; }
+
+    const address = document.getElementById('order-address');
+    if (!address?.value.trim()) { showFieldError('order-address', 'error-address', 'Delivery address is required.'); valid = false; }
+    else if (address.value.trim().length < 10) { showFieldError('order-address', 'error-address', 'Please enter your full address.'); valid = false; }
+
+    const date = document.getElementById('order-date');
+    const today = new Date(); today.setHours(0, 0, 0, 0);
+    if (!date?.value) { showFieldError('order-date', 'error-date', 'Please choose a delivery date.'); valid = false; }
+    else if (new Date(date.value) < today) { showFieldError('order-date', 'error-date', 'Delivery date must be today or later.'); valid = false; }
+
+    return valid;
+  }
+
+  if (submitBtn) {
+    submitBtn.addEventListener('click', () => {
+      if (!validateOrderForm()) return;
+      const firstName = document.getElementById('order-first-name')?.value.trim();
+      const email = document.getElementById('order-email')?.value.trim();
+      const successText = document.getElementById('order-success-text');
+      if (successText) successText.textContent = `Thanks ${firstName}! We'll send a confirmation to ${email} within 2 hours.`;
+      if (orderInner) orderInner.style.display = 'none';
+      if (orderSuccess) orderSuccess.classList.add('is-visible');
+      window.scrollTo({ top: orderSuccess.offsetTop - 100, behavior: 'smooth' });
+    });
+  }
+
+
+  /* -----------------------------------------------------------
+     11. CONTACT FORM VALIDATION
+  ----------------------------------------------------------- */
+  const contactForm = document.getElementById('contact-form');
+  const contactSuccess = document.getElementById('contact-success');
+
+  if (contactForm) {
+    contactForm.querySelectorAll('.order-form-input').forEach(input => {
+      input.addEventListener('input', () => {
+        input.classList.remove('has-error');
+        const errorEl = document.getElementById(`error-contact-${input.id.replace('contact-', '')}`);
+        if (errorEl) errorEl.textContent = '';
+      });
+    });
+
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      let valid = true;
+      ['error-contact-name', 'error-contact-email', 'error-contact-message'].forEach(id => {
+        const el = document.getElementById(id); if (el) el.textContent = '';
+      });
+      contactForm.querySelectorAll('.order-form-input').forEach(f => f.classList.remove('has-error'));
+
+      const name = document.getElementById('contact-name');
+      if (!name?.value.trim()) { showFieldError('contact-name', 'error-contact-name', 'Your name is required.'); valid = false; }
+
+      const email = document.getElementById('contact-email');
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!email?.value.trim()) { showFieldError('contact-email', 'error-contact-email', 'Email address is required.'); valid = false; }
+      else if (!emailPattern.test(email.value.trim())) { showFieldError('contact-email', 'error-contact-email', 'Please enter a valid email address.'); valid = false; }
+
+      const message = document.getElementById('contact-message');
+      if (!message?.value.trim()) { showFieldError('contact-message', 'error-contact-message', 'Please write a message.'); valid = false; }
+      else if (message.value.trim().length < 10) { showFieldError('contact-message', 'error-contact-message', 'Message must be at least 10 characters.'); valid = false; }
+
+      if (!valid) return;
+
+      contactForm.querySelectorAll('.order-form-input').forEach(f => f.value = '');
+      if (contactSuccess) contactSuccess.classList.add('is-visible');
+      const contactBtn = document.getElementById('contact-submit-btn');
+      if (contactBtn) { contactBtn.disabled = true; contactBtn.textContent = 'Message sent'; }
+    });
+  }
+
 }); /* end DOMContentLoaded */

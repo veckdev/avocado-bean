@@ -445,12 +445,35 @@
 @media (max-width: 900px) {
 
   .ingredients-header {
-    padding: calc(57px + 24px) 24px 28px;
+    padding: 0;
   }
 
-  .ingredients-grid {
+  .ingredients-hero-wrapper {
     grid-template-columns: 1fr;
-    gap: 16px;
+    min-height: auto;
+  }
+
+  .ingredients-hero-photo {
+    min-height: 260px;
+  }
+
+  .ingredients-hero-content {
+    padding: calc(57px + 48px) 24px 48px;
+    border-left: none;
+    border-top: 1px solid var(--line-colour);
+  }
+
+  .categories-section {
+    padding: 56px 24px;
+  }
+
+  .suppliers-section {
+    padding: 56px 24px;
+    min-height: auto;
+  }
+
+  .suppliers-grid {
+    grid-template-columns: 1fr;
   }
 
   .supplier-card {
@@ -459,6 +482,7 @@
 
   .ingredients-cta-section {
     padding: 72px 24px;
+    min-height: auto;
   }
 
   .ingredients-cta-buttons {

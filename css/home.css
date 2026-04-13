@@ -605,7 +605,7 @@
   }
 
   .hero-content {
-    padding: 100px 24px 40px;
+    padding: calc(57px + 48px) 24px 48px;
   }
 
   .hero-heading {

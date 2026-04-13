@@ -207,7 +207,6 @@ document.addEventListener('DOMContentLoaded', () => {
   addIconPattern('.ingredients-cta-preview');
   addIconPattern('.about-cta-section');
   addIconPattern('.story-section');
-  addIconPattern('.suppliers-section');
   addIconPattern('.ingredients-cta-section');
 
 
@@ -890,6 +889,57 @@ document.addEventListener('DOMContentLoaded', () => {
     updateSidebar();
   }
 
+
+  /* -----------------------------------------------------------
+     10. ORDER SIDEBAR — FIXED ON SCROLL
+  ----------------------------------------------------------- */
+  const sidebarCol = document.querySelector('.order-sidebar-col');
+  const orderSectionEl = document.querySelector('.order-section');
+
+  if (sidebarCol && orderSectionEl) {
+    const SIDEBAR_TOP_OFFSET = 88;
+    let sidebarLeft = 0;
+    let sidebarWidth = 0;
+
+    function cacheSidebarMetrics() {
+      sidebarCol.style.position = '';
+      sidebarCol.style.top = '';
+      sidebarCol.style.left = '';
+      sidebarCol.style.width = '';
+      const rect = sidebarCol.getBoundingClientRect();
+      sidebarLeft = rect.left;
+      sidebarWidth = rect.width;
+    }
+
+    function updateSidebarPosition() {
+      const sectionRect = orderSectionEl.getBoundingClientRect();
+      const sidebarHeight = sidebarCol.offsetHeight;
+
+      if (sectionRect.top <= SIDEBAR_TOP_OFFSET && sectionRect.bottom >= sidebarHeight + SIDEBAR_TOP_OFFSET) {
+        sidebarCol.style.position = 'fixed';
+        sidebarCol.style.top = SIDEBAR_TOP_OFFSET + 'px';
+        sidebarCol.style.left = sidebarLeft + 'px';
+        sidebarCol.style.width = sidebarWidth + 'px';
+      } else if (sectionRect.top > SIDEBAR_TOP_OFFSET) {
+        sidebarCol.style.position = '';
+        sidebarCol.style.top = '';
+        sidebarCol.style.left = '';
+        sidebarCol.style.width = '';
+      } else {
+        sidebarCol.style.position = 'absolute';
+        sidebarCol.style.top = 'auto';
+        sidebarCol.style.bottom = '0';
+        sidebarCol.style.left = '';
+        sidebarCol.style.width = sidebarWidth + 'px';
+      }
+    }
+
+    orderSectionEl.style.position = 'relative';
+    cacheSidebarMetrics();
+    window.addEventListener('scroll', updateSidebarPosition);
+    window.addEventListener('resize', () => { cacheSidebarMetrics(); updateSidebarPosition(); });
+    updateSidebarPosition();
+  }
 
   /* -----------------------------------------------------------
      10. ORDER FORM VALIDATION — JS + HTML5

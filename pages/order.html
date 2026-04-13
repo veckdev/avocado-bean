@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Order Now — Avocado Bean</title>
+    <meta name="description"
+        content="Place your order with Avocado Bean — pick your recipes and we'll deliver fresh plant-based ingredients to your door in Dublin.">
+    <meta name="keywords" content="order vegan ingredients Dublin, plant-based delivery order, Avocado Bean order">
+    <meta name="author" content="Avocado Bean">
+
+    <meta property="og:title" content="Order Now — Avocado Bean">
+    <meta property="og:description"
+        content="Pick your recipes, fill in your delivery details, and we'll deliver everything you need.">
+    <meta property="og:image" content="../images/ui/og-image.jpg">
+    <meta property="og:type" content="website">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet" media="print" onload="this.media='all'">
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/order.css">
+    <link rel="icon" href="../images/ui/logo.svg" type="image/svg+xml">
+</head>
+
+<body class="order-page">
+
+    <!-- NAVIGATION BAR -->
+    <nav class="top-nav" id="main-nav">
+        <a href="../index.html" class="site-logo" aria-label="Avocado Bean — go to homepage">
+            <div class="logo-icon" aria-hidden="true"></div>
+            <span class="logo-text">Avocado <span>Bean</span></span>
+        </a>
+        <ul class="nav-menu">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="recipes.html">Recipes</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="ingredients.html">Ingredients</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="order.html" class="nav-cta-wrapper nav-cta-button current-page">Order Now</a>
+        <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle navigation" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+
+    <!-- SECTION 1 — HERO -->
+    <section class="order-hero" aria-label="Order now">
+        <div class="order-hero-content">
+            <p class="order-hero-label reveal">Place your order</p>
+            <h1 class="order-hero-heading reveal reveal-delay-1">
+                Build your box.<br>
+                <em>We'll handle</em> the rest.
+            </h1>
+            <p class="order-hero-description reveal reveal-delay-2">
+                Pick your recipes, fill in your delivery details,
+                and we'll have everything at your door — pre-measured and ready to cook.
+            </p>
+        </div>
+        <div class="order-hero-info reveal reveal-delay-2">
+            <div class="order-info-item">
+                <p class="order-info-label">Delivery area</p>
+                <p class="order-info-value">Dublin D1 – D24</p>
+            </div>
+            <div class="order-info-item">
+                <p class="order-info-label">Order by</p>
+                <p class="order-info-value">Mon – Sat, before 18:00</p>
+            </div>
+            <div class="order-info-item">
+                <p class="order-info-label">Email us</p>
+                <p class="order-info-value">hello@avocadobean.ie</p>
+            </div>
+            <div class="order-info-item">
+                <p class="order-info-label">Phone</p>
+                <p class="order-info-value">+353 1 234 5678</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- SECTION 2 — ORDER FORM -->
+    <section class="order-section" aria-label="Place your order">
+        <div class="order-inner">
+
+            <!-- LEFT — recipe picker + form -->
+            <div class="order-form-col">
+
+                <div class="order-form-header reveal">
+                    <p class="section-label">Your order</p>
+                    <h2 class="section-heading">Place your order</h2>
+                    <p class="order-form-description">Select up to 3 recipes, then fill in your delivery details.</p>
+                </div>
+
+                <!-- RECIPE PICKER -->
+                <div class="recipe-picker reveal">
+                    <p class="recipe-picker-label">Choose your recipes <span class="order-required">*</span></p>
+                    <p class="recipe-picker-hint" id="recipe-picker-hint">Select between 1 and 3 recipes</p>
+                    <div class="recipe-picker-grid" id="recipe-picker-grid">
+
+                        <div class="order-recipe-card" data-recipe-id="chickpea-curry"
+                            data-recipe-name="Chickpea Curry Bowl" tabindex="0" role="checkbox" aria-checked="false">
+                            <div class="order-recipe-check" aria-hidden="true"></div>
+                            <div class="order-recipe-info">
+                                <p class="order-recipe-name">Chickpea Curry Bowl</p>
+                                <p class="order-recipe-meta">Bowls &middot; 35 min &middot; Easy</p>
+                            </div>
+                        </div>
+
+                        <div class="order-recipe-card" data-recipe-id="tofu-katsu" data-recipe-name="Tofu Katsu Bowl"
+                            tabindex="0" role="checkbox" aria-checked="false">
+                            <div class="order-recipe-check" aria-hidden="true"></div>
+                            <div class="order-recipe-info">
+                                <p class="order-recipe-name">Tofu Katsu Bowl</p>
+                                <p class="order-recipe-meta">Bowls &middot; 40 min &middot; Medium</p>
+                            </div>
+                        </div>
+
+                        <div class="order-recipe-card" data-recipe-id="cauliflower-curry"
+                            data-recipe-name="Cauliflower &amp; Chickpea Curry" tabindex="0" role="checkbox"
+                            aria-checked="false">
+                            <div class="order-recipe-check" aria-hidden="true"></div>
+                            <div class="order-recipe-info">
+                                <p class="order-recipe-name">Cauliflower &amp; Chickpea Curry</p>
+                                <p class="order-recipe-meta">Bowls &middot; 40 min &middot; Easy</p>
+                            </div>
+                        </div>
+
+                        <div class="order-recipe-card" data-recipe-id="spiced-lentil-soup"
+                            data-recipe-name="Spiced Lentil Soup" tabindex="0" role="checkbox" aria-checked="false">
+                            <div class="order-recipe-check" aria-hidden="true"></div>
+                            <div class="order-recipe-info">
+                                <p class="order-recipe-name">Spiced Lentil Soup</p>
+                                <p class="order-recipe-meta">Soups &middot; 45 min &middot; Easy</p>
+                            </div>
+                        </div>
+
+                        <div class="order-recipe-card" data-recipe-id="scramble-on-toast"
+                            data-recipe-name="Scramble on Toast" tabindex="0" role="checkbox" aria-checked="false">
+                            <div class="order-recipe-check" aria-hidden="true"></div>
+                            <div class="order-recipe-info">
+                                <p class="order-recipe-name">Scramble on Toast</p>
+                                <p class="order-recipe-meta">Toasts &middot; 15 min &middot; Easy</p>
+                            </div>
+                        </div>
+
+                        <div class="order-recipe-card" data-recipe-id="scramble-pickles"
+                            data-recipe-name="Scramble with Pickles" tabindex="0" role="checkbox" aria-checked="false">
+                            <div class="order-recipe-check" aria-hidden="true"></div>
+                            <div class="order-recipe-info">
+                                <p class="order-recipe-name">Scramble with Pickles</p>
+                                <p class="order-recipe-meta">Toasts &middot; 15 min &middot; Easy</p>
+                            </div>
+                        </div>
+
+                        <div class="order-recipe-card" data-recipe-id="spinach-berry-salad"
+                            data-recipe-name="Spinach &amp; Berry Salad" tabindex="0" role="checkbox"
+                            aria-checked="false">
+                            <div class="order-recipe-check" aria-hidden="true"></div>
+                            <div class="order-recipe-info">
+                                <p class="order-recipe-name">Spinach &amp; Berry Salad</p>
+                                <p class="order-recipe-meta">Salads &middot; 10 min &middot; Easy</p>
+                            </div>
+                        </div>
+
+                        <div class="order-recipe-card" data-recipe-id="kale-avocado-salad"
+                            data-recipe-name="Kale &amp; Avocado Salad" tabindex="0" role="checkbox"
+                            aria-checked="false">
+                            <div class="order-recipe-check" aria-hidden="true"></div>
+                            <div class="order-recipe-info">
+                                <p class="order-recipe-name">Kale &amp; Avocado Salad</p>
+                                <p class="order-recipe-meta">Salads &middot; 15 min &middot; Easy</p>
+                            </div>
+                        </div>
+
+                        <div class="order-recipe-card" data-recipe-id="cucumber-radish-toast"
+                            data-recipe-name="Cucumber &amp; Radish Toast" tabindex="0" role="checkbox"
+                            aria-checked="false">
+                            <div class="order-recipe-check" aria-hidden="true"></div>
+                            <div class="order-recipe-info">
+                                <p class="order-recipe-name">Cucumber &amp; Radish Toast</p>
+                                <p class="order-recipe-meta">Toasts &middot; 10 min &middot; Easy</p>
+                            </div>
+                        </div>
+
+                        <div class="order-recipe-card" data-recipe-id="peanut-butter-jam-toast"
+                            data-recipe-name="Peanut Butter &amp; Jam Toast" tabindex="0" role="checkbox"
+                            aria-checked="false">
+                            <div class="order-recipe-check" aria-hidden="true"></div>
+                            <div class="order-recipe-info">
+                                <p class="order-recipe-name">Peanut Butter &amp; Jam Toast</p>
+                                <p class="order-recipe-meta">Toasts &middot; 5 min &middot; Easy</p>
+                            </div>
+                        </div>
+
+                        <div class="order-recipe-card" data-recipe-id="peanut-butter-rice-cakes"
+                            data-recipe-name="Peanut Butter Rice Cakes" tabindex="0" role="checkbox"
+                            aria-checked="false">
+                            <div class="order-recipe-check" aria-hidden="true"></div>
+                            <div class="order-recipe-info">
+                                <p class="order-recipe-name">Peanut Butter Rice Cakes</p>
+                                <p class="order-recipe-meta">Snacks &middot; 5 min &middot; Easy</p>
+                            </div>
+                        </div>
+
+                        <div class="order-recipe-card" data-recipe-id="granola-bars"
+                            data-recipe-name="Fruit &amp; Oat Granola Bars" tabindex="0" role="checkbox"
+                            aria-checked="false">
+                            <div class="order-recipe-check" aria-hidden="true"></div>
+                            <div class="order-recipe-info">
+                                <p class="order-recipe-name">Fruit &amp; Oat Granola Bars</p>
+                                <p class="order-recipe-meta">Snacks &middot; 35 min &middot; Easy</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- ORDER FORM -->
+                <form class="order-form reveal" id="order-form" novalidate>
+
+                    <div class="order-form-row">
+                        <div class="order-form-group">
+                            <label class="order-form-label" for="order-first-name">
+                                First name <span class="order-required">*</span>
+                            </label>
+                            <input class="order-form-input" type="text" id="order-first-name" name="firstName"
+                                placeholder="John" autocomplete="given-name" required>
+                            <p class="order-form-error" id="error-first-name" aria-live="polite"></p>
+                        </div>
+                        <div class="order-form-group">
+                            <label class="order-form-label" for="order-last-name">
+                                Last name <span class="order-required">*</span>
+                            </label>
+                            <input class="order-form-input" type="text" id="order-last-name" name="lastName"
+                                placeholder="Doe" autocomplete="family-name" required>
+                            <p class="order-form-error" id="error-last-name" aria-live="polite"></p>
+                        </div>
+                    </div>
+
+                    <div class="order-form-group">
+                        <label class="order-form-label" for="order-email">
+                            Email address <span class="order-required">*</span>
+                        </label>
+                        <input class="order-form-input" type="email" id="order-email" name="email"
+                            placeholder="john@example.com" autocomplete="email" required>
+                        <p class="order-form-error" id="error-email" aria-live="polite"></p>
+                    </div>
+
+                    <div class="order-form-group">
+                        <label class="order-form-label" for="order-phone">
+                            Phone number <span class="order-required">*</span>
+                        </label>
+                        <input class="order-form-input" type="tel" id="order-phone" name="phone"
+                            placeholder="+353 87 000 0000" autocomplete="tel" required>
+                        <p class="order-form-error" id="error-phone" aria-live="polite"></p>
+                    </div>
+
+                    <div class="order-form-group">
+                        <label class="order-form-label" for="order-address">
+                            Delivery address <span class="order-required">*</span>
+                        </label>
+                        <input class="order-form-input" type="text" id="order-address" name="address"
+                            placeholder="12 Grafton Street, Dublin 2" autocomplete="address-line1" required>
+                        <p class="order-form-hint">Dublin D1–D24 only</p>
+                        <p class="order-form-error" id="error-address" aria-live="polite"></p>
+                    </div>
+
+                    <div class="order-form-row">
+                        <div class="order-form-group">
+                            <label class="order-form-label" for="order-date">
+                                Delivery date <span class="order-required">*</span>
+                            </label>
+                            <input class="order-form-input" type="date" id="order-date" name="deliveryDate" required>
+                            <p class="order-form-error" id="error-date" aria-live="polite"></p>
+                        </div>
+                        <div class="order-form-group">
+                            <label class="order-form-label" for="order-serves">Serves</label>
+                            <select class="order-form-input order-form-select" id="order-serves" name="serves">
+                                <option value="2">2 people</option>
+                                <option value="4">4 people</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="order-form-group">
+                        <label class="order-form-label" for="order-notes">Special instructions</label>
+                        <textarea class="order-form-input order-form-textarea" id="order-notes" name="notes"
+                            placeholder="Allergies, dietary notes, access instructions..."></textarea>
+                        <p class="order-form-hint">Optional — max 300 characters</p>
+                        <p class="order-form-char-count" id="notes-char-count">0 / 300</p>
+                    </div>
+
+                    <p class="order-form-error order-form-error--global" id="error-recipes" aria-live="polite"></p>
+
+                </form>
+
+            </div>
+
+            <!-- RIGHT — order summary sidebar -->
+            <div class="order-sidebar-col">
+                <div class="order-sidebar" id="order-sidebar">
+                    <p class="order-sidebar-title">Your box</p>
+
+                    <div class="order-sidebar-empty" id="sidebar-empty">
+                        <p>No recipes selected yet.</p>
+                        <p>Choose up to 3 from the list.</p>
+                    </div>
+
+                    <ul class="order-sidebar-list" id="sidebar-list" aria-label="Selected recipes"></ul>
+
+                    <div class="order-sidebar-summary" id="sidebar-summary" aria-live="polite">
+                        <span class="order-sidebar-count" id="sidebar-count">0 of 3 recipes</span>
+                        <span class="order-sidebar-price" id="sidebar-price">€0.00</span>
+                    </div>
+
+                    <button class="order-sidebar-btn" id="order-submit-btn" type="button">
+                        Place order
+                    </button>
+
+                    <p class="order-sidebar-note">We'll confirm your order by email within 2 hours.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ORDER SUCCESS STATE -->
+        <div class="order-success" id="order-success" aria-live="polite">
+            <div class="order-success-inner">
+                <div class="order-success-icon" aria-hidden="true"></div>
+                <h2 class="order-success-title">Order received!</h2>
+                <p class="order-success-text" id="order-success-text">
+                    Thanks, we'll send a confirmation to your email shortly.
+                </p>
+                <a href="recipes.html" class="main-button">Browse more recipes</a>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-logo-wrap">
+            <div class="footer-logo-icon" aria-hidden="true"></div>
+            <span class="footer-logo-text">Avocado <span>Bean</span></span>
+        </div>
+        <div class="footer-middle">
+            <p class="footer-address">Fresh ingredients · Dublin delivery</p>
+            <p class="footer-hours">Mon – Sat · Orders by 18:00</p>
+        </div>
+        <div class="footer-right">
+            <p class="footer-copyright">© 2026 Avocado Bean</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+
+</body>
+
+</html>

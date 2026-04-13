@@ -10,16 +10,17 @@
    ============================================================= */
 .hero-wrapper {
   display: grid;
-  grid-template-columns: 52% 48%;
+  grid-template-columns: 1fr 1fr;
   flex: 1;
   background: var(--white);
 }
 
 .hero-content {
-  padding: calc(68px + 69px) 52px 60px;
+  padding: calc(69px + 72px) 52px 72px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 24px;
 }
 
 .hero-eyebrow {

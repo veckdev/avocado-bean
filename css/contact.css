@@ -12,12 +12,11 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     min-height: 100vh;
-    padding-top: 69px;
     background: var(--cream);
 }
 
 .contact-hero-content {
-    padding: 80px 52px;
+    padding: calc(69px + 72px) 52px 72px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -69,7 +68,7 @@
 }
 
 .contact-hero-info {
-    padding: 80px 52px;
+    padding: calc(69px + 72px) 52px 72px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -102,432 +101,11 @@
 
 
 /* =============================================================
-   ORDER SECTION
-   ============================================================= */
-.order-section {
-    background: var(--white);
-    padding: 80px 52px;
-    position: relative;
-}
-
-.order-inner {
-    display: grid;
-    grid-template-columns: 1fr 360px;
-    gap: 64px;
-    align-items: start;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.order-form-header {
-    margin-bottom: 40px;
-}
-
-.order-form-description {
-    font-size: 15px;
-    line-height: 1.8;
-    color: var(--grey);
-    margin-top: 12px;
-}
-
-
-/* =============================================================
-   RECIPE PICKER
-   ============================================================= */
-.recipe-picker {
-    margin-bottom: 40px;
-}
-
-.recipe-picker-label {
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    color: var(--dark);
-    margin-bottom: 6px;
-}
-
-.recipe-picker-hint {
-    font-size: 12px;
-    color: var(--grey);
-    margin-bottom: 16px;
-}
-
-.recipe-picker-hint.has-error {
-    color: var(--orange);
-}
-
-.recipe-picker-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-}
-
-.order-recipe-card {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 16px;
-    border: 1.5px solid var(--line-colour);
-    border-radius: 6px;
-    cursor: pointer;
-    transition: border-color 0.2s, background 0.2s;
-    user-select: none;
-}
-
-.order-recipe-card:hover {
-    border-color: var(--green);
-}
-
-.order-recipe-card.is-selected {
-    border-color: var(--green);
-    background: rgba(74, 107, 66, 0.06);
-}
-
-.order-recipe-card.is-disabled {
-    opacity: 0.45;
-    cursor: not-allowed;
-    pointer-events: none;
-}
-
-.order-recipe-card.is-disabled:hover {
-    border-color: var(--line-colour);
-}
-
-.order-recipe-check {
-    width: 18px;
-    height: 18px;
-    border: 1.5px solid rgba(42, 34, 24, 0.2);
-    border-radius: 3px;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.15s;
-}
-
-.order-recipe-card.is-selected .order-recipe-check {
-    background: var(--green);
-    border-color: var(--green);
-}
-
-.order-recipe-card.is-selected .order-recipe-check::after {
-    content: '';
-    width: 10px;
-    height: 6px;
-    border-left: 2px solid var(--white);
-    border-bottom: 2px solid var(--white);
-    transform: rotate(-45deg) translateY(-1px);
-    display: block;
-}
-
-.order-recipe-name {
-    font-family: 'Averia Serif Libre', serif;
-    font-style: italic;
-    font-size: 15px;
-    font-weight: 700;
-    color: var(--dark);
-    margin-bottom: 3px;
-    line-height: 1.2;
-}
-
-.order-recipe-meta {
-    font-size: 12px;
-    color: var(--grey);
-    font-weight: 400;
-}
-
-
-/* =============================================================
-   ORDER FORM FIELDS
-   ============================================================= */
-.order-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.order-form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-}
-
-.order-form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-
-.order-form-label {
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    color: var(--dark);
-}
-
-.order-required {
-    color: var(--orange);
-}
-
-.order-form-input {
-    font-family: 'Rubik', sans-serif;
-    font-size: 14px;
-    color: var(--dark);
-    background: var(--cream);
-    border: 1.5px solid var(--line-colour);
-    border-radius: 3px;
-    padding: 12px 16px;
-    outline: none;
-    transition: border-color 0.2s, background 0.2s;
-    width: 100%;
-}
-
-.order-form-input:focus {
-    border-color: var(--green);
-    background: var(--white);
-}
-
-.order-form-input.has-error {
-    border-color: var(--orange);
-}
-
-.order-form-select {
-    appearance: none;
-    cursor: pointer;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237a6e62' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 14px center;
-    background-color: var(--cream);
-    padding-right: 40px;
-}
-
-.order-form-textarea {
-    resize: vertical;
-    min-height: 100px;
-}
-
-.order-form-error {
-    font-size: 12px;
-    color: var(--orange);
-    font-weight: 500;
-    min-height: 16px;
-}
-
-.order-form-error--global {
-    font-size: 13px;
-    font-weight: 600;
-    margin-top: 4px;
-}
-
-.order-form-hint {
-    font-size: 12px;
-    color: var(--grey);
-}
-
-.order-form-char-count {
-    font-size: 11px;
-    color: var(--grey);
-    text-align: right;
-}
-
-
-/* =============================================================
-   ORDER SIDEBAR
-   ============================================================= */
-.order-sidebar-col {
-    position: sticky;
-    top: 88px;
-}
-
-.order-sidebar {
-    background: var(--dark);
-    border-radius: 8px;
-    padding: 28px;
-}
-
-.order-sidebar-title {
-    font-size: 11px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: rgba(250, 248, 242, 0.45);
-    font-weight: 600;
-    margin-bottom: 20px;
-}
-
-.order-sidebar-empty {
-    text-align: center;
-    padding: 24px 0;
-}
-
-.order-sidebar-empty p {
-    font-size: 13px;
-    color: rgba(250, 248, 242, 0.35);
-    line-height: 1.7;
-}
-
-.order-sidebar-empty p:first-child {
-    font-style: italic;
-}
-
-.order-sidebar-list {
-    list-style: none;
-    margin-bottom: 4px;
-}
-
-.order-sidebar-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 0;
-    border-bottom: 1px solid rgba(250, 248, 242, 0.08);
-}
-
-.order-sidebar-item-name {
-    font-size: 13px;
-    color: var(--white);
-    font-weight: 400;
-}
-
-.order-sidebar-item-remove {
-    font-size: 10px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: rgba(250, 248, 242, 0.3);
-    cursor: pointer;
-    background: none;
-    border: none;
-    font-family: 'Rubik', sans-serif;
-    transition: color 0.2s;
-    padding: 0;
-}
-
-.order-sidebar-item-remove:hover {
-    color: var(--orange);
-}
-
-.order-sidebar-summary {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    padding-top: 16px;
-    margin-bottom: 20px;
-}
-
-.order-sidebar-count {
-    font-size: 11px;
-    letter-spacing: 0.10em;
-    text-transform: uppercase;
-    color: rgba(250, 248, 242, 0.45);
-}
-
-.order-sidebar-price {
-    font-family: 'Averia Serif Libre', serif;
-    font-style: italic;
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--yellow);
-    line-height: 1;
-}
-
-.order-sidebar-btn {
-    width: 100%;
-    background: var(--green);
-    color: var(--white);
-    border: none;
-    border-radius: 5px;
-    padding: 14px;
-    font-family: 'Rubik', sans-serif;
-    font-size: 11px;
-    letter-spacing: 0.13em;
-    text-transform: uppercase;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.15s;
-    margin-bottom: 12px;
-}
-
-.order-sidebar-btn:hover {
-    background: var(--orange);
-    transform: translateY(-1px);
-}
-
-.order-sidebar-btn:disabled {
-    opacity: 0.45;
-    cursor: not-allowed;
-    transform: none;
-}
-
-.order-sidebar-note {
-    font-size: 11px;
-    color: rgba(250, 248, 242, 0.3);
-    text-align: center;
-    line-height: 1.6;
-}
-
-
-/* =============================================================
-   ORDER SUCCESS
-   ============================================================= */
-.order-success {
-    display: none;
-    text-align: center;
-    padding: 80px 52px;
-}
-
-.order-success.is-visible {
-    display: block;
-}
-
-.order-success-inner {
-    max-width: 480px;
-    margin: 0 auto;
-}
-
-.order-success-icon {
-    width: 56px;
-    height: 56px;
-    background: var(--green);
-    border-radius: 50%;
-    margin: 0 auto 24px;
-    position: relative;
-}
-
-.order-success-icon::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -60%) rotate(-45deg);
-    width: 22px;
-    height: 12px;
-    border-left: 3px solid var(--white);
-    border-bottom: 3px solid var(--white);
-}
-
-.order-success-title {
-    font-family: 'Averia Serif Libre', serif;
-    font-style: italic;
-    font-size: clamp(32px, 4vw, 48px);
-    font-weight: 700;
-    color: var(--dark);
-    margin-bottom: 12px;
-    letter-spacing: -0.01em;
-}
-
-.order-success-text {
-    font-size: 16px;
-    line-height: 1.8;
-    color: var(--grey);
-    margin-bottom: 32px;
-}
-
-
-/* =============================================================
    CONTACT SECTION
    ============================================================= */
 .contact-section {
     background: var(--cream);
-    padding: 80px 52px;
+    padding: calc(69px + 80px) 52px 80px;
 }
 
 .contact-inner {
@@ -620,39 +198,17 @@
     }
 
     .contact-hero-content {
-        padding: calc(57px + 40px) 24px 40px;
+        padding: calc(57px + 48px) 24px 48px;
         border-right: none;
         border-bottom: 1px solid var(--line-colour);
     }
 
     .contact-hero-info {
-        padding: 40px 24px 56px;
-    }
-
-    .order-section {
-        padding: 56px 24px;
-    }
-
-    .order-inner {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    .order-sidebar-col {
-        position: static;
-        order: -1;
-    }
-
-    .recipe-picker-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .order-form-row {
-        grid-template-columns: 1fr;
+        padding: 48px 24px 56px;
     }
 
     .contact-section {
-        padding: 56px 24px;
+        padding: calc(57px + 40px) 24px 56px;
     }
 
     .contact-inner {
@@ -660,8 +216,73 @@
         gap: 48px;
     }
 
+    .contact-form-row {
+        grid-template-columns: 1fr;
+    }
+
     .contact-form-submit-row {
         flex-direction: column;
         align-items: flex-start;
     }
+}
+
+/* =============================================================
+   CONTACT FORM FIELDS
+   ============================================================= */
+.contact-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.contact-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.contact-form-label {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--dark);
+}
+
+.contact-required {
+    color: var(--orange);
+}
+
+.contact-form-input {
+    font-family: 'Rubik', sans-serif;
+    font-size: 14px;
+    color: var(--dark);
+    background: var(--cream);
+    border: 1.5px solid var(--line-colour);
+    border-radius: 3px;
+    padding: 12px 16px;
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.contact-form-input:focus {
+    border-color: var(--green);
+    background: var(--white);
+}
+
+.contact-form-input.has-error {
+    border-color: var(--orange);
+}
+
+.contact-form-textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.contact-form-error {
+    font-size: 12px;
+    color: var(--orange);
+    font-weight: 500;
+    min-height: 16px;
 }

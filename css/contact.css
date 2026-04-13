@@ -1,13 +1,9 @@
-/* =============================================================
-   AVOCADO BEAN — contact.css
-   Styles specific to contact.html only.
-   Requires: css/style.css
-   ============================================================= */
+/* --- contact.css ---
+   Styles specific to contact.html only. */
 
 
-/* =============================================================
-   HERO SECTION
-   ============================================================= */
+/* --- Hero section ---
+   Two-column layout with intro text and contact info. */
 .contact-hero {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -100,11 +96,10 @@
 }
 
 
-/* =============================================================
-   CONTACT SECTION
-   ============================================================= */
+/* --- Contact section ---
+   Two-column layout with message form and address details. */
 .contact-section {
-    background: var(--cream);
+    background: var(--white);
     padding: calc(69px + 80px) 52px 80px;
 }
 
@@ -187,9 +182,8 @@
 }
 
 
-/* =============================================================
-   RESPONSIVE — MOBILE
-   ============================================================= */
+/* --- Responsive ---
+   Mobile overrides for the contact page. */
 @media (max-width: 900px) {
 
     .contact-hero {
@@ -226,9 +220,8 @@
     }
 }
 
-/* =============================================================
-   CONTACT FORM FIELDS
-   ============================================================= */
+/* --- Form fields ---
+   Input, textarea and error styles for the contact form. */
 .contact-form-row {
     display: grid;
     grid-template-columns: 1fr 1fr;

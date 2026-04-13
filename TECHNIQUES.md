@@ -690,6 +690,30 @@ Loads both fonts in a single request, with `display=swap` to prevent invisible t
 
 ---
 
+### jQuery Animated Stat Counters
+Uses jQuery's `.animate()` method to count numbers up from 0 when the stats
+section on the About page scrolls into view. An `IntersectionObserver` triggers
+the animation once, then disconnects so it never replays.
+```js
+$({ val: 0 }).animate({ val: target }, {
+  duration: 1800,
+  easing: 'swing',
+  step: function () {
+    $el.text(Math.floor(this.val) + suffix); // updates text on every frame
+  },
+  complete: function () {
+    $el.text(target + suffix);               // snap to exact final value
+  }
+});
+```
+The target value and suffix (e.g. `+` or `%`) are stored as `data-*` attributes
+on each element, so the JS is generic and works for any stat:
+```html
+<div class="story-stat-number" data-target="100" data-suffix="%">0%</div>
+```
+
+---
+
 ## Design Decisions
 
 ### Font Pairing
@@ -723,6 +747,12 @@ Limiting orders to 3 recipes mirrors real meal kit services (HelloFresh, Green C
 
 ### Scroll Snap — Desktop Only
 Scroll snap creates a premium full-page feel on desktop but is disabled on mobile via media query. On mobile the content is longer and natural scrolling is a better experience.
+
+### jQuery — Targeted Use
+jQuery is loaded only on `about.html` where it is needed. Rather than importing
+it globally, it is included as a `<script>` tag just before `main.js` on that
+page only. The counter code in `main.js` checks `typeof $ !== 'undefined'`
+before running, so no errors occur on pages without jQuery.
 
 ### Icon Pattern — Decorative Only
 The scattered SVG icon pattern is applied only to dark-background sections where it adds warmth and texture without affecting text readability. It is `aria-hidden="true"` so screen readers ignore it entirely.

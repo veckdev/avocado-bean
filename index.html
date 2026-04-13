@@ -5,11 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- =====================================================
-       SEO META TAGS
-       These help search engines understand what the page is
-       about and show the right information in search results.
-  ====================================================== -->
+    <!-- SEO meta tags -->
     <title>Avocado Bean — Dublin's Plant-Based Kitchen</title>
     <meta name="description"
         content="Fresh plant-based ingredients selected by us, delivered to your door with step-by-step recipes. Cook like a chef at home. Dublin delivery.">
@@ -17,7 +13,7 @@
         content="vegan ingredients Dublin, plant-based recipes, vegan food delivery Dublin, cook at home vegan">
     <meta name="author" content="Avocado Bean">
 
-    <!-- Open Graph tags control how the page looks when shared on social media -->
+    <!-- Open Graph tags for social media sharing -->
     <meta property="og:title" content="Avocado Bean — Dublin's Plant-Based Kitchen">
     <meta property="og:description"
         content="Fresh plant-based ingredients delivered to your door with step-by-step recipes.">
@@ -30,31 +26,27 @@
         href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
         rel="stylesheet" media="print" onload="this.media='all'">
 
-    <!-- Link to our external stylesheet -->
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/home.css">
 
-    <!-- Favicon — the small icon shown in the browser tab -->
+    <!-- Favicon -->
     <link rel="icon" href="images/ui/logo.svg" type="image/svg+xml">
 </head>
 
 <body>
 
-    <!-- =====================================================
-       NAVIGATION BAR
-       position: fixed in CSS keeps it visible at all times.
-       JavaScript adds the class "is-scrolled" when the user
-       scrolls down, which makes it shrink slightly.
-  ====================================================== -->
+    <!-- --- Navigation bar ---
+         Fixed top nav, shrinks on scroll, hamburger on mobile. -->
     <nav class="top-nav" id="main-nav">
 
-        <!-- Logo: leaf icon + brand name -->
+
         <a href="index.html" class="site-logo" aria-label="Avocado Bean — go to homepage">
             <div class="logo-icon" aria-hidden="true"></div>
             <span class="logo-text">Avocado <span>Bean</span></span>
         </a>
 
-        <!-- Main navigation links -->
+
         <ul class="nav-menu">
             <li><a href="index.html" class="current-page">Home</a></li>
             <li><a href="pages/recipes.html">Recipes</a></li>
@@ -63,10 +55,10 @@
             <li><a href="pages/contact.html">Contact</a></li>
         </ul>
 
-        <!-- Call-to-action button (desktop only) -->
+
         <a href="order.html" class="nav-cta-button">Order Now</a>
 
-        <!-- Hamburger (mobile only) -->
+
         <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle navigation" aria-expanded="false">
             <span></span>
             <span></span>
@@ -76,60 +68,48 @@
     </nav>
 
 
-    <!-- =====================================================
-       SCROLL DOTS INDICATOR
-       Small dots on the right side of the screen showing
-
-
-     =====================================================
-       MAIN SCROLL CONTAINER
-       scroll-snap-type in CSS makes each section snap into
-       place when the user scrolls. JavaScript listens to
-       scroll events on this element (not on window).
-  ====================================================== -->
+    <!-- --- Main scroll container ---
+         Wraps all homepage sections. -->
     <main class="page-scroller" id="page-scroller">
 
 
-        <!-- ===================================================
-         SECTION 1 — HERO
-         First thing visitors see. Split into two columns:
-         left = text content, right = food photograph.
-    ==================================================== -->
+        <!-- --- Hero section ---
+             Two-column layout with heading, stats and food photo. -->
         <section class="page-section" id="section-hero" aria-label="Hero">
 
-            <!-- Hero two-column grid -->
+
             <div class="hero-wrapper">
 
-                <!-- LEFT COLUMN — text content -->
+
                 <div class="hero-content">
                     <div>
-                        <!-- Small label above the heading -->
+
                         <p class="hero-eyebrow reveal">
                             <span class="hero-eyebrow-dot" aria-hidden="true"></span>
                             Dublin's Plant Kitchen
                         </p>
 
-                        <!-- Main heading -->
+
                         <h1 class="hero-heading reveal reveal-delay-1">
                             Eat<br>
                             <span class="word-bold">Bold,</span><br>
                             <span class="word-green">Live Green</span>
                         </h1>
 
-                        <!-- Short description -->
+
                         <p class="hero-description reveal reveal-delay-2">
                             Fresh plant-based ingredients, selected by us — delivered to your door
                             with step-by-step recipes so you can cook like a chef at home.
                         </p>
 
-                        <!-- Action buttons -->
+
                         <div class="hero-buttons reveal reveal-delay-3">
                             <a href="pages/recipes.html" class="main-button">Browse recipes</a>
                             <a href="pages/order.html" class="main-button">Order Now</a>
                         </div>
                     </div>
 
-                    <!-- Stats row at the bottom of the hero -->
+
                     <div class="hero-stats-row reveal reveal-delay-4">
                         <div class="stat-item">
                             <div class="stat-number">100%</div>
@@ -146,7 +126,7 @@
                     </div>
                 </div>
 
-                <!-- RIGHT COLUMN — full-bleed food photo -->
+
                 <div class="hero-photo" aria-hidden="true">
                     <div class="hero-photo-badge">
                         <div class="hero-photo-badge-title">Chickpea Curry Bowl</div>
@@ -158,9 +138,8 @@
         </section>
 
 
-        <!-- ===================================================
-         SECTION 2 — RECIPES PREVIEW
-    ==================================================== -->
+        <!-- --- Recipes preview ---
+             Three featured recipe cards with links to full recipes. -->
         <section class="page-section" id="section-recipes" aria-label="Recipe previews">
             <div class="recipes-section">
 
@@ -227,9 +206,8 @@
         </section>
 
 
-        <!-- ===================================================
-         SECTION 3 — PHILOSOPHY
-    ==================================================== -->
+        <!-- --- Philosophy section ---
+             Brand values listed on a dark background. -->
         <section class="page-section" id="section-philosophy" aria-label="Our philosophy">
             <div class="philosophy-section">
                 <div class="philosophy-inner">
@@ -267,9 +245,8 @@
         </section>
 
 
-        <!-- ===================================================
-         SECTION 4 — ABOUT
-    ==================================================== -->
+        <!-- --- About preview ---
+             Split layout linking to the full about page. -->
         <section class="page-section" id="section-about" aria-label="About us">
             <div class="story-preview-section">
                 <div class="story-preview-photo" role="img" aria-label="Our story — fresh plant-based ingredients">
@@ -298,9 +275,8 @@
         </section>
 
 
-        <!-- ===================================================
-         SECTION 5 — INGREDIENTS PREVIEW + FOOTER
-    ==================================================== -->
+        <!-- --- Ingredients preview and footer ---
+             Dark centred section with stats, CTA and site footer. -->
         <section class="page-section" id="section-ingredients" aria-label="Our ingredients">
             <div class="ingredients-cta-preview">
 
@@ -356,7 +332,7 @@
 
     </main><!-- end page-scroller -->
 
-    <!-- JavaScript file — placed at end of body so HTML loads first -->
+    <!-- Scripts -->
     <script src="js/main.js"></script>
 
 </body>

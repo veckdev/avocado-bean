@@ -6,6 +6,7 @@
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
 ![Bootstrap](https://img.shields.io/badge/Bootstrap_5-7952B3?style=flat&logo=bootstrap&logoColor=white)
+![jQuery](https://img.shields.io/badge/jQuery-0769AD?style=flat&logo=jquery&logoColor=white)
 
 ---
 
@@ -32,9 +33,10 @@ avocado-bean/
 │
 ├── pages/
 │   ├── recipes.html        # Recipes with category filter + search
-│   ├── about.html          # About us / our story / values
+│   ├── about.html          # About us / our story / values + jQuery stat counters
 │   ├── ingredients.html    # Ingredient sourcing & Irish suppliers
-│   └── contact.html        # Order form + contact form with JS validation
+│   ├── contact.html        # Contact form with JS validation
+│   └── order.html          # Order form — recipe picker, delivery details, sidebar
 │
 ├── css/
 │   ├── style.css           # Global styles & design system (shared)
@@ -42,7 +44,8 @@ avocado-bean/
 │   ├── recipes.css         # Recipes page + modal styles
 │   ├── about.css           # About page styles
 │   ├── ingredients.css     # Ingredients page + Bootstrap overrides
-│   └── contact.css         # Contact & order page styles
+│   ├── contact.css         # Contact page styles
+│   └── order.css           # Order page styles
 │
 ├── js/
 │   └── main.js             # All JavaScript functionality
@@ -63,6 +66,7 @@ avocado-bean/
 - **Order form** — recipe picker (max 3), real-time order summary sidebar with live price total, full JS + HTML5 validation
 - **Contact form** — name, email, message with live error feedback and success state
 - **Reveal animations** — Intersection Observer API for scroll-triggered fade-in with stagger on cards
+- **jQuery animated counters** — stat numbers on the About page count up from 0 using `$.animate()` when the section enters the viewport
 - **Sticky navbar** — shrinks on scroll with active page link highlighting
 - **Mobile hamburger menu** — animated toggle with full-screen overlay
 - **Decorative icon pattern** — SVG icons scattered randomly on dark sections using DOM manipulation and Math.hypot() collision avoidance
@@ -79,6 +83,7 @@ avocado-bean/
 | CSS3 | Custom properties, Grid, Flexbox, clamp(), transitions, pseudo-elements |
 | JavaScript (ES6+) | DOM manipulation, Intersection Observer, form validation, dynamic content |
 | Bootstrap 5 | Responsive grid on ingredients page; overridden to match design system |
+| jQuery 3.7 | Animated stat counters on about page using `.animate()` |
 | Google Fonts | Averia Serif Libre (headings), Rubik (body) |
 
 ---
@@ -137,9 +142,10 @@ python -m http.server 8000
 |---|---|---|
 | Home | `index.html` | Hero, recipe preview, philosophy, about preview, ingredients CTA |
 | Recipes | `pages/recipes.html` | Full recipe grid with filter, search and lightbox modal |
-| About | `pages/about.html` | Brand story, how it works, values, CTA |
-| Ingredients | `pages/ingredients.html` | Ingredient sourcing, Irish supplier profiles, dietary form |
-| Contact | `pages/contact.html` | Recipe picker, order form, contact form |
+| About | `pages/about.html` | Brand story, how it works, values, jQuery stat counters, CTA |
+| Ingredients | `pages/ingredients.html` | Ingredient sourcing, Irish supplier profiles |
+| Contact | `pages/contact.html` | Contact form with JS + HTML5 validation |
+| Order | `pages/order.html` | Recipe picker, delivery form, real-time sidebar, JS validation |
 
 ---
 

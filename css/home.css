@@ -1,13 +1,9 @@
-/* =============================================================
-   AVOCADO BEAN — home.css
-   Styles specific to index.html only.
-   Requires: css/style.css
-   ============================================================= */
+/* --- home.css ---
+   Styles specific to index.html only. */
 
 
-/* =============================================================
-   HERO SECTION
-   ============================================================= */
+/* --- Hero section ---
+   Two-column layout with heading, stats and food photo. */
 .hero-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -149,9 +145,8 @@
 }
 
 
-/* =============================================================
-   RECIPES PREVIEW SECTION
-   ============================================================= */
+/* --- Recipes preview ---
+   Three featured recipe cards shown on the homepage.           */
 .recipes-section {
   background: var(--cream);
   flex: 1;
@@ -286,9 +281,8 @@
 }
 
 
-/* =============================================================
-   PHILOSOPHY SECTION
-   ============================================================= */
+/* --- Philosophy section ---
+   Dark section with brand values listed on the right.         */
 .philosophy-section {
   background: var(--dark);
   flex: 1;
@@ -382,9 +376,8 @@
   border-bottom: 1px solid rgba(250, 248, 242, 0.1);
 }
 
-/* =============================================================
-   ABOUT PREVIEW SECTION
-   ============================================================= */
+/* --- About preview ---
+   Split layout linking to the full about page.                 */
 .story-preview-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -481,9 +474,8 @@
 }
 
 
-/* =============================================================
-   INGREDIENTS PREVIEW SECTION — design C (centred)
-   ============================================================= */
+/* --- Ingredients preview ---
+   Dark centred section with stats and link to ingredients. */
 .ingredients-cta-preview {
   background: var(--dark);
   flex: 1;
@@ -589,9 +581,8 @@
   font-weight: 500;
 }
 
-/* =============================================================
-   RESPONSIVE — MOBILE
-   ============================================================= */
+/* --- Responsive ---
+   Mobile overrides for homepage sections. */
 @media (max-width: 900px) {
 
   .hero-wrapper {

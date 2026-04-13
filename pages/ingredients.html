@@ -32,9 +32,8 @@
 
 <body class="ingredients-page">
 
-    <!-- =====================================================
-       NAVIGATION BAR
-  ====================================================== -->
+    <!-- --- Navigation bar ---
+         Fixed top nav, shrinks on scroll, hamburger on mobile. -->
     <nav class="top-nav" id="main-nav">
         <a href="../index.html" class="site-logo" aria-label="Avocado Bean — go to homepage">
             <div class="logo-icon" aria-hidden="true"></div>
@@ -58,16 +57,15 @@
     </nav>
 
 
-    <!-- =====================================================
-       PAGE HEADER — hero-style two-column layout
-  ====================================================== -->
+    <!-- --- Page header ---
+         Two-column hero with photo on the left, text on the right. -->
     <header class="ingredients-header">
         <div class="ingredients-hero-wrapper">
 
-            <!-- LEFT COLUMN — full-bleed photo -->
+            <!-- Full-bleed photo column -->
             <div class="ingredients-hero-photo" aria-hidden="true"></div>
 
-            <!-- RIGHT COLUMN — text content -->
+            <!-- Text content column -->
             <div class="ingredients-hero-content">
                 <div>
                     <p class="section-label reveal">What's in your box</p>
@@ -102,11 +100,8 @@
     </header>
 
 
-    <!-- =====================================================
-       INGREDIENT CATEGORIES — Bootstrap Cards
-       4 categories shown in a Bootstrap responsive grid.
-       Bootstrap col classes handle the responsive layout.
-  ====================================================== -->
+    <!-- --- Ingredient categories ---
+         Bootstrap grid showing the four ingredient families. -->
     <section class="categories-section" aria-label="Ingredient categories">
         <div class="categories-inner">
 
@@ -115,10 +110,10 @@
                 <h2 class="section-heading">Four ingredient families</h2>
             </div>
 
-            <!-- Bootstrap grid — 4 columns on desktop, 2 on tablet, 1 on mobile -->
+            <!-- Bootstrap grid: 4 col desktop, 2 tablet, 1 mobile -->
             <div class="row g-4">
 
-                <!-- Proteins -->
+
                 <div class="col-12 col-sm-6 col-lg-3">
                     <div class="ingredient-card reveal reveal-delay-1">
                         <div class="ingredient-card-icon">🫘</div>
@@ -138,7 +133,7 @@
                     </div>
                 </div>
 
-                <!-- Grains & Carbs -->
+
                 <div class="col-12 col-sm-6 col-lg-3">
                     <div class="ingredient-card reveal reveal-delay-2">
                         <div class="ingredient-card-icon">🌾</div>
@@ -158,7 +153,7 @@
                     </div>
                 </div>
 
-                <!-- Fresh Produce -->
+
                 <div class="col-12 col-sm-6 col-lg-3">
                     <div class="ingredient-card reveal reveal-delay-3">
                         <div class="ingredient-card-icon">🥬</div>
@@ -178,7 +173,7 @@
                     </div>
                 </div>
 
-                <!-- Herbs & Spices -->
+
                 <div class="col-12 col-sm-6 col-lg-3">
                     <div class="ingredient-card reveal reveal-delay-4">
                         <div class="ingredient-card-icon">🌿</div>
@@ -203,10 +198,8 @@
     </section>
 
 
-    <!-- =====================================================
-       OUR SUPPLIERS
-       Dark background, 3 supplier cards.
-  ====================================================== -->
+    <!-- --- Suppliers section ---
+         Three Irish supplier cards on a white background. -->
     <section class="suppliers-section" aria-label="Our suppliers">
         <div class="suppliers-inner">
 
@@ -256,9 +249,8 @@
 
 
 
-    <!-- =====================================================
-       CTA FINAL
-  ====================================================== -->
+    <!-- --- CTA section ---
+         Dark closing section with links to recipes and contact. -->
     <section class="ingredients-cta-section" aria-label="Get started">
         <div class="ingredients-cta-inner">
             <p class="ingredients-cta-label reveal">Ready to order?</p>
@@ -277,9 +269,7 @@
     </section>
 
 
-    <!-- =====================================================
-       FOOTER
-  ====================================================== -->
+    <!-- --- Footer --- -->
     <footer class="site-footer">
         <div class="footer-logo-wrap">
             <div class="footer-logo-icon" aria-hidden="true"></div>
@@ -294,9 +284,9 @@
         </div>
     </footer>
 
-    <!-- Bootstrap JS -->
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Shared JS -->
+
     <script src="../js/main.js"></script>
 
 </body>

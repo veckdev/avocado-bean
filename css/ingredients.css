@@ -1,15 +1,11 @@
-/* =============================================================
-   AVOCADO BEAN — ingredients.css
+/* --- ingredients.css ---
    Styles specific to ingredients.html only.
-   Requires: css/style.css
-   Bootstrap handles the ingredient category card grid.
-   ============================================================= */
+   Bootstrap handles the ingredient category card grid. */
 
 
 
-/* =============================================================
-   PAGE HEADER — layout C (photo left, text right)
-   ============================================================= */
+/* --- Page header ---
+   Two-column hero with photo on the left, text on the right. */
 .ingredients-header {
   padding-top: 69px;
   background: var(--white);
@@ -23,12 +19,12 @@
   min-height: calc(100vh - 69px);
 }
 
-/* LEFT — full-bleed photo */
+/* Full-bleed photo column */
 .ingredients-hero-photo {
   background: url('../images/dishes/img-ingredients.jpg') center / cover;
 }
 
-/* RIGHT — text content */
+/* Text content column */
 .ingredients-hero-content {
   padding: calc(60px + 69px) 52px 60px;
   display: flex;
@@ -60,9 +56,8 @@
   max-width: 420px;
 }
 
-/* =============================================================
-   INGREDIENT CATEGORIES — Bootstrap cards
-   ============================================================= */
+/* --- Ingredient categories ---
+   Bootstrap card grid showing the four ingredient families. */
 .categories-section {
   background: var(--cream);
   padding: 80px 52px;
@@ -148,9 +143,8 @@
 }
 
 
-/* =============================================================
-   SUPPLIERS SECTION
-   ============================================================= */
+/* --- Suppliers section ---
+   Three Irish supplier cards on a white background. */
 .suppliers-section {
   background: var(--white);
   padding: 80px 52px;
@@ -257,9 +251,8 @@
 }
 
 
-/* =============================================================
-   CTA FINAL SECTION
-   ============================================================= */
+/* --- CTA section ---
+   Dark closing section with links to recipes and contact. */
 .ingredients-cta-section {
   background: var(--dark);
   padding: 80px 52px;
@@ -321,9 +314,8 @@
 }
 
 
-/* =============================================================
-   BOOTSTRAP OVERRIDES — stats row inside ingredients header
-   ============================================================= */
+/* --- Bootstrap overrides (stats row) ---
+   Resets Bootstrap defaults for the stats row in the header. */
 .ingredients-hero-content .hero-stats-row {
   display: flex;
   border-top: 1px solid var(--line-colour);
@@ -367,9 +359,8 @@
   display: block;
 }
 
-/* =============================================================
-   BOOTSTRAP OVERRIDES
-   ============================================================= */
+/* --- Bootstrap overrides (general) ---
+   Resets Bootstrap defaults for nav, footer and form inputs. */
 .top-nav {
   padding: 20px 52px !important;
   min-height: unset !important;
@@ -439,9 +430,8 @@
   margin: 0 !important;
 }
 
-/* =============================================================
-   RESPONSIVE — MOBILE
-   ============================================================= */
+/* --- Responsive ---
+   Mobile overrides for the ingredients page. */
 @media (max-width: 900px) {
 
   .ingredients-header {

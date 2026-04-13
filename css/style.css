@@ -1,20 +1,12 @@
-/* =============================================================
-   AVOCADO BEAN — style.css
-   Global styles shared across ALL pages.
-   Includes: fonts, variables, reset, nav, footer, buttons,
-   pills, reveal animations, and shared responsive rules.
-   ============================================================= */
+/* --- style.css ---
+   Global styles shared across all pages. */
 
-/* =============================================================
-   FONTS
-   - Averia Serif Libre: headings and titles
-   - Rubik: body text, nav links, buttons
-   ============================================================= */
+/* --- Fonts ---
+   Averia Serif Libre for headings, Rubik for body text. */
 
 
-/* =============================================================
-   COLOUR PALETTE
-   ============================================================= */
+/* --- Colour palette ---
+   CSS custom properties used across the whole site. */
 :root {
   --orange: #b85c2a;
   --green: #4a6b42;
@@ -28,9 +20,8 @@
   --card-shadow: 0 20px 60px rgba(42, 34, 24, 0.10);
 }
 
-/* =============================================================
-   RESET
-   ============================================================= */
+/* --- Reset ---
+   Box-sizing, margin/padding zeroed, base body styles. */
 *,
 *::before,
 *::after {
@@ -68,9 +59,8 @@ button {
   font-family: 'Rubik', sans-serif;
 }
 
-/* =============================================================
-   PAGE SCROLLER — used by index.html scroll-snap layout
-   ============================================================= */
+/* --- Page scroller ---
+   Scroll container used on the homepage. */
 .page-scroller {
   overflow-y: auto;
   scroll-behavior: smooth;
@@ -84,9 +74,8 @@ button {
 }
 
 
-/* =============================================================
-   NAVIGATION BAR
-   ============================================================= */
+/* --- Navigation bar ---
+   Fixed top nav with shrink-on-scroll and mobile hamburger. */
 .nav-hamburger {
   display: none;
 }
@@ -203,9 +192,8 @@ button {
   transform: translateY(-1px);
 }
 
-/* =============================================================
-   SHARED SECTION HEADING STYLES
-   ============================================================= */
+/* --- Section headings ---
+   Shared label and heading styles used across all pages. */
 .section-label {
   font-size: 12px;
   letter-spacing: 0.16em;
@@ -236,9 +224,8 @@ button {
   letter-spacing: -0.01em;
 }
 
-/* =============================================================
-   CATEGORY PILLS / BADGES
-   ============================================================= */
+/* --- Category pills ---
+   Coloured pill badges used on recipe cards and modals. */
 .category-pill {
   display: inline-block;
   font-size: 11px;
@@ -270,9 +257,8 @@ button {
   background: var(--dark);
 }
 
-/* =============================================================
-   BUTTONS
-   ============================================================= */
+/* --- Buttons ---
+   Main filled button and outline button variants. */
 .main-button {
   padding: 13px 28px;
   background: var(--orange);
@@ -311,9 +297,8 @@ button {
   border-color: var(--white);
 }
 
-/* =============================================================
-   FOOTER
-   ============================================================= */
+/* --- Footer ---
+   Dark footer with logo, address and copyright. */
 .site-footer {
   background: var(--dark);
   color: var(--white);
@@ -377,9 +362,8 @@ button {
 }
 
 
-/* =============================================================
-   REVEAL ANIMATIONS
-   ============================================================= */
+/* --- Reveal animations ---
+   Elements fade and slide up when they enter the viewport. */
 .reveal {
   opacity: 0;
   transform: translateY(30px);
@@ -408,9 +392,8 @@ button {
   transition-delay: 0.4s;
 }
 
-/* =============================================================
-   RESPONSIVE — MOBILE (shared rules)
-   ============================================================= */
+/* --- Responsive (shared) ---
+   Mobile overrides for nav and footer, applied on all pages. */
 @media (max-width: 900px) {
 
   .top-nav {

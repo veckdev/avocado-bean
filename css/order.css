@@ -1,21 +1,16 @@
-/* =============================================================
-   AVOCADO BEAN — order.css
-   Styles specific to order.html only.
-   Requires: css/style.css
-   ============================================================= */
+/* --- order.css ---
+   Styles specific to order.html only. */
 
 
-/* =============================================================
-   PAGE BODY
-   ============================================================= */
+/* --- Page body ---
+   Cream background applied to the order page. */
 .order-page {
     background: var(--cream);
 }
 
 
-/* =============================================================
-   HERO SECTION
-   ============================================================= */
+/* --- Hero section ---
+   Two-column layout with intro text and delivery info. */
 .order-hero {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -108,9 +103,8 @@
 }
 
 
-/* =============================================================
-   ORDER SECTION
-   ============================================================= */
+/* --- Order section ---
+   Main content area with recipe picker, form and sidebar. */
 .order-section {
     background: var(--white);
     padding: 80px 52px;
@@ -140,9 +134,8 @@
 }
 
 
-/* =============================================================
-   RECIPE PICKER
-   ============================================================= */
+/* --- Recipe picker ---
+   Grid of selectable recipe cards, max 3 selections. */
 .recipe-picker {
     margin-bottom: 40px;
 }
@@ -242,9 +235,8 @@
 }
 
 
-/* =============================================================
-   ORDER FORM FIELDS
-   ============================================================= */
+/* --- Order form fields ---
+   Input, select and textarea styles for the order form. */
 .order-form {
     display: flex;
     flex-direction: column;
@@ -337,9 +329,8 @@
 }
 
 
-/* =============================================================
-   ORDER SIDEBAR
-   ============================================================= */
+/* --- Order sidebar ---
+   Dark sticky summary panel showing selected recipes and price. */
 .order-sidebar-col {
     align-self: start;
 }
@@ -470,9 +461,8 @@
 }
 
 
-/* =============================================================
-   ORDER SUCCESS
-   ============================================================= */
+/* --- Order success ---
+   Confirmation screen shown after a successful order submission. */
 .order-success {
     display: none;
     text-align: center;
@@ -527,9 +517,8 @@
 }
 
 
-/* =============================================================
-   RESPONSIVE — MOBILE
-   ============================================================= */
+/* --- Responsive ---
+   Mobile overrides for the order page. */
 @media (max-width: 900px) {
 
     .order-hero {

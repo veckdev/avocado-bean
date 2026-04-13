@@ -1,19 +1,14 @@
-/* =============================================================
-   AVOCADO BEAN — recipes.css
-   Styles specific to recipes.html only.
-   Requires: css/style.css
-   ============================================================= */
+/* --- recipes.css ---
+   Styles specific to recipes.html only. */
 
-/* =============================================================
-   PAGE BODY
-   ============================================================= */
+/* --- Page body ---
+   Cream background applied to the recipes page. */
 .recipes-page {
   background: var(--cream);
 }
 
-/* =============================================================
-   PAGE HEADER
-   ============================================================= */
+/* --- Page header ---
+   Title and description above the recipe grid. */
 .recipes-header {
   padding: calc(100px + 40px) 52px 40px;
   background: var(--white);
@@ -47,9 +42,8 @@
   max-width: 480px;
 }
 
-/* =============================================================
-   FILTER BAR
-   ============================================================= */
+/* --- Filter bar ---
+   Sticky row of category buttons and search input. */
 .filter-bar {
   display: flex;
   gap: 8px;
@@ -87,9 +81,8 @@
   color: var(--white);
 }
 
-/* =============================================================
-   RECIPES GRID
-   ============================================================= */
+/* --- Recipes grid ---
+   Three-column grid of recipe cards. */
 .recipes-grid-wrapper {
   padding: 48px 52px 80px;
 }
@@ -104,9 +97,8 @@
   display: none;
 }
 
-/* =============================================================
-   RECIPE CARD
-   ============================================================= */
+/* --- Recipe card ---
+   Card with photo, title, description and a View button. */
 .recipe-card {
   background: var(--white);
   border-radius: 12px;
@@ -203,9 +195,8 @@
   transform: rotate(90deg) scale(1.1);
 }
 
-/* =============================================================
-   SEARCH BAR
-   ============================================================= */
+/* --- Search bar ---
+   Expandable search input that filters cards by title. */
 .search-wrapper {
   margin-left: auto;
 }
@@ -233,9 +224,8 @@
   color: var(--grey);
 }
 
-/* =============================================================
-   BADGES — time, serves, difficulty
-   ============================================================= */
+/* --- Badges ---
+   Small pills showing cook time, servings and difficulty. */
 .recipe-card-badges {
   display: flex;
   gap: 6px;
@@ -278,9 +268,8 @@
   color: var(--orange);
 }
 
-/* =============================================================
-   INGREDIENT PREVIEW TAGS
-   ============================================================= */
+/* --- Ingredient tags ---
+   Small tags previewing key ingredients on each card. */
 .ingredient-preview {
   display: flex;
   flex-wrap: wrap;
@@ -300,9 +289,8 @@
   border-radius: 3px;
 }
 
-/* =============================================================
-   MODAL — STATS & ALLERGENS
-   ============================================================= */
+/* --- Modal stats and allergens ---
+   Pill styles for stats and allergen tags inside the modal. */
 .modal-stat {
   font-size: 11px;
   letter-spacing: 0.06em;
@@ -331,9 +319,8 @@
   border-radius: 3px;
 }
 
-/* =============================================================
-   RECIPE MODAL
-   ============================================================= */
+/* --- Recipe modal ---
+   Full-screen overlay showing recipe details, steps and CTA. */
 .recipe-modal {
   position: fixed;
   inset: 0;
@@ -583,9 +570,8 @@
   background: var(--orange);
 }
 
-/* =============================================================
-   RESPONSIVE — MOBILE
-   ============================================================= */
+/* --- Responsive ---
+   Mobile overrides for the recipes page. */
 @media (max-width: 900px) {
 
   .recipes-header {

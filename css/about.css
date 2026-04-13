@@ -1,12 +1,8 @@
-/* =============================================================
-   AVOCADO BEAN — about.css
-   Styles specific to about.html only.
-   Requires: css/style.css
-   ============================================================= */
+/* --- about.css ---
+   Styles specific to about.html only. */
 
-/* =============================================================
-   HERO SECTION
-   ============================================================= */
+/* --- Hero section ---
+   Two-column hero with heading and photo. */
 .about-hero {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -70,9 +66,8 @@
   background: url('../images/dishes/img-hero-about.jpg') center / cover;
 }
 
-/* =============================================================
-   OUR STORY SECTION
-   ============================================================= */
+/* --- Our story section ---
+   Dark section with quote, text and jQuery stat counters. */
 .story-section {
   background: var(--dark);
   padding: 80px 52px;
@@ -173,9 +168,8 @@
   font-weight: 400;
 }
 
-/* =============================================================
-   HOW IT WORKS SECTION
-   ============================================================= */
+/* --- How it works section ---
+   Three-step process grid explaining the service. */
 .process-section {
   background: var(--white);
   padding: 80px 52px;
@@ -235,9 +229,8 @@
   font-weight: 400;
 }
 
-/* =============================================================
-   VALUES SECTION
-   ============================================================= */
+/* --- Values section ---
+   Numbered list of brand values on a cream background. */
 .values-section {
   background: var(--cream);
   padding: 80px 52px;
@@ -302,9 +295,8 @@
   font-weight: 400;
 }
 
-/* =============================================================
-   CTA FINAL SECTION
-   ============================================================= */
+/* --- CTA section ---
+   Dark closing section with links to recipes and contact. */
 .about-cta-section {
   background: var(--dark);
   padding: 80px 52px;
@@ -367,9 +359,8 @@
   align-items: center;
 }
 
-/* =============================================================
-   STORY STATS ROW — animated by jQuery
-   ============================================================= */
+/* --- Story stats row ---
+   Three stats animated by jQuery when scrolled into view. */
 .story-stats-row {
   display: flex;
   gap: 0;
@@ -406,9 +397,8 @@
   font-weight: 500;
 }
 
-/* =============================================================
-   RESPONSIVE — MOBILE
-   ============================================================= */
+/* --- Responsive ---
+   Mobile overrides for about page sections. */
 @media (max-width: 900px) {
 
   .about-hero {

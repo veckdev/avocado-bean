@@ -599,9 +599,7 @@
   }
 
   .hero-photo {
-    display: block;
-    height: 260px;
-    width: 100%;
+    display: none;
   }
 
   .hero-content {

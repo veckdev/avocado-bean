@@ -1076,4 +1076,50 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* -----------------------------------------------------------
+     12. JQUERY STAT COUNTERS — about.html
+     Uses jQuery .animate() to count up stat numbers when the
+     story section scrolls into view. Fires once per page load.
+  ----------------------------------------------------------- */
+  if (typeof $ !== 'undefined') {
+
+    const $statsRow = $('.story-stats-row');
+
+    if ($statsRow.length) {
+
+      let countersStarted = false;
+
+      function runCounters() {
+        $('.story-stat-number').each(function () {
+          const $el = $(this);
+          const target = parseInt($el.data('target'), 10);
+          const suffix = $el.data('suffix') || '';
+
+          $({ val: 0 }).animate({ val: target }, {
+            duration: 1800,
+            easing: 'swing',
+            step: function () {
+              $el.text(Math.floor(this.val) + suffix);
+            },
+            complete: function () {
+              $el.text(target + suffix);
+            }
+          });
+        });
+      }
+
+      const counterWatcher = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !countersStarted) {
+            countersStarted = true;
+            runCounters();
+            counterWatcher.disconnect();
+          }
+        });
+      }, { threshold: 0.3 });
+
+      counterWatcher.observe($statsRow[0]);
+    }
+  }
+
 }); /* end DOMContentLoaded */

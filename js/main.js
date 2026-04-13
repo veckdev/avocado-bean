@@ -1,13 +1,25 @@
-/* --- main.js ---
-   Single JS file for the whole site. Sections below
-   each handle one feature and guard against missing elements. */
+/* =============================================================
+   AVOCADO BEAN — main.js
+   Single JavaScript file for the entire site.
+   Sections:
+   1. Nav shrinking on scroll
+   2. Scroll dot indicators (homepage only)
+   3. Reveal animations — works on all pages
+   4. Icon pattern on dark sections (homepage only)
+   5. Highlight current page in nav
+   6. Recipe data — ingredients and steps for each dish
+   7. Recipe filter — show/hide cards by category
+   8. Recipe modal — open, fill with content, and close
+   ============================================================= */
 
 
 document.addEventListener('DOMContentLoaded', () => {
 
 
-  /* --- 1. Nav shrink on scroll ---
-     Adds "is-scrolled" class to shrink the navbar when user scrolls. */
+  /* -----------------------------------------------------------
+     1. NAV — SHRINK ON SCROLL
+     Adds "is-scrolled" class to nav when user scrolls down.
+  ----------------------------------------------------------- */
   const nav = document.getElementById('main-nav');
 
   if (nav) {
@@ -22,8 +34,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-  /* --- 2. Hamburger menu ---
-     Toggles the mobile nav open and closed. */
+  /* -----------------------------------------------------------
+     2. HAMBURGER MENU — mobile navigation toggle
+     Toggles the nav menu open/closed on mobile.
+  ----------------------------------------------------------- */
   const hamburger = document.getElementById('nav-hamburger');
   const navMenu = document.querySelector('.nav-menu');
 
@@ -46,8 +60,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-  /* --- 3. Reveal animations ---
-     Fades elements in as they scroll into view. Works on all pages. */
+  /* -----------------------------------------------------------
+     3. REVEAL ANIMATIONS — FADE + SLIDE UP ON ENTER
+     Works on all pages. Watches the normal viewport (window).
+  ----------------------------------------------------------- */
   const elementsToReveal = document.querySelectorAll('.reveal');
 
   if (elementsToReveal.length > 0) {
@@ -110,8 +126,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
-  /* --- 4. Icon pattern ---
-     Scatters decorative SVG icons across dark background sections. */
+  /* -----------------------------------------------------------
+     4. ICON PATTERN — SCATTER ICONS ON DARK SECTIONS
+     Only runs on pages that have .philosophy-section or .blog-section.
+  ----------------------------------------------------------- */
   const iconPaths = [
     /* avocado_bean */
     `<path d="M380-220q66 0 113-46.5T540-380q0-66-47-113t-113-47q-67 0-113.5 47T220-380q0 67 46.5 113.5T380-220Zm0-80q-33 0-56.5-23.5T300-380q0-33 23.5-56.5T380-460q33 0 56.5 23.5T460-380q0 33-23.5 56.5T380-300Zm260 180q88 0 144-56t56-144q0-17-11.5-28.5T800-360q-17 0-28.5 11.5T760-320q0 48-36.5 84T640-200q-17 0-28.5 11.5T600-160q0 17 11.5 28.5T640-120Zm0 80q-51 0-85.5-34.5T520-160q0-50 34.5-85t85.5-35q14 0 27-13t13-27q0-50 34.5-85t85.5-35q50 0 85 35t35 85q0 121-79.5 200.5T640-40ZM380-80q-161 0-230.5-100T80-400q0-75 22.5-159.5t63-155.5Q206-786 261-833t119-47q56 0 105 36t87.5 93.5Q611-693 637-621.5T673-480h-81q-10-60-32-117.5T508.5-700q-29.5-45-63-72.5T380-800q-38 0-77 37t-71 94.5Q200-611 180-540t-20 140q0 81 25 129t60 72.5q35 24.5 72.5 31.5t62.5 7q12 0 27.5-1t32.5-5q-1 20 2 40t11 39q-17 4-35 5.5T380-80Zm0-300Zm320 120Z"/>`,
@@ -192,8 +210,9 @@ document.addEventListener('DOMContentLoaded', () => {
   addIconPattern('.ingredients-cta-section');
 
 
-  /* --- 5. Active nav link ---
-     Marks the current page link in the navbar as active. */
+  /* -----------------------------------------------------------
+     5. HIGHLIGHT CURRENT PAGE IN NAV
+  ----------------------------------------------------------- */
   const currentPageFile = window.location.pathname.split('/').pop() || 'index.html';
 
   document.querySelectorAll('.nav-menu a').forEach(link => {
@@ -206,8 +225,12 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
-  /* --- 6. Recipe data ---
-     All recipe content lives here. Add a new entry to add a recipe. */
+  /* -----------------------------------------------------------
+     6. RECIPE DATA
+     All recipe content in one place. To add a new recipe,
+     add a new entry to this object following the same structure.
+     Only used on the recipes page — no effect on other pages.
+  ----------------------------------------------------------- */
   const recipeData = {
 
     'chickpea-curry': {
@@ -646,8 +669,10 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
 
-  /* --- 7. Recipe filter ---
-     Shows/hides recipe cards based on the active category and search. */
+  /* -----------------------------------------------------------
+     7. RECIPE FILTER — show/hide cards by category
+     Only runs if filter buttons exist on the page.
+  ----------------------------------------------------------- */
   const filterButtons = document.querySelectorAll('.filter-btn');
   const recipeCards = document.querySelectorAll('.recipe-card');
 
@@ -687,8 +712,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
-  /* --- 8. Recipe modal ---
-     Opens a modal with full recipe details when a card is clicked. */
+  /* -----------------------------------------------------------
+     8. RECIPE MODAL — open, fill content, close
+     Only runs if the modal element exists on the page.
+  ----------------------------------------------------------- */
   const modal = document.getElementById('recipe-modal');
   const modalOverlay = document.getElementById('modal-overlay');
   const modalClose = document.getElementById('modal-close');
@@ -773,8 +800,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-  /* --- 9. Recipe picker ---
-     Lets users select up to 3 recipes and updates the order sidebar. */
+  /* -----------------------------------------------------------
+     9. RECIPE PICKER — select/deselect recipes for order
+     Updates sidebar in real time. Max 3 recipes.
+  ----------------------------------------------------------- */
   const recipePickerCards = document.querySelectorAll('.order-recipe-card');
   const sidebarList = document.getElementById('sidebar-list');
   const sidebarEmpty = document.getElementById('sidebar-empty');
@@ -861,8 +890,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
-  /* --- 10. Sticky order sidebar ---
-     Keeps the order summary sidebar fixed while scrolling the form. */
+  /* -----------------------------------------------------------
+     10. ORDER SIDEBAR — FIXED ON SCROLL
+  ----------------------------------------------------------- */
   const sidebarCol = document.querySelector('.order-sidebar-col');
   const orderSectionEl = document.querySelector('.order-section');
 
@@ -911,8 +941,9 @@ document.addEventListener('DOMContentLoaded', () => {
     updateSidebarPosition();
   }
 
-  /* --- 11. Order form validation ---
-     Validates all order fields using JS and HTML5 before submitting. */
+  /* -----------------------------------------------------------
+     10. ORDER FORM VALIDATION — JS + HTML5
+  ----------------------------------------------------------- */
   const orderForm = document.getElementById('order-form');
   const orderSuccess = document.getElementById('order-success');
   const orderInner = document.querySelector('.order-inner');
@@ -1001,8 +1032,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
-  /* --- 12. Contact form validation ---
-     Validates name, email and message before showing success state. */
+  /* -----------------------------------------------------------
+     11. CONTACT FORM VALIDATION
+  ----------------------------------------------------------- */
   const contactForm = document.getElementById('contact-form');
   const contactSuccess = document.getElementById('contact-success');
 
@@ -1044,9 +1076,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* --- 13. jQuery stat counters ---
-     Uses jQuery .animate() to count up numbers when the stats
-     section scrolls into view. Fires once per page load. */
+  /* -----------------------------------------------------------
+     12. JQUERY STAT COUNTERS — about.html
+     Uses jQuery .animate() to count up stat numbers when the
+     story section scrolls into view. Fires once per page load.
+  ----------------------------------------------------------- */
   if (typeof $ !== 'undefined') {
 
     const $statsRow = $('.story-stats-row');

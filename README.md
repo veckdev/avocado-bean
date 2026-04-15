@@ -14,7 +14,7 @@
 
 Avocado Bean is a fictional plant-based ingredient delivery service based in Dublin. Inspired by HelloFresh, customers browse weekly recipes, select up to 3, and place an order for pre-measured ingredients delivered to their door.
 
-This project is a fully responsive multi-page website featuring a modern editorial design, scroll-snap navigation on the homepage, JavaScript interactivity, and a complete order/contact form with full client-side validation.
+This project is a fully responsive multi-page website featuring a modern editorial design, JavaScript interactivity, and a complete order/contact form with full client-side validation.
 
 ---
 
@@ -51,7 +51,7 @@ avocado-bean/
 │   └── main.js             # All JavaScript functionality
 │
 └── images/
-    ├── dishes/             # Food photography (.webp / .jpg)
+    ├── dishes/             # Food photography (.jpg)
     └── ui/                 # Logo, og-image
 ```
 
@@ -60,7 +60,6 @@ avocado-bean/
 ## Features
 
 - **Responsive design** — mobile-first layout using CSS Grid and Flexbox, tested on iOS and Android
-- **Scroll-snap sections** — full-viewport sections with smooth snapping (homepage, desktop only)
 - **Recipe filter + search** — filter by category and search by name simultaneously using a single `applyFilters()` function
 - **Recipe modal** — lightbox with photo, ingredients, steps and allergens; closes on overlay click or Escape key
 - **Order form** — recipe picker (max 3), real-time order summary sidebar with live price total, full JS + HTML5 validation
@@ -71,7 +70,7 @@ avocado-bean/
 - **Mobile hamburger menu** — animated toggle with full-screen overlay
 - **Decorative icon pattern** — SVG icons scattered randomly on dark sections using DOM manipulation and Math.hypot() collision avoidance
 - **SEO optimised** — semantic HTML5, meta tags, Open Graph, alt attributes on all images
-- **Performance** — lazy loading on recipe images, WebP format where available
+- **Performance** — lazy loading on all recipe card images, async Google Fonts loading
 
 ---
 

@@ -28,8 +28,8 @@ border: 1px solid var(--line-colour);
 ### CSS Grid
 Used for two-column page layouts (hero, about, contact) and card grids (recipes, ingredients).
 ```css
-/* Two unequal columns — hero split */
-grid-template-columns: 52% 48%;
+/* Two equal columns — hero split */
+grid-template-columns: 1fr 1fr;
 
 /* Three equal columns — recipe grid */
 grid-template-columns: repeat(3, 1fr);
@@ -226,39 +226,6 @@ Used on dark sections where the decorative icon pattern sits behind the text.
 ```
 
 ---
-
-### Scroll Snap (Homepage — Desktop Only)
-Locks each section into place when the user scrolls, creating a full-page card effect.
-Disabled on mobile via media query where normal scrolling is better.
-```css
-/* Container */
-.page-scroller {
-  overflow-y: auto;
-  scroll-snap-type: y mandatory;
-}
-
-/* Each section */
-.page-section {
-  scroll-snap-align: start;
-}
-
-/* Disabled on mobile */
-@media (max-width: 900px) {
-  .page-scroller { scroll-snap-type: none; }
-}
-```
-
----
-
-### display: contents
-Makes a wrapper div invisible to the layout engine so its children participate
-directly in the parent grid. Used in the recipe modal so the photo and content
-div each occupy one grid column.
-```css
-#modal-content {
-  display: contents;
-}
-```
 
 ---
 
@@ -576,7 +543,7 @@ if (modal) {
 }
 
 if (recipePickerCards.length > 0) {
-  /* Order picker code — only runs on contact.html */
+  /* Order picker code — only runs on order.html */
 }
 ```
 
@@ -682,10 +649,17 @@ Bootstrap loads before the site's own stylesheet so custom styles take precedenc
 
 ---
 
-### Google Fonts via @import
-Loads both fonts in a single request, with `display=swap` to prevent invisible text during load.
-```css
-@import url('https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@0,400;0,700;1,400;1,700&family=Rubik:wght@0,300..900&display=swap');
+### Google Fonts — Async Loading via `<link>`
+Loads both fonts using a `<link>` tag with `media="print"` and an `onload` handler.
+This prevents the fonts from blocking page rendering — the browser loads them in the
+background and swaps them in when ready. `rel="preconnect"` is added to establish
+the connection to Google's servers as early as possible.
+```html
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+  href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+  rel="stylesheet" media="print" onload="this.media='all'">
 ```
 
 ---
@@ -744,9 +718,6 @@ Cards use a subtle `border: 1px solid var(--line-colour)` rather than a drop sha
 
 ### Recipe Picker — Max 3
 Limiting orders to 3 recipes mirrors real meal kit services (HelloFresh, Green Chef) and creates a natural constraint that makes the UI decision simpler for users. Unselected cards are visually disabled when the limit is reached.
-
-### Scroll Snap — Desktop Only
-Scroll snap creates a premium full-page feel on desktop but is disabled on mobile via media query. On mobile the content is longer and natural scrolling is a better experience.
 
 ### jQuery — Targeted Use
 jQuery is loaded only on `about.html` where it is needed. Rather than importing

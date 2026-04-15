@@ -206,6 +206,11 @@
   overflow: hidden;
   cursor: pointer;
   border: 1px solid var(--line-colour);
+  /* card is an <a> tag — reset link styles */
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
 }
 
 

@@ -992,9 +992,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const firstName = document.getElementById('order-first-name');
     if (!firstName?.value.trim()) { showFieldError('order-first-name', 'error-first-name', 'First name is required.'); valid = false; }
+    else if (/\d/.test(firstName.value.trim())) { showFieldError('order-first-name', 'error-first-name', 'First name cannot contain numbers.'); valid = false; }
 
     const lastName = document.getElementById('order-last-name');
     if (!lastName?.value.trim()) { showFieldError('order-last-name', 'error-last-name', 'Last name is required.'); valid = false; }
+    else if (/\d/.test(lastName.value.trim())) { showFieldError('order-last-name', 'error-last-name', 'Last name cannot contain numbers.'); valid = false; }
 
     const email = document.getElementById('order-email');
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -1027,7 +1029,9 @@ document.addEventListener('DOMContentLoaded', () => {
       if (successText) successText.textContent = `Thanks ${firstName}! We'll send a confirmation to ${email} within 2 hours.`;
       if (orderInner) orderInner.style.display = 'none';
       if (orderSuccess) orderSuccess.classList.add('is-visible');
-      window.scrollTo({ top: orderSuccess.offsetTop - 100, behavior: 'smooth' });
+      requestAnimationFrame(() => {
+        window.scrollTo({ top: orderSuccess.offsetTop - 100, behavior: 'smooth' });
+      });
     });
   }
 
@@ -1057,6 +1061,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const name = document.getElementById('contact-name');
       if (!name?.value.trim()) { showFieldError('contact-name', 'error-contact-name', 'Your name is required.'); valid = false; }
+      else if (/\d/.test(name.value.trim())) { showFieldError('contact-name', 'error-contact-name', 'Name cannot contain numbers.'); valid = false; }
 
       const email = document.getElementById('contact-email');
       const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

@@ -761,7 +761,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <ul class="ingredients-list">${ingredientsHTML}</ul>
             <h3 class="modal-section-title">How to make it</h3>
             <ol class="steps-list">${stepsHTML}</ol>
-            <a href="contact.html" class="modal-cta">Order ingredients</a>
+            <a href="order.html" class="modal-cta">Order ingredients</a>
           </div>
         </div>
       `;

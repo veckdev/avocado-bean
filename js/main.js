@@ -1030,7 +1030,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (orderInner) orderInner.style.display = 'none';
       if (orderSuccess) orderSuccess.classList.add('is-visible');
       requestAnimationFrame(() => {
-        window.scrollTo({ top: orderSuccess.offsetTop - 100, behavior: 'smooth' });
+        orderSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
       });
     });
   }

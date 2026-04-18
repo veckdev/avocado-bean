@@ -526,9 +526,10 @@
 }
 
 .order-how-num {
+    font-family: 'Averia Serif Libre', serif;
     font-size: 28px;
     font-weight: 400;
-    color: rgba(42, 34, 24, 0.15);
+    color: var(--orange);
     line-height: 1;
     flex-shrink: 0;
     width: 28px;

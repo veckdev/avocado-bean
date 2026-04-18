@@ -517,6 +517,39 @@
 }
 
 
+/* --- How it works steps ---
+   Three-step explainer replacing the info items in the hero right column. */
+.order-how-step {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.order-how-num {
+    font-size: 28px;
+    font-weight: 400;
+    color: rgba(42, 34, 24, 0.15);
+    line-height: 1;
+    flex-shrink: 0;
+    width: 28px;
+    text-align: right;
+    padding-top: 1px;
+}
+
+.order-how-title {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--dark);
+    margin-bottom: 4px;
+}
+
+.order-how-desc {
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--grey);
+}
+
+
 /* --- Responsive ---
    Mobile overrides for the order page. */
 @media (max-width: 900px) {

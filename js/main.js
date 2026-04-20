@@ -812,9 +812,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const sidebarSummary = document.getElementById('sidebar-summary');
   const submitBtn = document.getElementById('order-submit-btn');
 
-  const PRICE_PER_RECIPE = 12.45;
+  const SERVES_PRICES = { '1': 6.99, '2': 12.99, '3': 18.99, '4': 23.99 };
+  const servesSelect = document.getElementById('order-serves');
   const MAX_RECIPES = 3;
   let selectedRecipes = [];
+
+  function getPricePerRecipe() {
+    const val = servesSelect ? servesSelect.value : '2';
+    return SERVES_PRICES[val] || 12.99;
+  }
 
   const pickerHint = document.getElementById('recipe-picker-hint');
   const PICKER_HINT_DEFAULT = 'Select between 1 and 3 recipes';
@@ -848,7 +854,7 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', () => deselectRecipe(btn.dataset.recipeId));
       });
     }
-    const total = (selectedRecipes.length * PRICE_PER_RECIPE).toFixed(2);
+    const total = (selectedRecipes.length * getPricePerRecipe()).toFixed(2);
     sidebarCount.textContent = `${selectedRecipes.length} of ${MAX_RECIPES} recipes`;
     sidebarPrice.textContent = `€${total}`;
     recipePickerCards.forEach(card => {
@@ -887,6 +893,10 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
     updateSidebar();
+  }
+
+  if (servesSelect) {
+    servesSelect.addEventListener('change', updateSidebar);
   }
 
 

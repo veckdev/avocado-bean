@@ -20,7 +20,7 @@ This project is a fully responsive multi-page website featuring a modern editori
 
 ## Live Demo
 
-🔗 [avocado-bean.netlify.app](#) ← _update after deployment_
+🔗 [[avocado-bean.netlify.app](https://profound-fox-2687e4.netlify.app)](#) ← _update after deployment_
 
 ---
 

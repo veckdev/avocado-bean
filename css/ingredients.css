@@ -371,6 +371,16 @@
   padding: 14px 52px !important;
 }
 
+@media (max-width: 900px) {
+  .top-nav {
+    padding: 16px 24px !important;
+  }
+
+  .top-nav.is-scrolled {
+    padding: 16px 24px !important;
+  }
+}
+
 .top-nav ul {
   list-style: none;
   margin: 0;

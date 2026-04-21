@@ -465,6 +465,18 @@ button {
     border-bottom: none;
   }
 
+  .nav-menu-order-li a {
+    margin-top: 8px;
+    background: var(--green);
+    color: var(--white) !important;
+    text-align: center;
+    border-radius: 5px;
+    border-bottom: none !important;
+    padding: 13px 0 !important;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+  }
+
   .site-footer {
     flex-direction: column;
     gap: 24px;

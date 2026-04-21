@@ -42,6 +42,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const navMenu = document.querySelector('.nav-menu');
 
   if (hamburger && navMenu) {
+    /* Inject Order Now link into mobile menu if not already present */
+    const navCta = document.querySelector('.nav-cta-wrapper');
+    if (navCta && !navMenu.querySelector('.nav-menu-order-li')) {
+      const orderLi = document.createElement('li');
+      orderLi.className = 'nav-menu-order-li';
+      orderLi.innerHTML = `<a href="${navCta.getAttribute('href')}">Order Now</a>`;
+      navMenu.appendChild(orderLi);
+    }
+
     hamburger.addEventListener('click', () => {
       const isOpen = navMenu.classList.toggle('is-open');
       hamburger.classList.toggle('is-open');
@@ -922,6 +931,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function updateSidebarPosition() {
+      if (window.innerWidth < 768) {
+        sidebarCol.style.position = '';
+        sidebarCol.style.top = '';
+        sidebarCol.style.left = '';
+        sidebarCol.style.width = '';
+        return;
+      }
       const sectionRect = orderSectionEl.getBoundingClientRect();
       const sidebarHeight = sidebarCol.offsetHeight;
 
